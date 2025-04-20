@@ -1,1 +1,363 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANDYSHOES | Rock Band Official</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">DANDYSHOES</div>
+        <div class="nav-links">
+            <a href="#home">Accueil</a>
+            <a href="#music">Musique</a>
+            <a href="#about">À propos</a>
+            <a href="#tour">Tour</a>
+            <a href="#gallery">Galerie</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    
+    <header id="home">
+        <div class="lightning-bg"></div>
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="thunder-effect"></div>
+        
+        <div class="header-content">
+            <h1 class="logo">DANDYSHOES</h1>
+            <p class="tagline">L'électricité du rock, l'élégance du style</p>
+            <a href="#music" class="cta-button">Découvrir "Thunder"</a>
+        </div>
+    </header>
+    
+    <section id="music" class="section music-section">
+        <div class="container">
+            <h2 class="section-title">Notre Musique</h2>
+            
+            <div class="latest-release">
+                <div class="release-art animated-border hover-3d">
+                    <img src="img/thunder-cover.jpg" alt="Album Thunder par Dandyshoes">
+                </div>
+                
+                <div class="release-info">
+                    <p class="release-type">Nouveau Single</p>
+                    <h3 class="release-title neon-text">"THUNDER"</h3>
+                    
+                    <div class="audio-player neomorph">
+                        <div class="player-controls">
+                            <div class="control-btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 6h2v12H6zm10 0h2v12h-2z"/>
+                                </svg>
+                            </div>
+                            <div class="control-btn play-btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <div class="control-btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        
+                        <div class="time-display">
+                            <span>1:17</span>
+                            <span>3:45</span>
+                        </div>
+                    </div>
+                    
+                    <div class="streaming-links">
+                        <a href="https://open.spotify.com/album/66q035OaxY3ZEhEuaErIUU" target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zm3.024 6.228c0 1.668-1.356 3.024-3.024 3.024S8.976 13.668 8.976 12 10.332 8.976 12 8.976s3.024 1.356 3.024 3.024zm-1.284 0c0-.96-.78-1.74-1.74-1.74s-1.74.78-1.74 1.74.78 1.74 1.74 1.74 1.74-.78 1.74-1.74z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="discography">
+                <div class="section-title" style="font-size: 1.8rem;">Discographie</div>
+                <div class="gallery-grid">
+                    <div class="glass-card hover-3d">
+                        <div class="release-art" style="width: 100%; height: 200px; margin-bottom: 1rem;">
+                            <img src="img/album-electric-soul.jpg" alt="Album précédent de Dandyshoes">
+                        </div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Electric Soul</h4>
+                        <p style="opacity: 0.7; font-size: 0.9rem;">Album • 2024</p>
+                    </div>
+                    
+                    <div class="glass-card hover-3d">
+                        <div class="release-art" style="width: 100%; height: 200px; margin-bottom: 1rem;">
+                            <img src="img/ep-midnight-run.jpg" alt="EP de Dandyshoes">
+                        </div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Midnight Run</h4>
+                        <p style="opacity: 0.7; font-size: 0.9rem;">EP • 2023</p>
+                    </div>
+                    
+                    <div class="glass-card hover-3d">
+                        <div class="release-art" style="width: 100%; height: 200px; margin-bottom: 1rem;">
+                            <img src="img/single-first-light.jpg" alt="Premier single de Dandyshoes">
+                        </div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">First Light</h4>
+                        <p style="opacity: 0.7; font-size: 0.9rem;">Single • 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">À Propos</h2>
+            
+            <div class="about-content">
+                <div class="about-image neomorph">
+                    <img src="img/band-photo.jpg" alt="Dandyshoes groupe">
+                </div>
+                
+                <div class="about-text">
+                    <p>Né dans l'effervescence de la scène rock indépendante belge, <strong>DANDYSHOES</strong> réinvente le rock avec une touche d'élégance et d'électricité pure.</p>
+                    
+                    <p>Notre son unique fusionne les influences classiques du rock britannique avec des sonorités modernes et des mélodies accrocheuses qui restent en tête. Depuis notre formation en 2021, nous avons parcouru un chemin marqué par des concerts explosifs, des compositions authentiques et une connexion profonde avec notre public.</p>
+                    
+                    <p>Chaque morceau est une histoire, chaque concert une expérience. Notre dernier single "Thunder" capture l'essence de notre énergie et notre vision artistique : puissante, électrique et sans compromis.</p>
+                    
+                    <div class="glass-card" style="margin-top: 2rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Le Groupe</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--primary);">Alex</strong> - Voix, Guitare
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--primary);">Marie</strong> - Basse, Chœurs
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--primary);">Thomas</strong> - Batterie
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--primary);">Jules</strong> - Guitare, Synthés
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tour" class="section tour-section">
+        <div class="container">
+            <h2 class="section-title">Tour 2025</h2>
+            
+            <div class="tour-list">
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">5 Mai</div>
+                        <div>
+                            <div class="location">Bruxelles, Belgique</div>
+                            <div class="venue">Ancienne Belgique</div>
+                        </div>
+                    </div>
+                    <button class="tickets-btn">Billets</button>
+                </div>
+                
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">12 Mai</div>
+                        <div>
+                            <div class="location">Liège, Belgique</div>
+                            <div class="venue">Le Reflektor</div>
+                        </div>
+                    </div>
+                    <button class="tickets-btn">Billets</button>
+                </div>
+                
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">18 Mai</div>
+                        <div>
+                            <div class="location">Anvers, Belgique</div>
+                            <div class="venue">Trix</div>
+                        </div>
+                    </div>
+                    <button class="tickets-btn">Billets</button>
+                </div>
+                
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">25 Mai</div>
+                        <div>
+                            <div class="location">Paris, France</div>
+                            <div class="venue">L'Olympia</div>
+                        </div>
+                    </div>
+                    <button class="tickets-btn">Billets</button>
+                </div>
+                
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">2 Juin</div>
+                        <div>
+                            <div class="location">Amsterdam, Pays-Bas</div>
+                            <div class="venue">Paradiso</div>
+                        </div>
+                    </div>
+                    <button class="tickets-btn">Billets</button>
+                </div>
+                
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">10 Juin</div>
+                        <div>
+                            <div class="location">Londres, UK</div>
+                            <div class="venue">Electric Ballroom</div>
+                        </div>
+                    </div>
+                    <button class="tickets-btn">Complet</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">Galerie</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item animated-border">
+                    <img src="img/gallery-1.jpg" alt="Dandyshoes en concert">
+                </div>
+                <div class="gallery-item animated-border">
+                    <img src="img/gallery-2.jpg" alt="Dandyshoes backstage">
+                </div>
+                <div class="gallery-item animated-border">
+                    <img src="img/gallery-3.jpg" alt="Dandyshoes en studio">
+                </div>
+                <div class="gallery-item animated-border">
+                    <img src="img/gallery-4.jpg" alt="Dandyshoes avec des fans">
+                </div>
+                <div class="gallery-item animated-border">
+                    <img src="img/gallery-5.jpg" alt="Tournée Dandyshoes">
+                </div>
+                <div class="gallery-item animated-border">
+                    <img src="img/gallery-6.jpg" alt="Session acoustique Dandyshoes">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            
+            <div class="contact-form neomorph">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" placeholder="Votre nom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Votre email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" placeholder="Sujet de votre message">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Votre message"></textarea>
+                </div>
+                
+                <button class="submit-btn">Envoyer</button>
+            </div>
+            
+            <div style="margin-top: 4rem; text-align: center;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Booking & Presse</h3>
+                <p style="margin-bottom: 0.5rem;">Pour les demandes professionnelles :</p>
+                <p><strong>Email:</strong> booking@dandyshoes.com</p>
+                <p><strong>Téléphone:</strong> +32 478 12 34 56</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-logo">DANDYSHOES</div>
+            
+            <div class="social-links">
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"/>
+                    </svg>
+                </a>
+                <a href="https://open.spotify.com/album/66q035OaxY3ZEhEuaErIUU" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="footer-nav">
+                <a href="#home">Accueil</a>
+                <a href="#music">Musique</a>
+                <a href="#about">À propos</a>
+                <a href="#tour">Tour</a>
+                <a href="#gallery">Galerie</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2025 DANDYSHOES. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>
