@@ -18,20 +18,10 @@ body {
     overflow-x: hidden;
 }
 
-/* Font declarations - Update the font filenames to match your actual files */
+/* Font declarations */
 @font-face {
-    font-family: 'DandyTitle';
-    src: url('font/YourTitleFont.woff2') format('woff2'),
-         url('font/YourTitleFont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'DandyHeading';
-    src: url('font/YourHeadingFont.woff2') format('woff2'),
-         url('font/YourHeadingFont.woff') format('woff');
+    font-family: 'Microgramma-D-Extended-Bold';
+    src: url('font/Microgramma-D-Extended-Bold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
