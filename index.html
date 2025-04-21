@@ -7,11 +7,201 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Assurez-vous que le fichier Microgramma-D-Extended-Bold.otf est placé dans le dossier "font" -->
+    
+    <!-- Styles responsives -->
+    <style>
+        /* Styles de base pour le menu mobile */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            position: relative;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        /* Media queries pour différentes tailles d'écran */
+        @media screen and (max-width: 992px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .latest-release {
+                flex-direction: column;
+            }
+            
+            .release-art, .release-info {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-text {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            /* Navigation styles */
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.5s ease;
+                z-index: 999;
+                padding-top: 60px;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                margin: 15px 0;
+                font-size: 1.2rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            
+            .nav-links.active a {
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: 0.3s;
+            }
+            
+            .nav-links a:nth-child(2) { transition-delay: 0.35s; }
+            .nav-links a:nth-child(3) { transition-delay: 0.4s; }
+            .nav-links a:nth-child(4) { transition-delay: 0.45s; }
+            .nav-links a:nth-child(5) { transition-delay: 0.5s; }
+            .nav-links a:nth-child(6) { transition-delay: 0.55s; }
+            
+            /* Section styles */
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            /* Header content */
+            .header-content h1.logo {
+                font-size: 3rem;
+            }
+            
+            .header-content .tagline {
+                font-size: 1rem;
+            }
+            
+            /* Tour section */
+            .tour-date {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .tickets-btn {
+                margin-top: 15px;
+                align-self: flex-end;
+            }
+            
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            /* Footer */
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-nav a {
+                margin: 5px 10px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            /* Reduce sizes for small phones */
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .header-content h1.logo {
+                font-size: 2.5rem;
+            }
+            
+            .streaming-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .streaming-links a {
+                margin: 5px;
+            }
+            
+            .footer-logo {
+                font-size: 1.5rem;
+            }
+            
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+            
+            .date {
+                font-size: 1.1rem;
+            }
+            
+            /* Contact form */
+            .contact-form {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-logo">DANDYSHOES</div>
-        <div class="nav-links">
+        
+        <!-- Menu hamburger pour mobile -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
             <a href="#home">Accueil</a>
             <a href="#music">Musique</a>
             <a href="#about">À propos</a>
@@ -379,5 +569,36 @@
     </footer>
     
     <script src="main.js"></script>
+    
+    <!-- Script pour le menu mobile -->
+    <script>
+        // Menu mobile toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.getElementById('mobileMenuToggle').classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
