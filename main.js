@@ -47,6 +47,43 @@ playBtn.addEventListener('click', function() {
     }
 });
 
+// Logo mouse/touch follow effect
+const logo = document.querySelector('.logo');
+
+if (logo) {
+    // Set initial transform style to enable smooth transitions
+    logo.style.transition = 'transform 0.1s ease-out';
+    
+    // Mouse move effect (desktop)
+    document.addEventListener('mousemove', function(e) {
+        const x = e.clientX / window.innerWidth - 0.5;
+        const y = e.clientY / window.innerHeight - 0.5;
+        
+        // Apply transform based on mouse position
+        logo.style.transform = `perspective(1000px) rotateY(${x * 20}deg) rotateX(${y * -20}deg) translateZ(10px)`;
+    });
+    
+    // Touch move effect (mobile)
+    document.addEventListener('touchmove', function(e) {
+        if (e.touches.length > 0) {
+            const touch = e.touches[0];
+            const x = touch.clientX / window.innerWidth - 0.5;
+            const y = touch.clientY / window.innerHeight - 0.5;
+            
+            // Apply transform based on touch position
+            logo.style.transform = `perspective(1000px) rotateY(${x * 20}deg) rotateX(${y * -20}deg) translateZ(10px)`;
+        }
+    });
+    
+    // Reset position when not interacting
+    document.addEventListener('mouseleave', resetLogoPosition);
+    document.addEventListener('touchend', resetLogoPosition);
+    
+    function resetLogoPosition() {
+        logo.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+    }
+}
+
 // 3D tilt effect for cards
 const cards = document.querySelectorAll('.hover-3d');
 
