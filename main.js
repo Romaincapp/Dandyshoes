@@ -178,3 +178,28 @@ ticketButtons.forEach(button => {
         }
     });
 });
+
+// Read More / Read Less Functionality
+const readMoreBtn = document.getElementById('readMoreBtn');
+const hiddenContent = document.getElementById('hiddenContent');
+
+if(readMoreBtn && hiddenContent) {
+    readMoreBtn.addEventListener('click', function() {
+        hiddenContent.classList.toggle('visible');
+        
+        if (hiddenContent.classList.contains('visible')) {
+            readMoreBtn.textContent = 'Voir moins';
+        } else {
+            readMoreBtn.textContent = 'Voir plus';
+            
+            // Scroll back to the about section if needed
+            const aboutSection = document.getElementById('about');
+            if(aboutSection) {
+                window.scrollTo({
+                    top: aboutSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+}
