@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANDYSHOES | Rock Band Official</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -422,29 +422,29 @@
                         <p> Pure energy, frenzied game scenes, "dandystic" attitude... This is what to expect from DANDY SHOES !</p>
                     </div>
                     
-                    <div class="glass-card" style="margin-top: 2rem;">
+                    <div class="glass-card members-card" style="margin-top: 2rem;">
                         <h4 style="color: var(--primary); margin-bottom: 1rem;">Le Groupe</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 1.2rem; display: flex; align-items: center;">
-                                <img src="img/allan3.jpg" alt="Allan" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--primary);">
+                        <ul class="members-list">
+                            <li class="member-item">
+                                <img src="img/allan3.jpg" alt="Allan" class="member-img">
                                 <div>
                                     <strong style="color: var(--primary);">Allan</strong> - Voix, Guitare
                                 </div>
                             </li>
-                            <li style="margin-bottom: 1.2rem; display: flex; align-items: center;">
-                                <img src="img/antoine.jpg" alt="Antoine" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--primary);">
+                            <li class="member-item">
+                                <img src="img/antoine.jpg" alt="Antoine" class="member-img">
                                 <div>
                                     <strong style="color: var(--primary);">Antoine</strong> - Basse
                                 </div>
                             </li>
-                            <li style="margin-bottom: 1.2rem; display: flex; align-items: center;">
-                                <img src="img/romain2.jpg" alt="Romain" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--primary);">
+                            <li class="member-item">
+                                <img src="img/romain2.jpg" alt="Romain" class="member-img">
                                 <div>
                                     <strong style="color: var(--primary);">Romain</strong> - Batterie
                                 </div>
                             </li>
-                            <li style="margin-bottom: 1.2rem; display: flex; align-items: center;">
-                                <img src="img/arnaud.jpg" alt="Arnaud" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--primary);">
+                            <li class="member-item">
+                                <img src="img/arnaud.jpg" alt="Arnaud" class="member-img">
                                 <div>
                                     <strong style="color: var(--primary);">Arnaud</strong> - Guitare
                                 </div>
@@ -646,6 +646,18 @@
                 !mobileMenuToggle.contains(event.target)) {
                 navLinks.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
+            }
+        });
+        
+        // Read More functionality
+        document.getElementById('readMoreBtn').addEventListener('click', function() {
+            const hiddenContent = document.getElementById('hiddenContent');
+            hiddenContent.classList.toggle('visible');
+            
+            if (hiddenContent.classList.contains('visible')) {
+                this.textContent = 'Voir moins';
+            } else {
+                this.textContent = 'Voir plus';
             }
         });
     </script>

@@ -88,7 +88,7 @@ header {
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary);
+    color: var (--primary);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: 'Microgramma-D-Extended-Bold', sans-serif;
@@ -514,6 +514,16 @@ h1, h2, h3, h4 {
     .about-image {
         height: 400px;
     }
+    
+    .latest-release {
+        flex-direction: column;
+    }
+    
+    .release-art, .release-info {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -545,6 +555,32 @@ h1, h2, h3, h4 {
     .section {
         padding: 4rem 1.5rem;
     }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .release-title {
+        font-size: 2rem;
+    }
+    
+    /* Adjust member cards */
+    .members-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .member-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .member-img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -560,6 +596,57 @@ h1, h2, h3, h4 {
     
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Adjust member cards for mobile */
+    .members-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-content {
+        text-align: center;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .audio-player {
+        padding: 1rem;
+    }
+    
+    .streaming-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .platforms-scroll {
+        height: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .platform-logo {
+        padding: 0 10px;
+    }
+    
+    .platform-logo img {
+        max-width: 60px;
+    }
+    
+    .control-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .play-btn {
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -961,4 +1048,29 @@ h1, h2, h3, h4 {
     max-height: 1000px; /* Adjust this value based on your content */
     opacity: 1;
     transition: max-height 0.5s ease, opacity 0.5s 0.2s ease;
+}
+
+/* Membres du groupe - Styles responsifs */
+.members-card {
+    overflow: hidden;
+}
+
+.members-list {
+    list-style: none;
+    padding: 0;
+}
+
+.member-item {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.member-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--primary);
 }
