@@ -117,7 +117,10 @@
             
             /* Header content */
             .header-content h1.logo {
-                font-size: 3rem;
+                font-size: 2.8rem;
+                max-width: 100%;
+                text-align: center;
+                overflow-wrap: break-word;
             }
             
             .header-content .tagline {
@@ -159,7 +162,10 @@
             }
             
             .header-content h1.logo {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+                max-width: 100%;
+                padding: 0 10px;
             }
             
             .streaming-links {
@@ -176,7 +182,7 @@
             }
             
             .nav-logo {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .date {
@@ -186,6 +192,17 @@
             /* Contact form */
             .contact-form {
                 padding: 15px;
+            }
+        }
+        
+        /* Ajout d'une media query pour les très petits écrans */
+        @media screen and (max-width: 360px) {
+            .header-content h1.logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-logo {
+                font-size: 1rem;
             }
         }
     </style>
