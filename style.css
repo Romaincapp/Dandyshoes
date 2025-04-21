@@ -177,9 +177,12 @@ header {
     height: 300px;
     position: relative;
     margin-bottom: 1rem;
+    aspect-ratio: 1/1;
+    overflow: hidden;
 }
 
-.release-art img {
+.release-art img, 
+.release-art video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -257,6 +260,9 @@ header {
     height: 500px;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-image img {
@@ -356,6 +362,7 @@ header {
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    aspect-ratio: 1/1;
 }
 
 .gallery-item img {
@@ -978,6 +985,7 @@ h1, h2, h3, h4 {
 .platform-logo img {
     max-height: 30px;
     max-width: 80px;
+    object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1073,4 +1081,141 @@ h1, h2, h3, h4 {
     object-fit: cover;
     margin-right: 15px;
     border: 2px solid var(--primary);
+}
+
+/* Amélioration de l'affichage des images */
+img {
+    max-width: 100%;
+}
+
+/* Styles spécifiques pour différents types d'images */
+.img-contain {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.img-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.img-scale-down {
+    object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+}
+
+/* Images de la galerie - ratio cohérent */
+.gallery-item {
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1/1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Images des membres du groupe */
+.member-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--primary);
+}
+
+/* Optimisation pour les logos des plateformes */
+.platform-logo img {
+    max-height: 30px;
+    max-width: 80px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Pour les pochettes d'albums et releases */
+.release-art {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-bottom: 1rem;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.release-art img, 
+.release-art video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Pour la section A propos */
+.about-image {
+    position: relative;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Pour les vignettes de la discographie */
+.discography .release-art {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+/* Media queries pour ajuster les images sur les petits écrans */
+@media screen and (max-width: 768px) {
+    .gallery-item {
+        height: 250px;
+    }
+    
+    .about-image {
+        height: 350px;
+    }
+    
+    .release-art {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .member-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-item {
+        height: 200px;
+    }
+    
+    .release-art {
+        width: 200px;
+        height: 200px;
+    }
 }
