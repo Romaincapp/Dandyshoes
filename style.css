@@ -210,6 +210,23 @@ header {
     object-fit: cover; /* Préserve le ratio tout en remplissant le conteneur */
 }
 
+/* Assurer la cohérence sur desktop et toutes tailles d'écran */
+@media screen and (min-width: 993px) {
+    .release-art.video-container {
+        width: 500px;
+        height: 500px;
+        aspect-ratio: 1/1;
+    }
+}
+
+/* Ajuster les tailles pour tablettes */
+@media screen and (max-width: 992px) {
+    .release-art.video-container {
+        width: 450px;
+        height: 450px;
+    }
+}
+
 .release-info {
     text-align: center;
 }
@@ -384,6 +401,8 @@ header {
     overflow: hidden;
     position: relative;
     aspect-ratio: 1/1;
+    transition: all 0.3s ease;
+    z-index: 1;
 }
 
 .gallery-item img {
@@ -395,6 +414,122 @@ header {
 
 .gallery-item:hover img {
     transform: scale(1.05);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 222, 89, 0),
+        rgba(255, 222, 89, 0),
+        rgba(255, 222, 89, 0)
+    );
+    z-index: -1;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: opacity 0.2s ease;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    z-index: 2;
+    animation: lightning-glare 6s infinite;
+}
+
+.gallery-item:hover::before {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 222, 89, 0.4),
+        rgba(255, 222, 89, 0.1) 30%,
+        rgba(255, 222, 89, 0) 70%
+    );
+    animation: lightning-pulse 2s infinite;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+@keyframes lightning-pulse {
+    0% {
+        box-shadow: 0 0 5px 1px rgba(255, 222, 89, 0.3);
+    }
+    25% {
+        box-shadow: 0 0 15px 5px rgba(255, 222, 89, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 5px 1px rgba(255, 222, 89, 0.3);
+    }
+    75% {
+        box-shadow: 0 0 20px 7px rgba(255, 222, 89, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px 1px rgba(255, 222, 89, 0.3);
+    }
+}
+
+@keyframes lightning-glare {
+    0%, 100% {
+        opacity: 0;
+    }
+    3%, 6% {
+        opacity: 0.8;
+    }
+    4%, 5% {
+        opacity: 0;
+    }
+    50%, 55%, 65% {
+        opacity: 0;
+    }
+    52%, 62% {
+        opacity: 0.6;
+    }
+}
+
+/* Effet d'orage aléatoire sur chaque élément */
+.gallery-item:nth-child(1)::after {
+    animation-delay: 0s;
+}
+
+.gallery-item:nth-child(2)::after {
+    animation-delay: 1s;
+}
+
+.gallery-item:nth-child(3)::after {
+    animation-delay: 2s;
+}
+
+.gallery-item:nth-child(4)::after {
+    animation-delay: 3s;
+}
+
+.gallery-item:nth-child(5)::after {
+    animation-delay: 4s;
+}
+
+.gallery-item:nth-child(6)::after {
+    animation-delay: 5s;
+}
+
+/* Optimisation pour mobile */
+@media screen and (max-width: 768px) {
+    .gallery-item:hover::before {
+        animation: lightning-pulse 3s infinite;
+    }
 }
 
 .contact-section {
