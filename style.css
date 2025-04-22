@@ -1437,7 +1437,7 @@ img {
 
 /* Pour les vignettes de la discographie */
 .discography .release-art {
-    width: 100%;
+    width: 200px;
     height: 200px;
     margin-bottom: 1rem;
     position: relative;
