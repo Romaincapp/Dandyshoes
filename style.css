@@ -293,9 +293,10 @@ header {
     align-items: center;
 }
 
+/* Pour la section A propos */
 .about-image {
     position: relative;
-    height: 500px;
+    height: 400px; /* Reduced from 500px */
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -675,7 +676,8 @@ h1, h2, h3, h4 {
     }
     
     .about-image {
-        height: 400px;
+        height: 350px; /* Reduced from 400px */
+        order: -1; /* Image en premier sur tablettes */
     }
     
     .latest-release {
@@ -750,6 +752,16 @@ h1, h2, h3, h4 {
         aspect-ratio: 1/1;
         margin-bottom: 1.5rem;
     }
+
+    .about-image {
+        height: 300px; /* Reduced from 350px */
+        margin-bottom: 1.5rem;
+    }
+    
+    .member-img {
+        width: 55px; /* Reduced from 60px */
+        height: 55px; /* Reduced from 60px */
+    }
 }
 
 @media (max-width: 576px) {
@@ -802,6 +814,16 @@ h1, h2, h3, h4 {
         max-width: 85%;
         aspect-ratio: 1/1;
         border-radius: 8px;
+    }
+
+    .about-image {
+        height: 220px; /* Reduced from 280px */
+        border-radius: 8px;
+    }
+    
+    .member-img {
+        width: 50px; /* Add this size for mobile */
+        height: 50px;
     }
 }
 
@@ -1245,8 +1267,8 @@ h1, h2, h3, h4 {
 }
 .member-img {
 .member-img {px;
-    width: 80px;;
-    height: 80px;: 50%;
+    width: 65px; /* Reduced from 80px */
+    height: 65px; /* Reduced from 80px */
     border-radius: 50%;
     object-fit: cover;;
     margin-right: 15px;ar(--primary);
@@ -1261,7 +1283,7 @@ h1, h2, h3, h4 {
     }
     .about-image {
     .about-image {0px;
-        height: 400px;Image en premier sur tablettes */
+        height: 350px; /* Reduced from 400px */
         order: -1; /* Image en premier sur tablettes */
     }
     .about-text {
@@ -1272,13 +1294,13 @@ h1, h2, h3, h4 {
 @media screen and (max-width: 768px) {
 @media screen and (max-width: 768px) {
     .about-image {0px;
-        height: 350px; 1.5rem;
+        height: 300px; /* Reduced from 350px */
         margin-bottom: 1.5rem;
     }
     .member-img {
     .member-img {px;
-        width: 60px;;
-        height: 60px;
+        width: 55px; /* Reduced from 60px */
+        height: 55px; /* Reduced from 60px */
     }
     .about-text p {
     .about-text p { left;
@@ -1320,7 +1342,7 @@ h1, h2, h3, h4 {
     }
     .about-image {
     .about-image {0px;
-        height: 280px; 8px;
+        height: 220px; /* Reduced from 280px */
         border-radius: 8px;
     }
     .about-text p {
@@ -1337,6 +1359,10 @@ h1, h2, h3, h4 {
     .member-item {
     .member-item {tom: 1.2rem;
         margin-bottom: 1.2rem;
+    }
+    .member-img {
+        width: 50px; /* Add this size for mobile */
+        height: 50px;
     }
 }
 /* Amélioration de l'affichage des images */
@@ -1374,16 +1400,16 @@ img {ax-width: 100%;
 }
 .gallery-item img {
 .gallery-item img {
-    width: 100%;;
-    height: 100%;over;
-    object-fit: cover;orm 0.5s ease;
-    transition: transform 0.5s ease;
+    width: 100%;cover;
+    height: 100%; 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 /* Images des membres du groupe */
 /* Images des membres du groupe */
 .member-img {px;
-    width: 80px;;
-    height: 80px;: 50%;
+    width: 65px; /* Reduced from 80px */
+    height: 65px; /* Reduced from 80px */
     border-radius: 50%;
     object-fit: cover;;
     margin-right: 15px;ar(--primary);
@@ -1421,7 +1447,7 @@ img {ax-width: 100%;
 /* Pour la section A propos */
 .about-image {0px;
     position: relative;;
-    height: 500px;en;
+    height: 400px; /* Reduced from 500px */
     border-radius: 10px;
     overflow: hidden;er;
     display: flex;t: center;
