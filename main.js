@@ -173,7 +173,7 @@ ticketButtons.forEach(button => {
         if (this.textContent === 'Complet') {
             alert('Désolé, ce concert est complet !');
         } else {
-            alert('Vous allez être redirigé vers notre billetterie.');
+            alert('Vous allez être redirigé vers maps.');
             // Here you would redirect to a ticketing system
         }
     });
