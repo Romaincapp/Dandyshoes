@@ -168,13 +168,23 @@
                 padding: 0 10px;
             }
             
+            /* Gallery - Further optimized for very small screens */
+            .gallery-grid {
+                gap: 8px;
+                padding: 0 5px;
+            }
+            
+            .gallery-item img {
+                height: 200px;
+            }
+            
+            .gallery-section .section-title {
+                margin-bottom: 15px;
+            }
+            
             .streaming-links {
                 flex-wrap: wrap;
                 justify-content: center;
-            }
-            
-            .streaming-links a {
-                margin: 5px;
             }
             
             .footer-logo {
@@ -275,8 +285,8 @@
             <h2 class="section-title">Notre Musique</h2>
             
             <div class="latest-release">
-                <div class="release-art animated-border hover-3d">
-                    <video width="100%" controls autoplay muted loop>
+                <div class="release-art video-container animated-border hover-3d">
+                    <video controls autoplay muted loop playsinline>
                         <source src="videos/thunder.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la lecture de vidéos HTML5.
                     </video>

@@ -189,6 +189,27 @@ header {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Conteneur spécifique pour la vidéo carrée Instagram */
+.release-art.video-container {
+    width: 100%;
+    max-width: 500px; /* Limitez la largeur max sur grands écrans */
+    position: relative;
+    margin: 0 auto 2rem;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1/1; /* Format carré pour vidéo Instagram */
+}
+
+.release-art.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Préserve le ratio tout en remplissant le conteneur */
+}
+
 .release-info {
     text-align: center;
 }
@@ -588,6 +609,12 @@ h1, h2, h3, h4 {
         margin-right: 0;
         margin-bottom: 10px;
     }
+
+    .release-art.video-container {
+        max-width: 90%;
+        aspect-ratio: 1/1;
+        margin-bottom: 1.5rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -634,6 +661,12 @@ h1, h2, h3, h4 {
     
     .platforms-scroll {
         height: 30px;
+    }
+
+    .release-art.video-container {
+        max-width: 85%;
+        aspect-ratio: 1/1;
+        border-radius: 8px;
     }
 }
 
