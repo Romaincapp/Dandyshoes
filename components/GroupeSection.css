@@ -1,0 +1,32 @@
+.groupe-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.groupe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.groupe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+}
+
+.groupe-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.groupe-nom {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
