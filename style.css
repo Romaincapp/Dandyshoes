@@ -1081,14 +1081,16 @@ h1, h2, h3, h4 {
 .hidden-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
     opacity: 0;
+    margin-top: 0;
 }
 
 .hidden-content.visible {
-    max-height: 1000px; /* Adjust this value based on your content */
+    max-height: 2000px; /* Valeur augmentée pour permettre tout le contenu */
     opacity: 1;
-    transition: max-height 0.5s ease, opacity 0.5s 0.2s ease;
+    margin-top: 1rem;
+    transition: max-height 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
 }
 
 /* Membres du groupe - Styles responsifs */
@@ -1114,6 +1116,93 @@ h1, h2, h3, h4 {
     object-fit: cover;
     margin-right: 15px;
     border: 2px solid var(--primary);
+}
+
+/* Amélioration de la mise en page responsive pour À Propos */
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        height: 400px;
+        order: -1; /* Image en premier sur tablettes */
+    }
+    
+    .about-text {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-image {
+        height: 350px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .member-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .about-text p {
+        text-align: left;
+        font-size: 1rem;
+    }
+    
+    .glass-card.members-card {
+        padding: 1rem;
+    }
+    
+    /* Amélioration pour les membres du groupe sur tablette */
+    .members-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .member-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .member-img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .read-more-btn {
+        margin: 1rem auto;
+        display: block;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-section {
+        padding: 3rem 1rem;
+    }
+    
+    .about-image {
+        height: 280px;
+        border-radius: 8px;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+    
+    /* Style pour petits écrans - membres du groupe en une colonne */
+    .members-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-item {
+        margin-bottom: 1.2rem;
+    }
 }
 
 /* Amélioration de l'affichage des images */

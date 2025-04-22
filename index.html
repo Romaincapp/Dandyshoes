@@ -671,5 +671,26 @@
             }
         });
     </script>
+    
+    <!-- Ajouter ce script juste avant la fermeture de la balise </body> -->
+    <script>
+        // Script immédiat pour le bouton "Voir plus"
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const hiddenContent = document.getElementById('hiddenContent');
+            
+            if (readMoreBtn && hiddenContent) {
+                readMoreBtn.addEventListener('click', function() {
+                    hiddenContent.classList.toggle('visible');
+                    
+                    if (hiddenContent.classList.contains('visible')) {
+                        readMoreBtn.textContent = 'Voir moins';
+                    } else {
+                        readMoreBtn.textContent = 'Voir plus';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
