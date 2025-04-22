@@ -1155,324 +1155,354 @@ h1, h2, h3, h4 {
     max-width: 80px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    opacity: 0.8;
+    opacity: 0.8;pacity 0.3s ease, transform 0.3s ease;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
+.platforms-scroll:hover .platforms-track {
 .platforms-scroll:hover .platforms-track {
     animation-play-state: paused;
 }
-
 .platform-logo:hover img {
-    opacity: 1;
+.platform-logo:hover img {
+    opacity: 1;scale(1.1);
     transform: scale(1.1);
 }
-
+/* Media queries for responsive design */
 /* Media queries for responsive design */
 @media screen and (max-width: 768px) {
     .platforms-container {
         max-width: 100%;
     }
-    
+    .platforms-scroll {
     .platforms-scroll {
         height: 40px;
     }
-    
     .platform-logo {
-        height: 30px;
+    .platform-logo {;
+        height: 30px;px;
         padding: 0 15px;
     }
-    
     .platform-logo img {
+    .platform-logo img {;
         max-height: 20px;
     }
-    
     .as-seen-on {
+    .as-seen-on {: 0.8rem;
         font-size: 0.8rem;
     }
 }
-
 /* Read More Button */
-.read-more-btn {
-    background-color: transparent;
+/* Read More Button */
+.read-more-btn {olor: transparent;
+    background-color: transparent;y);
     border: 2px solid var(--primary);
     color: var(--primary);
-    padding: 8px 20px;
+    padding: 8px 20px;x;
     border-radius: 30px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 600;ppercase;
     text-transform: uppercase;
     cursor: pointer;
-    margin: 15px 0;
+    margin: 15px 0;kground-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
-
 .read-more-btn:hover {
+.read-more-btn:hover {var(--primary);
     background-color: var(--primary);
-    color: var(--dark);
+    color: var(--dark);eY(-3px);
     transform: translateY(-3px);
 }
-
 .hidden-content {
-    max-height: 0;
-    overflow: hidden;
+.hidden-content {;
+    max-height: 0;en;
+    overflow: hidden;eight 0.8s ease-in-out, opacity 0.5s ease;
     transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
-    opacity: 0;
+    opacity: 0; 0;
     margin-top: 0;
 }
-
 .hidden-content.visible {
+.hidden-content.visible {* Valeur augmentée pour permettre tout le contenu */
     max-height: 2000px; /* Valeur augmentée pour permettre tout le contenu */
-    opacity: 1;
-    margin-top: 1rem;
+    opacity: 1; 1rem;
+    margin-top: 1rem;eight 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
     transition: max-height 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
 }
-
 /* Membres du groupe - Styles responsifs */
-.members-card {
+/* Membres du groupe - Styles responsifs */
+.members-card {idden;
     overflow: hidden;
 }
-
 .members-list {
+.members-list { none;
     list-style: none;
     padding: 0;
 }
-
 .member-item {
+.member-item {tom: 1.2rem;
     margin-bottom: 1.2rem;
-    display: flex;
+    display: flex;enter;
     align-items: center;
 }
-
 .member-img {
-    width: 80px;
-    height: 80px;
+.member-img {px;
+    width: 80px;;
+    height: 80px;: 50%;
     border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
+    object-fit: cover;;
+    margin-right: 15px;ar(--primary);
     border: 2px solid var(--primary);
 }
-
+/* Amélioration de la mise en page responsive pour À Propos */
 /* Amélioration de la mise en page responsive pour À Propos */
 @media (max-width: 992px) {
-    .about-content {
+    .about-content {e-columns: 1fr;
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
     .about-image {
-        height: 400px;
+    .about-image {0px;
+        height: 400px;Image en premier sur tablettes */
         order: -1; /* Image en premier sur tablettes */
     }
-    
     .about-text {
+    .about-text {0 1rem;
         padding: 0 1rem;
     }
 }
-
 @media screen and (max-width: 768px) {
-    .about-image {
-        height: 350px;
+@media screen and (max-width: 768px) {
+    .about-image {0px;
+        height: 350px; 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
     .member-img {
-        width: 60px;
+    .member-img {px;
+        width: 60px;;
         height: 60px;
     }
-    
     .about-text p {
+    .about-text p { left;
         text-align: left;
         font-size: 1rem;
     }
-    
+    .glass-card.members-card {
     .glass-card.members-card {
         padding: 1rem;
     }
-    
     /* Amélioration pour les membres du groupe sur tablette */
-    .members-list {
-        display: grid;
+    /* Amélioration pour les membres du groupe sur tablette */
+    .members-list {id;
+        display: grid;columns: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-    
     .member-item {
+    .member-item {tion: column;
         flex-direction: column;
         text-align: center;
     }
-    
     .member-img {
-        margin-right: 0;
+    .member-img {ght: 0;
+        margin-right: 0;0px;
         margin-bottom: 10px;
     }
-    
     .read-more-btn {
+    .read-more-btn { auto;
         margin: 1rem auto;
-        display: block;
+        display: block;ent;
         width: fit-content;
     }
 }
-
 @media (max-width: 576px) {
-    .about-section {
+@media (max-width: 576px) {
+    .about-section {m 1rem;
         padding: 3rem 1rem;
     }
-    
     .about-image {
-        height: 280px;
+    .about-image {0px;
+        height: 280px; 8px;
         border-radius: 8px;
     }
-    
     .about-text p {
+    .about-text p {0.95rem;
         font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.6;r;
         text-align: center;
     }
-    
     /* Style pour petits écrans - membres du groupe en une colonne */
-    .members-list {
+    /* Style pour petits écrans - membres du groupe en une colonne */
+    .members-list {te-columns: 1fr;
         grid-template-columns: 1fr;
     }
-    
     .member-item {
+    .member-item {tom: 1.2rem;
         margin-bottom: 1.2rem;
     }
 }
-
 /* Amélioration de l'affichage des images */
-img {
+/* Amélioration de l'affichage des images */
+img {ax-width: 100%;
     max-width: 100%;
 }
-
 /* Styles spécifiques pour différents types d'images */
-.img-contain {
+/* Styles spécifiques pour différents types d'images */
+.img-contain {: contain;
     object-fit: contain;
-    width: 100%;
+    width: 100%;;
     height: 100%;
 }
-
 .img-cover {
+.img-cover {it: cover;
     object-fit: cover;
-    width: 100%;
+    width: 100%;;
     height: 100%;
 }
-
 .img-scale-down {
+.img-scale-down {cale-down;
     object-fit: scale-down;
-    width: 100%;
+    width: 100%;;
     height: 100%;
 }
-
 /* Images de la galerie - ratio cohérent */
-.gallery-item {
-    height: 300px;
+/* Images de la galerie - ratio cohérent */
+.gallery-item {px;
+    height: 300px; 8px;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden;e;
     position: relative;
     aspect-ratio: 1/1;
 }
-
 .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.gallery-item img {
+    width: 100%;;
+    height: 100%;over;
+    object-fit: cover;orm 0.5s ease;
     transition: transform 0.5s ease;
 }
-
 /* Images des membres du groupe */
-.member-img {
-    width: 80px;
-    height: 80px;
+/* Images des membres du groupe */
+.member-img {px;
+    width: 80px;;
+    height: 80px;: 50%;
     border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
+    object-fit: cover;;
+    margin-right: 15px;ar(--primary);
     border: 2px solid var(--primary);
 }
-
 /* Optimisation pour les logos des plateformes */
-.platform-logo img {
+/* Optimisation pour les logos des plateformes */
+.platform-logo img {;
     max-height: 30px;
-    max-width: 80px;
+    max-width: 80px;ain;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);ransform 0.3s ease;
     opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Pour les pochettes d'albums et releases */
+}* Pour les pochettes d'albums et releases */
 .release-art {
-    width: 300px;
-    height: 300px;
+/* Pour les pochettes d'albums et releases */
+.release-art {0px;
+    width: 300px;ative;
+    height: 300px; 1rem;
     position: relative;
     margin-bottom: 1rem;
     aspect-ratio: 1/1;
     overflow: hidden;
-}
-
+}release-art img, 
+.release-art video {
 .release-art img, 
 .release-art video {
-    width: 100%;
-    height: 100%;
+    width: 100%;cover;
+    height: 100%; 10px 30px rgba(0, 0, 0, 0.5);
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Pour la section A propos */
+}* Pour la section A propos */
 .about-image {
-    position: relative;
-    height: 500px;
+/* Pour la section A propos */
+.about-image {0px;
+    position: relative;;
+    height: 500px;en;
     border-radius: 10px;
-    overflow: hidden;
-    display: flex;
+    overflow: hidden;er;
+    display: flex;t: center;
     align-items: center;
     justify-content: center;
-}
-
-.about-image img {
+}about-image img {
     width: 100%;
+.about-image img {
+    width: 100%;cover;
     height: 100%;
     object-fit: cover;
-}
-
+}* Pour les vignettes de la discographie */
+.discography .release-art {
 /* Pour les vignettes de la discographie */
 .discography .release-art {
-    width: 200px;
-    height: 200px;
+    width: 200px;: 1rem;
+    height: 200px;tive;
     margin-bottom: 1rem;
     position: relative;
     aspect-ratio: 1/1;
     overflow: hidden;
-}
-
+}* Media queries pour ajuster les images sur les petits écrans */
+@media screen and (max-width: 768px) {
 /* Media queries pour ajuster les images sur les petits écrans */
 @media screen and (max-width: 768px) {
     .gallery-item {
         height: 250px;
-    }
-    
+    }about-image {
+        height: 350px;
     .about-image {
         height: 350px;
-    }
-    
-    .release-art {
+    }release-art {
+        width: 250px;
+    .release-art {0px;
         width: 250px;
         height: 250px;
-    }
-    
-    .member-img {
+    }member-img {
+        width: 60px;
+    .member-img {0px;
         width: 60px;
         height: 60px;
     }
-}
-
+}media screen and (max-width: 480px) {
+    .gallery-item {
 @media screen and (max-width: 480px) {
     .gallery-item {
         height: 200px;
-    }
-    
-    .release-art {
+    }release-art {
+        width: 200px;
+    .release-art {0px;
         width: 200px;
         height: 200px;
-    }
+    }}
+/* Amélioration de la visibilité des logos de plateformes */
+.platforms-scroll {
+    background: rgba(255, 255, 255, 0.1);  /* Fond légèrement plus clair pour améliorer le contraste */
+}
+
+.platform-logo {
+    padding: 0 15px;  /* Espacement légèrement réduit pour éviter la compression */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+.platform-logo img {
+    max-height: 30px;
+    max-width: 80px;
+    object-fit: contain;
+    opacity: 1;  /* Augmentation de l'opacité pour plus de visibilité */
+    transition: transform 0.3s ease;
+    background: transparent;  /* Assure que le fond de l'image est transparent */
+}
+
+.platform-logo:hover img {
+    transform: scale(1.2);  /* Effet d'agrandissement au survol légèrement plus important */
+}
+
+/* Ajout d'un effet de lueur subtile au survol pour une meilleure interaction */
+.platform-logo:hover {
+    box-shadow: 0 0 8px rgba(255, 222, 89, 0.5);
+    border-radius: 5px;
 }
