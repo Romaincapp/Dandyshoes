@@ -215,6 +215,102 @@
                 font-size: 1rem;
             }
         }
+        
+        /* Styles pour les logos des plateformes */
+        .platforms-container {
+            margin-top: 30px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .as-seen-on {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .platforms-scroll {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .platforms-scroll:before, .platforms-scroll:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .platforms-scroll:before {
+            left: 0;
+            background: linear-gradient(to right, rgba(15, 15, 15, 1), rgba(15, 15, 15, 0));
+        }
+        
+        .platforms-scroll:after {
+            right: 0;
+            background: linear-gradient(to left, rgba(15, 15, 15, 1), rgba(15, 15, 15, 0));
+        }
+        
+        .platforms-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+        
+        .platform-logo {
+            margin: 0 15px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .platform-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .platform-logo img {
+            height: 100%;
+            width: auto;
+            max-height: 30px;
+            filter: brightness(0) invert(1) opacity(0.7);
+            transition: filter 0.3s ease;
+        }
+        
+        .platform-logo:hover img {
+            filter: brightness(0) invert(1) opacity(1);
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Media query adjustments for platforms */
+        @media screen and (max-width: 768px) {
+            .platform-logo {
+                margin: 0 10px;
+                height: 30px;
+            }
+            
+            .platform-logo img {
+                max-height: 25px;
+            }
+            
+            .platforms-track {
+                animation: scroll 20s linear infinite;
+            }
+        }
     </style>
 </head>
 <body>
@@ -251,7 +347,7 @@
             
             <!-- Ajout de la section des plateformes -->
             <div class="platforms-container">
-                <p class="as-seen-on">Retrouvez-nous sur</p>
+                <p class="as-seen-on">already seen on</p>
                 <div class="platforms-scroll">
                     <div class="platforms-track">
                         <!-- Logos des radios et plateformes -->
@@ -657,39 +753,7 @@
                 mobileMenuToggle.classList.remove('active');
             }
         });
-        
-        // Read More functionality
-        document.getElementById('readMoreBtn').addEventListener('click', function() {
-            const hiddenContent = document.getElementById('hiddenContent');
-            hiddenContent.classList.toggle('visible');
-            
-            if (hiddenContent.classList.contains('visible')) {
-                this.textContent = 'Voir moins';
-            } else {
-                this.textContent = 'Voir plus';
-            }
-        });
     </script>
     
-    <!-- Ajouter ce script juste avant la fermeture de la balise </body> -->
-    <script>
-        // Script immédiat pour le bouton "Voir plus"
-        document.addEventListener('DOMContentLoaded', function() {
-            const readMoreBtn = document.getElementById('readMoreBtn');
-            const hiddenContent = document.getElementById('hiddenContent');
-            
-            if (readMoreBtn && hiddenContent) {
-                readMoreBtn.addEventListener('click', function() {
-                    hiddenContent.classList.toggle('visible');
-                    
-                    if (hiddenContent.classList.contains('visible')) {
-                        readMoreBtn.textContent = 'Voir moins';
-                    } else {
-                        readMoreBtn.textContent = 'Voir plus';
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>

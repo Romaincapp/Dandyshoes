@@ -397,19 +397,24 @@ header {
 }
 
 .gallery-item {
-    height: 300px;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/1; /* Force le ratio carré */
     transition: all 0.3s ease;
     z-index: 1;
+    width: 100%; /* S'assure que l'élément prend toute la largeur */
+    height: 0; /* La hauteur sera définie par l'aspect-ratio */
+    padding-bottom: 100%; /* Alternative à aspect-ratio pour une meilleure compatibilité */
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
     transition: transform 0.5s ease;
 }
 
@@ -1176,188 +1181,170 @@ h1, h2, h3, h4 {
     max-height: 30px;
     max-width: 80px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.8;pacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.9;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.platforms-scroll:hover .platforms-track {
+
 .platforms-scroll:hover .platforms-track {
     animation-play-state: paused;
 }
+
 .platform-logo:hover img {
-.platform-logo:hover img {
-    opacity: 1;scale(1.1);
+    opacity: 1;
     transform: scale(1.1);
 }
-/* Media queries for responsive design */
+
 /* Media queries for responsive design */
 @media screen and (max-width: 768px) {
     .platforms-container {
         max-width: 100%;
     }
     .platforms-scroll {
-    .platforms-scroll {
         height: 40px;
     }
     .platform-logo {
-    .platform-logo {;
-        height: 30px;px;
+        height: 30px;
         padding: 0 15px;
     }
     .platform-logo img {
-    .platform-logo img {;
         max-height: 20px;
     }
     .as-seen-on {
-    .as-seen-on {: 0.8rem;
         font-size: 0.8rem;
     }
 }
+
 /* Read More Button */
-/* Read More Button */
-.read-more-btn {olor: transparent;
-    background-color: transparent;y);
+.read-more-btn {
+    background-color: transparent;
     border: 2px solid var(--primary);
     color: var(--primary);
-    padding: 8px 20px;x;
+    padding: 8px 20px;
     border-radius: 30px;
     font-size: 0.9rem;
-    font-weight: 600;ppercase;
+    font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-    margin: 15px 0;kground-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    margin: 15px 0;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
+
 .read-more-btn:hover {
-.read-more-btn:hover {var(--primary);
     background-color: var(--primary);
-    color: var(--dark);eY(-3px);
+    color: var(--dark);
     transform: translateY(-3px);
 }
+
 .hidden-content {
-.hidden-content {;
-    max-height: 0;en;
-    overflow: hidden;eight 0.8s ease-in-out, opacity 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
     transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
-    opacity: 0; 0;
+    opacity: 0;
     margin-top: 0;
 }
+
 .hidden-content.visible {
-.hidden-content.visible {* Valeur augmentée pour permettre tout le contenu */
     max-height: 2000px; /* Valeur augmentée pour permettre tout le contenu */
-    opacity: 1; 1rem;
-    margin-top: 1rem;eight 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
+    opacity: 1;
+    margin-top: 1rem;
     transition: max-height 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
 }
+
 /* Membres du groupe - Styles responsifs */
-/* Membres du groupe - Styles responsifs */
-.members-card {idden;
+.members-card {
     overflow: hidden;
 }
+
 .members-list {
-.members-list { none;
     list-style: none;
     padding: 0;
 }
+
 .member-item {
-.member-item {tom: 1.2rem;
     margin-bottom: 1.2rem;
-    display: flex;enter;
+    display: flex;
     align-items: center;
 }
+
 .member-img {
-.member-img {px;
     width: 65px; /* Reduced from 80px */
     height: 65px; /* Reduced from 80px */
     border-radius: 50%;
-    object-fit: cover;;
-    margin-right: 15px;ar(--primary);
+    object-fit: cover;
+    margin-right: 15px;
     border: 2px solid var(--primary);
 }
-/* Amélioration de la mise en page responsive pour À Propos */
+
 /* Amélioration de la mise en page responsive pour À Propos */
 @media (max-width: 992px) {
-    .about-content {e-columns: 1fr;
+    .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     .about-image {
-    .about-image {0px;
         height: 350px; /* Reduced from 400px */
         order: -1; /* Image en premier sur tablettes */
     }
     .about-text {
-    .about-text {0 1rem;
         padding: 0 1rem;
     }
 }
+
 @media screen and (max-width: 768px) {
-@media screen and (max-width: 768px) {
-    .about-image {0px;
+    .about-image {
         height: 300px; /* Reduced from 350px */
         margin-bottom: 1.5rem;
     }
     .member-img {
-    .member-img {px;
         width: 55px; /* Reduced from 60px */
         height: 55px; /* Reduced from 60px */
     }
     .about-text p {
-    .about-text p { left;
         text-align: left;
         font-size: 1rem;
     }
     .glass-card.members-card {
-    .glass-card.members-card {
         padding: 1rem;
     }
     /* Amélioration pour les membres du groupe sur tablette */
-    /* Amélioration pour les membres du groupe sur tablette */
-    .members-list {id;
-        display: grid;columns: repeat(2, 1fr);
+    .members-list {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
     .member-item {
-    .member-item {tion: column;
         flex-direction: column;
         text-align: center;
     }
     .member-img {
-    .member-img {ght: 0;
-        margin-right: 0;0px;
+        margin-right: 0;
         margin-bottom: 10px;
     }
     .read-more-btn {
-    .read-more-btn { auto;
         margin: 1rem auto;
-        display: block;ent;
+        display: block;
         width: fit-content;
     }
 }
+
 @media (max-width: 576px) {
-@media (max-width: 576px) {
-    .about-section {m 1rem;
+    .about-section {
         padding: 3rem 1rem;
     }
     .about-image {
-    .about-image {0px;
         height: 220px; /* Reduced from 280px */
         border-radius: 8px;
     }
     .about-text p {
-    .about-text p {0.95rem;
         font-size: 0.95rem;
-        line-height: 1.6;r;
+        line-height: 1.6;
         text-align: center;
     }
     /* Style pour petits écrans - membres du groupe en une colonne */
-    /* Style pour petits écrans - membres du groupe en une colonne */
-    .members-list {te-columns: 1fr;
+    .members-list {
         grid-template-columns: 1fr;
     }
     .member-item {
-    .member-item {tom: 1.2rem;
         margin-bottom: 1.2rem;
     }
     .member-img {
@@ -1365,142 +1352,149 @@ h1, h2, h3, h4 {
         height: 50px;
     }
 }
+
 /* Amélioration de l'affichage des images */
-/* Amélioration de l'affichage des images */
-img {ax-width: 100%;
+img {
     max-width: 100%;
 }
+
 /* Styles spécifiques pour différents types d'images */
-/* Styles spécifiques pour différents types d'images */
-.img-contain {: contain;
+.img-contain {
     object-fit: contain;
-    width: 100%;;
+    width: 100%;
     height: 100%;
 }
+
 .img-cover {
-.img-cover {it: cover;
     object-fit: cover;
-    width: 100%;;
+    width: 100%;
     height: 100%;
 }
+
 .img-scale-down {
-.img-scale-down {cale-down;
     object-fit: scale-down;
-    width: 100%;;
+    width: 100%;
     height: 100%;
 }
+
 /* Images de la galerie - ratio cohérent */
-/* Images de la galerie - ratio cohérent */
-.gallery-item {px;
-    height: 300px; 8px;
+.gallery-item {
+    height: 300px;
     border-radius: 8px;
-    overflow: hidden;e;
+    overflow: hidden;
     position: relative;
     aspect-ratio: 1/1;
 }
+
 .gallery-item img {
-.gallery-item img {
-    width: 100%;cover;
-    height: 100%; 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
 /* Images des membres du groupe */
-/* Images des membres du groupe */
-.member-img {px;
+.member-img {
     width: 65px; /* Reduced from 80px */
     height: 65px; /* Reduced from 80px */
     border-radius: 50%;
-    object-fit: cover;;
-    margin-right: 15px;ar(--primary);
+    object-fit: cover;
+    margin-right: 15px;
     border: 2px solid var(--primary);
 }
+
 /* Optimisation pour les logos des plateformes */
-/* Optimisation pour les logos des plateformes */
-.platform-logo img {;
+.platform-logo img {
     max-height: 30px;
-    max-width: 80px;ain;
-    object-fit: contain;
-    filter: brightness(0) invert(1);ransform 0.3s ease;
-    opacity: 0.8;
+    max-width: 80px;
+    object-fit: contain; 
+    opacity: 1; /* Augmentation de l'opacité pour plus de visibilité */ 
     transition: opacity 0.3s ease, transform 0.3s ease;
-}* Pour les pochettes d'albums et releases */
-.release-art {
+}
+
 /* Pour les pochettes d'albums et releases */
-.release-art {0px;
-    width: 300px;ative;
-    height: 300px; 1rem;
+.release-art {
+    width: 300px;
+    height: 300px;
     position: relative;
     margin-bottom: 1rem;
     aspect-ratio: 1/1;
     overflow: hidden;
-}release-art img, 
-.release-art video {
-.release-art img, 
-.release-art video {
-    width: 100%;cover;
-    height: 100%; 10px 30px rgba(0, 0, 0, 0.5);
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}* Pour la section A propos */
-.about-image {
+}
+
 /* Pour la section A propos */
-.about-image {0px;
-    position: relative;;
+.about-image {
+    position: relative;
     height: 400px; /* Reduced from 500px */
     border-radius: 10px;
-    overflow: hidden;er;
-    display: flex;t: center;
+    overflow: hidden;
+    display: flex;
     align-items: center;
     justify-content: center;
-}about-image img {
-    width: 100%;
+}
+
 .about-image img {
-    width: 100%;cover;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-}* Pour les vignettes de la discographie */
-.discography .release-art {
+}
+
 /* Pour les vignettes de la discographie */
 .discography .release-art {
-    width: 200px;: 1rem;
-    height: 200px;tive;
+    width: 200px;
+    height: 200px;
     margin-bottom: 1rem;
     position: relative;
     aspect-ratio: 1/1;
     overflow: hidden;
-}* Media queries pour ajuster les images sur les petits écrans */
-@media screen and (max-width: 768px) {
+}
+
+/* Garantir que les images de la discographie sont carrées */
+.discography .release-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+/* Pour les vignettes de la discographie */
+.discography .release-art {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
 /* Media queries pour ajuster les images sur les petits écrans */
 @media screen and (max-width: 768px) {
     .gallery-item {
         height: 250px;
-    }about-image {
-        height: 350px;
+    }
     .about-image {
         height: 350px;
-    }release-art {
-        width: 250px;
-    .release-art {0px;
+    }
+    .release-art {
         width: 250px;
         height: 250px;
-    }member-img {
-        width: 60px;
-    .member-img {0px;
+    }
+    .member-img {
         width: 60px;
         height: 60px;
     }
-}media screen and (max-width: 480px) {
-    .gallery-item {
+}
+
 @media screen and (max-width: 480px) {
     .gallery-item {
         height: 200px;
-    }release-art {
-        width: 200px;
-    .release-art {0px;
+    }
+    .release-art {
         width: 200px;
         height: 200px;
-    }}
+    }
+}
+
 /* Amélioration de la visibilité des logos de plateformes */
 .platforms-scroll {
     background: rgba(255, 255, 255, 0.1);  /* Fond légèrement plus clair pour améliorer le contraste */
@@ -1531,4 +1525,25 @@ img {ax-width: 100%;
 .platform-logo:hover {
     box-shadow: 0 0 8px rgba(255, 222, 89, 0.5);
     border-radius: 5px;
+}
+
+/* Media queries pour la galerie responsive */
+@media screen and (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
 }

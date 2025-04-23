@@ -25,27 +25,64 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Audio player simulation
+// Audio player simulation - optimized
 const playBtn = document.querySelector('.play-btn');
 let isPlaying = false;
+let animationFrame;
 
-playBtn.addEventListener('click', function() {
-    isPlaying = !isPlaying;
+if (playBtn) {
+    playBtn.addEventListener('click', function() {
+        isPlaying = !isPlaying;
+        
+        if (isPlaying) {
+            playBtn.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6h2v12H6zm10 0h2v12h-2z"/>
+                </svg>
+            `;
+            animateProgressBar();
+        } else {
+            playBtn.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            `;
+            // Cancel animation when paused
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
+        }
+    });
+}
+
+// Optimized progress bar animation using requestAnimationFrame
+const progressBar = document.querySelector('.progress-bar');
+let width = 30;
+
+function animateProgressBar() {
+    if (!isPlaying) return;
     
-    if (isPlaying) {
-        playBtn.innerHTML = `
-            <svg viewBox="0 0 24 24">
-                <path d="M6 6h2v12H6zm10 0h2v12h-2z"/>
-            </svg>
-        `;
-    } else {
-        playBtn.innerHTML = `
-            <svg viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-            </svg>
-        `;
+    width += 0.1;
+    if (width >= 100) {
+        width = 0;
+        // Auto-reset player when track finishes
+        isPlaying = false;
+        if (playBtn) {
+            playBtn.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            `;
+        }
+        return;
     }
-});
+    
+    if (progressBar) {
+        progressBar.style.width = width + '%';
+    }
+    
+    animationFrame = requestAnimationFrame(animateProgressBar);
+}
 
 // Logo mouse/touch follow effect
 const logo = document.querySelector('.logo');
@@ -107,19 +144,6 @@ cards.forEach(card => {
     });
 });
 
-// Simulated progress bar animation for the audio player
-const progressBar = document.querySelector('.progress-bar');
-let width = 30;
-const interval = setInterval(() => {
-    if (isPlaying) {
-        width += 0.1;
-        if (width >= 100) {
-            width = 0;
-        }
-        progressBar.style.width = width + '%';
-    }
-}, 100);
-
 // Animation on scroll
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.section-title, .glass-card, .tour-date, .gallery-item');
@@ -145,17 +169,30 @@ document.querySelectorAll('.section-title, .glass-card, .tour-date, .gallery-ite
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 
-// Form submission
+// Form submission with validation
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Basic validation
+        if (!name || !email || !message) {
+            alert('Veuillez remplir tous les champs obligatoires (nom, email, message).');
+            return;
+        }
+        
+        // Email validation using regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Veuillez entrer une adresse email valide.');
+            return;
+        }
         
         // Here you would typically send the data to a server
         console.log('Form submitted:', { name, email, subject, message });
@@ -166,40 +203,79 @@ if (contactForm) {
     });
 }
 
-// Ticket button functionality
+// Ticket button functionality - amélioré
 const ticketButtons = document.querySelectorAll('.tickets-btn');
 ticketButtons.forEach(button => {
     button.addEventListener('click', function() {
         if (this.textContent === 'Complet') {
             alert('Désolé, ce concert est complet !');
+        } else if (this.textContent === 'Itinéraire') {
+            // Ne rien faire, laisser le lien fonctionner normalement pour rediriger vers Google Maps
+            return true;
         } else {
-            alert('Vous allez être redirigé vers maps.');
+            alert('Vous allez être redirigé vers la billetterie.');
             // Here you would redirect to a ticketing system
         }
     });
 });
 
 // Read More / Read Less Functionality
-const readMoreBtn = document.getElementById('readMoreBtn');
-const hiddenContent = document.getElementById('hiddenContent');
-
-if(readMoreBtn && hiddenContent) {
-    readMoreBtn.addEventListener('click', function() {
-        hiddenContent.classList.toggle('visible');
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    const hiddenContent = document.getElementById('hiddenContent');
+    
+    if(readMoreBtn && hiddenContent) {
+        // Assurons-nous que le bouton est visible et que le contenu est caché initialement
+        hiddenContent.classList.remove('visible');
         
-        if (hiddenContent.classList.contains('visible')) {
-            readMoreBtn.textContent = 'Voir moins';
-        } else {
-            readMoreBtn.textContent = 'Voir plus';
+        readMoreBtn.addEventListener('click', function() {
+            hiddenContent.classList.toggle('visible');
             
-            // Scroll back to the about section if needed
-            const aboutSection = document.getElementById('about');
-            if(aboutSection) {
-                window.scrollTo({
-                    top: aboutSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
+            if (hiddenContent.classList.contains('visible')) {
+                readMoreBtn.textContent = 'Voir moins';
+            } else {
+                readMoreBtn.textContent = 'Voir plus';
+                
+                // Scroll back to the about section if needed
+                const aboutSection = document.getElementById('about');
+                if(aboutSection) {
+                    window.scrollTo({
+                        top: aboutSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
             }
-        }
-    });
-}
+        });
+    }
+    
+    // Improved Mobile Menu Handling
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuToggle && navLinks) {
+        // Use event delegation for better performance
+        document.addEventListener('click', function(event) {
+            // Toggle menu when clicking the toggle button
+            if (event.target.closest('#mobileMenuToggle')) {
+                navLinks.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                event.stopPropagation();
+            } 
+            // Close menu when clicking a link 
+            else if (event.target.closest('.nav-links a')) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            } 
+            // Close menu when clicking outside
+            else if (navLinks.classList.contains('active') && 
+                    !navLinks.contains(event.target) && 
+                    !mobileMenuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+    }
+    
+    // Initialize animation on load to prevent FOUC (Flash of Unstyled Content)
+    animateOnScroll();
+});
