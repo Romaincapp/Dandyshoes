@@ -213,7 +213,7 @@ ticketButtons.forEach(button => {
             // Ne rien faire, laisser le lien fonctionner normalement pour rediriger vers Google Maps
             return true;
         } else {
-            alert('Vous allez être redirigé vers la billetterie.');
+            alert('Vous allez être redirigé vers googlemaps.');
             // Here you would redirect to a ticketing system
         }
     });
