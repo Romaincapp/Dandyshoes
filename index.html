@@ -333,6 +333,7 @@
             position: relative;
             overflow: visible !important; /* Permet aux éclairs de sortir du conteneur */
             z-index: 1;
+            border-radius : 25px;
         }
         
         .thunder-background-effect {
@@ -344,12 +345,14 @@
             z-index: -1;
             overflow: hidden;
             opacity: 0;
+            border-radius: 25px;
             animation: thunder-pulse 8s infinite;
         }
         
         .thunder-background-effect video {
             width: 100%;
             height: 100%;
+            border-radius: 25px;
             object-fit: cover;
             filter: blur(15px) brightness(1.5) contrast(1.2);
         }
@@ -357,6 +360,7 @@
         .main-video {
             position: relative;
             z-index: 2;
+            border-radius: 25px;
             width: 100%;
             height: 100%;
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
@@ -403,6 +407,7 @@
                 left: -15%;
                 width: 130%;
                 height: 130%;
+                border-radius: 25px;
             }
             
             .thunder-background-effect video {
@@ -416,6 +421,7 @@
                 left: -10%;
                 width: 120%;
                 height: 120%;
+                border-radius: 25px;
             }
             
             .thunder-background-effect video {
