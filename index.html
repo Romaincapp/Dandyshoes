@@ -327,6 +327,116 @@
                 animation: scroll 20s linear infinite;
             }
         }
+        
+        /* Styles pour l'effet d'éclair sortant de la vidéo */
+        .video-container {
+            position: relative;
+            overflow: visible !important; /* Permet aux éclairs de sortir du conteneur */
+            z-index: 1;
+        }
+        
+        .thunder-background-effect {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0;
+            animation: thunder-pulse 8s infinite;
+        }
+        
+        .thunder-background-effect video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(15px) brightness(1.5) contrast(1.2);
+        }
+        
+        .main-video {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        @keyframes thunder-pulse {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+            5%, 7%, 9% {
+                opacity: 0.7;
+                transform: scale(1.05);
+            }
+            6%, 8% {
+                opacity: 0.3;
+            }
+            50%, 55% {
+                opacity: 0;
+            }
+            58%, 60%, 62% {
+                opacity: 0.6;
+                transform: scale(1.03);
+            }
+            59%, 61% {
+                opacity: 0.3;
+            }
+            70%, 85% {
+                opacity: 0;
+            }
+            88%, 90%, 92% {
+                opacity: 0.5;
+                transform: scale(1.02);
+            }
+            89%, 91% {
+                opacity: 0.2;
+            }
+        }
+        
+        /* Media queries pour l'effet d'éclair sur différents écrans */
+        @media screen and (max-width: 768px) {
+            .thunder-background-effect {
+                top: -15%;
+                left: -15%;
+                width: 130%;
+                height: 130%;
+            }
+            
+            .thunder-background-effect video {
+                filter: blur(10px) brightness(1.3) contrast(1.1);
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .thunder-background-effect {
+                top: -10%;
+                left: -10%;
+                width: 120%;
+                height: 120%;
+            }
+            
+            .thunder-background-effect video {
+                filter: blur(8px) brightness(1.2) contrast(1);
+            }
+        }
+        
+        /* Ajout d'un effet de lueur sur la bordure lors des "éclairs" */
+        .video-container.animated-border::before {
+            animation: border-thunder 8s infinite;
+        }
+        
+        @keyframes border-thunder {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            5%, 7%, 9%, 58%, 60%, 62%, 88%, 90%, 92% {
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 
+                            0 0 40px rgba(255, 255, 255, 0.4);
+            }
+        }
     </style>
 </head>
 <body>
@@ -397,7 +507,14 @@
             
             <div class="latest-release">
                 <div class="release-art video-container animated-border hover-3d">
-                    <video controls autoplay muted loop playsinline>
+                    <!-- Vidéo d'arrière-plan floue pour l'effet d'éclair -->
+                    <div class="thunder-background-effect">
+                        <video autoplay muted loop playsinline>
+                            <source src="videos/thunder.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!-- Vidéo principale -->
+                    <video controls autoplay muted loop playsinline class="main-video">
                         <source src="videos/thunder.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la lecture de vidéos HTML5.
                     </video>
