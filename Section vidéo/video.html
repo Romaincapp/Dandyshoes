@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DANDYSHOES - Videos from the Belgian Rock'n'Roll band from Charleroi">
+    <title>DANDYSHOES | Videos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="video.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        @font-face {
+            font-family: 'Microgramma';
+            src: url('font/Microgramma-D-Extended-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">DANDYSHOES</div>
+        
+        <!-- Mobile hamburger menu -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#music">Music</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#tour">Tour</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="videos.html" class="active">Videos</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="video-hero-section">
+        <div class="video-hero-container">
+            <div class="hero-backdrop">
+                <img src="img/thunder-backdrop.jpg" alt="Thunder music video backdrop">
+                <!-- Gradient overlay for better text visibility -->
+                <div class="overlay-gradient"></div>
+            </div>
+            <div class="hero-content">
+                <div class="video-tag">OFFICIAL MUSIC VIDEO</div>
+                <h1 class="video-title">THUNDER</h1>
+                <p class="video-description">Our latest single from the upcoming EP. Heavy riffs, powerful drums and a story about the storm within.</p>
+                <div class="hero-buttons">
+                    <button class="play-button" data-video="videos/thunder.mp4">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Play
+                    </button>
+                    <button class="info-button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        More Info
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-library-section">
+        <div class="container">
+            <h2 class="section-title">All Videos</h2>
+            
+            <div class="video-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="music-videos">Music Videos</button>
+                <button class="category-btn" data-category="live">Live</button>
+                <button class="category-btn" data-category="interviews">Interviews</button>
+                <button class="category-btn" data-category="behind-scenes">Behind The Scenes</button>
+            </div>
+
+            <div class="video-grid">
+                <!-- Music Videos Row -->
+                <div class="video-row">
+                    <h3 class="row-title">Music Videos</h3>
+                    <div class="video-slider">
+                        <button class="slider-arrow prev">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <div class="slider-container">
+                            <!-- Video Card 1 -->
+                            <div class="video-card" data-category="music-videos">
+                                <div class="card-thumbnail">
+                                    <img src="img/DandyShoesBand.png" alt="Thunder">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Thunder</h4>
+                                    <p>Official Music Video • 2025</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 2 -->
+                            <div class="video-card" data-category="music-videos">
+                                <div class="card-thumbnail">
+                                    <img src="img/allaboutlove.jpg" alt="All About Love">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>All About Love</h4>
+                                    <p>Official Music Video • 2019</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 3 -->
+                            <div class="video-card" data-category="music-videos">
+                                <div class="card-thumbnail">
+                                    <img src="img/haveadandyday.jpg" alt="Have a Dandy Day">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Have a Dandy Day</h4>
+                                    <p>Official Music Video • 2014</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 4 -->
+                            <div class="video-card" data-category="music-videos">
+                                <div class="card-thumbnail">
+                                    <img src="img/gallery-1.jpg" alt="Electric Feel">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Electric Feel</h4>
+                                    <p>Official Music Video • 2018</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow next">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Live Performances Row -->
+                <div class="video-row">
+                    <h3 class="row-title">Live Performances</h3>
+                    <div class="video-slider">
+                        <button class="slider-arrow prev">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <div class="slider-container">
+                            <!-- Video Card 1 -->
+                            <div class="video-card" data-category="live">
+                                <div class="card-thumbnail">
+                                    <img src="img/gallery-2.jpg" alt="Live at Classic 21">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Live at Classic 21</h4>
+                                    <p>Special Acoustic Session • 2024</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 2 -->
+                            <div class="video-card" data-category="live">
+                                <div class="card-thumbnail">
+                                    <img src="img/DandyShoesBand.jpg" alt="Festival Performance">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Nouille Stock Festival</h4>
+                                    <p>Full Concert • 2023</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 3 -->
+                            <div class="video-card" data-category="live">
+                                <div class="card-thumbnail">
+                                    <img src="img/allan3.jpg" alt="Thunder Live">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Thunder (Live)</h4>
+                                    <p>Album Release Party • 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow next">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Behind The Scenes Row -->
+                <div class="video-row">
+                    <h3 class="row-title">Behind The Scenes</h3>
+                    <div class="video-slider">
+                        <button class="slider-arrow prev">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <div class="slider-container">
+                            <!-- Video Card 1 -->
+                            <div class="video-card" data-category="behind-scenes">
+                                <div class="card-thumbnail">
+                                    <img src="img/romain.jpg" alt="Making of Thunder">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Making of Thunder</h4>
+                                    <p>Behind The Scenes • 2025</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 2 -->
+                            <div class="video-card" data-category="behind-scenes">
+                                <div class="card-thumbnail">
+                                    <img src="img/antoine.jpg" alt="Studio Sessions">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Studio Sessions</h4>
+                                    <p>Recording Process • 2024</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 3 -->
+                            <div class="video-card" data-category="behind-scenes">
+                                <div class="card-thumbnail">
+                                    <img src="img/arnaud.jpg" alt="On The Road">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>On The Road</h4>
+                                    <p>Tour Documentary • 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow next">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-close">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+        <div class="modal-content">
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">DANDYSHOES</div>
+            
+            <div class="social-links">
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"/>
+                    </svg>
+                </a>
+                <a href="https://open.spotify.com/album/66q035OaxY3ZEhEuaErIUU" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@DANDYSHOES" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="footer-nav">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#music">Music</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#tour">Tour</a>
+                <a href="index.html#gallery">Gallery</a>
+                <a href="videos.html">Videos</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2025 DANDYSHOES. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+    <script src="video.js"></script>
+</body>
+</html>
