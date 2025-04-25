@@ -583,6 +583,195 @@
         width: 35px;
         height: 35px;
     }
+    
+    /* Improved smartphone styles */
+    .video-hero-section {
+        height: 100vh;
+        min-height: 350px;
+        margin-top: 60px;
+    }
+    
+    .overlay-gradient {
+        background: linear-gradient(
+            90deg,
+            rgba(18, 18, 18, 0.95) 0%,
+            rgba(18, 18, 18, 0.85) 50%,
+            rgba(18, 18, 18, 0.75) 100%
+        );
+    }
+    
+    .video-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .video-library-section {
+        padding: 3rem 0;
+    }
+    
+    .video-categories {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        justify-content: flex-start;
+        padding: 0 10px 10px 10px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .video-categories::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .video-categories::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+    }
+    
+    .category-btn {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        white-space: nowrap;
+    }
+}
+
+/* Extra small smartphones */
+@media (max-width: 375px) {
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .video-tag {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.6rem;
+    }
+    
+    .video-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .video-description {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .play-button, .info-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .video-card {
+        flex: 0 0 180px;
+    }
+    
+    .card-thumbnail {
+        height: 100px;
+    }
+    
+    .card-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .card-content p {
+        font-size: 0.75rem;
+    }
+    
+    .row-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        padding-left: 10px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .slider-arrow {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .slider-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .slider-container {
+        gap: 0.8rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* Smartphone landscape orientation */
+@media (max-height: 450px) and (orientation: landscape) {
+    .video-hero-section {
+        height: 120vh;
+        min-height: 300px;
+    }
+    
+    .hero-content {
+        padding: 0 15% 0 5%;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+    }
+    
+    .play-button, .info-button {
+        width: auto;
+    }
+    
+    .video-categories {
+        margin-bottom: 1rem;
+    }
+    
+    .video-row {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    .slider-arrow {
+        opacity: 0.9;
+    }
+    
+    .play-button, .info-button {
+        min-height: 44px; /* Minimum touch target size */
+    }
+    
+    .play-overlay svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .modal-close {
+        width: 44px;
+        height: 44px;
+    }
+    
+    /* Fix content overlapping on small screens */
+    .video-card:hover .card-content {
+        padding-bottom: 15px;
+        bottom: -15px;
+    }
+}
+
+/* Fix for iOS and Safari */
+@supports (-webkit-touch-callout: none) {
+    .video-hero-section {
+        height: 70vh; /* Safari has different vh calculation */
+    }
+    
+    .video-card:hover {
+        transform: scale(1.03); /* Smaller scale for better performance */
+    }
 }
 
 /* Active menu link */
