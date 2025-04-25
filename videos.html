@@ -75,16 +75,18 @@
             <h2 class="section-title">All Videos</h2>
             
             <div class="video-categories">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="music-videos">Music Videos</button>
-                <button class="category-btn" data-category="live">Live</button>
-                <button class="category-btn" data-category="interviews">Interviews</button>
-                <button class="category-btn" data-category="behind-scenes">Behind The Scenes</button>
+                <div class="categories-scroll-wrapper">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="music-videos">Music Videos</button>
+                    <button class="category-btn" data-category="live">Live</button>
+                    <button class="category-btn" data-category="interviews">Interviews</button>
+                    <button class="category-btn" data-category="behind-scenes">Behind The Scenes</button>
+                </div>
             </div>
 
             <div class="video-grid">
                 <!-- Music Videos Row -->
-                <div class="video-row">
+                <div class="video-row" data-row="music-videos">
                     <h3 class="row-title">Music Videos</h3>
                     <div class="video-slider">
                         <button class="slider-arrow prev">
@@ -166,7 +168,7 @@
                 </div>
                 
                 <!-- Live Performances Row -->
-                <div class="video-row">
+                <div class="video-row" data-row="live">
                     <h3 class="row-title">Live Performances</h3>
                     <div class="video-slider">
                         <button class="slider-arrow prev">
@@ -232,7 +234,7 @@
                 </div>
                 
                 <!-- Behind The Scenes Row -->
-                <div class="video-row">
+                <div class="video-row" data-row="behind-scenes">
                     <h3 class="row-title">Behind The Scenes</h3>
                     <div class="video-slider">
                         <button class="slider-arrow prev">
@@ -286,6 +288,56 @@
                                 <div class="card-content">
                                     <h4>On The Road</h4>
                                     <p>Tour Documentary • 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-arrow next">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interviews Row - Adding missing section -->
+                <div class="video-row" data-row="interviews">
+                    <h3 class="row-title">Interviews</h3>
+                    <div class="video-slider">
+                        <button class="slider-arrow prev">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <div class="slider-container">
+                            <!-- Video Card 1 -->
+                            <div class="video-card" data-category="interviews">
+                                <div class="card-thumbnail">
+                                    <img src="img/gallery-3.jpg" alt="Interview at Classic 21">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>Classic 21 Interview</h4>
+                                    <p>Discussing our new EP • 2024</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Card 2 -->
+                            <div class="video-card" data-category="interviews">
+                                <div class="card-thumbnail">
+                                    <img src="img/gallery-4.jpg" alt="RTBF Interview">
+                                    <div class="play-overlay">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>RTBF Interview</h4>
+                                    <p>Belgian Music Scene • 2023</p>
                                 </div>
                             </div>
                         </div>
