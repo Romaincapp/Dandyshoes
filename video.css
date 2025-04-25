@@ -197,7 +197,7 @@
     padding: 1rem 0;
 }
 
-.slider-container::-webkit-scrollbar {
+slider-container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
 }
 
@@ -544,8 +544,8 @@
 
 @media (max-width: 576px) {
     .video-hero-section {
-        height: 40vh; /* Reduced from 50vh to make it more banner-like */
-        min-height: 200px; /* Reduced from 400px */
+        height: 56vh; /* Increased by 40% from 40vh */
+        min-height: 280px; /* Increased by 40% from 200px */
     }
     
     .video-title {
@@ -586,8 +586,8 @@
     
     /* Improved smartphone styles */
     .video-hero-section {
-        height: 30vh; /* Reduced from 100vh to make it more banner-like */
-        min-height: 180px; /* Reduced from 350px */
+        height: 42vh; /* Increased by 40% from 30vh */
+        min-height: 252px; /* Increased by 40% from 180px */
         margin-top: 60px;
     }
     
@@ -713,8 +713,8 @@
     }
     
     .video-hero-section {
-        height: 25vh; /* Even smaller for very small phones */
-        min-height: 150px;
+        height: 35vh; /* Increased by 40% from 25vh */
+        min-height: 210px; /* Increased by 40% from 150px */
     }
     
     .hero-backdrop img {
@@ -781,8 +781,8 @@
 /* Fix for iOS and Safari */
 @supports (-webkit-touch-callout: none) {
     .video-hero-section {
-        height: 30vh; /* Adjusted from 70vh for banner-like appearance */
-        min-height: 180px;
+        height: 42vh; /* Increased by 40% from 30vh */
+        min-height: 252px; /* Increased by 40% from 180px */
     }
     
     .video-card:hover {
