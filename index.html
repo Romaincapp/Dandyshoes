@@ -940,26 +940,38 @@
     
     <!-- Script for mobile menu -->
     <script>
-        // Menu mobile toggle
-        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-            const navLinks = document.getElementById('navLinks');
+        // Menu mobile toggle - using both click and touchstart events
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        // Function to toggle menu
+        function toggleMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
             navLinks.classList.toggle('active');
-            this.classList.toggle('active');
-        });
+            mobileMenuToggle.classList.toggle('active');
+        }
+        
+        // Add both click and touch events for better mobile support
+        mobileMenuToggle.addEventListener('click', toggleMenu);
+        mobileMenuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
         
         // Close mobile menu when clicking on links
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-                document.getElementById('mobileMenuToggle').classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
             });
+            
+            // Also add touchstart for mobile devices
+            link.addEventListener('touchstart', (e) => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }, {passive: true});
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
-            const navLinks = document.getElementById('navLinks');
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            
             if (navLinks.classList.contains('active') && 
                 !navLinks.contains(event.target) && 
                 !mobileMenuToggle.contains(event.target)) {
@@ -967,6 +979,16 @@
                 mobileMenuToggle.classList.remove('active');
             }
         });
+        
+        // Add touchstart event for mobile
+        document.addEventListener('touchstart', function(event) {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        }, {passive: true});
     </script>
     
     <!-- Adding a tag to improve SEO -->
