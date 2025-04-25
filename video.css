@@ -544,8 +544,8 @@
 
 @media (max-width: 576px) {
     .video-hero-section {
-        height: 50vh;
-        min-height: 400px;
+        height: 40vh; /* Reduced from 50vh to make it more banner-like */
+        min-height: 200px; /* Reduced from 400px */
     }
     
     .video-title {
@@ -586,9 +586,14 @@
     
     /* Improved smartphone styles */
     .video-hero-section {
-        height: 100vh;
-        min-height: 350px;
+        height: 30vh; /* Reduced from 100vh to make it more banner-like */
+        min-height: 180px; /* Reduced from 350px */
         margin-top: 60px;
+    }
+    
+    .hero-backdrop img {
+        object-fit: cover;
+        object-position: center; /* Center the image */
     }
     
     .overlay-gradient {
@@ -706,6 +711,16 @@
     .modal-content {
         width: 95%;
     }
+    
+    .video-hero-section {
+        height: 25vh; /* Even smaller for very small phones */
+        min-height: 150px;
+    }
+    
+    .hero-backdrop img {
+        object-fit: cover;
+        object-position: center 30%; /* Adjust vertical position slightly */
+    }
 }
 
 /* Smartphone landscape orientation */
@@ -766,7 +781,8 @@
 /* Fix for iOS and Safari */
 @supports (-webkit-touch-callout: none) {
     .video-hero-section {
-        height: 70vh; /* Safari has different vh calculation */
+        height: 30vh; /* Adjusted from 70vh for banner-like appearance */
+        min-height: 180px;
     }
     
     .video-card:hover {
