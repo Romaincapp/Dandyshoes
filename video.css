@@ -236,7 +236,7 @@ slider-container::-webkit-scrollbar {
     background-color: var(--primary);
 }
 
-.slider-arrow:hover svg {
+slider-arrow:hover svg {
     fill: var(--dark);
 }
 
@@ -544,8 +544,8 @@ slider-container::-webkit-scrollbar {
 
 @media (max-width: 576px) {
     .video-hero-section {
-        height: 56vh; /* Increased by 40% from 40vh */
-        min-height: 280px; /* Increased by 40% from 200px */
+        height: 67.2vh; /* Increased by 20% from 56vh */
+        min-height: 336px; /* Increased by 20% from 280px */
     }
     
     .video-title {
@@ -586,8 +586,8 @@ slider-container::-webkit-scrollbar {
     
     /* Improved smartphone styles */
     .video-hero-section {
-        height: 42vh; /* Increased by 40% from 30vh */
-        min-height: 252px; /* Increased by 40% from 180px */
+        height: 50.4vh; /* Increased by 20% from 42vh */
+        min-height: 302.4px; /* Increased by 20% from 252px */
         margin-top: 60px;
     }
     
@@ -713,8 +713,8 @@ slider-container::-webkit-scrollbar {
     }
     
     .video-hero-section {
-        height: 35vh; /* Increased by 40% from 25vh */
-        min-height: 210px; /* Increased by 40% from 150px */
+        height: 42vh; /* Increased by 20% from 35vh */
+        min-height: 252px; /* Increased by 20% from 210px */
     }
     
     .hero-backdrop img {
@@ -781,8 +781,8 @@ slider-container::-webkit-scrollbar {
 /* Fix for iOS and Safari */
 @supports (-webkit-touch-callout: none) {
     .video-hero-section {
-        height: 42vh; /* Increased by 40% from 30vh */
-        min-height: 252px; /* Increased by 40% from 180px */
+        height: 50.4vh; /* Increased by 20% from 42vh */
+        min-height: 302.4px; /* Increased by 20% from 252px */
     }
     
     .video-card:hover {
