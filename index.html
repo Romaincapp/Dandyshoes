@@ -72,31 +72,33 @@
     <header id="home">
         <!-- Parallax background container -->
         <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-            <!-- Background image without dark overlay -->
-            <img src="img/DandyShoesBand.jpg" alt="Dandyshoes background" class="parallax-image" style="width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+            <!-- Background image -->
+            <img src="img/DandyShoesBand.jpg" alt="Dandyshoes background" class="parallax-image" style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- Dark overlay to make content visible -->
+            <div class="dark-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 2;"></div>
         </div>
         
-        <!-- Lightning effects with proper z-index to appear behind content but above background -->
-        <div class="lightning-bg" style="z-index: 3;"></div>
-        <div class="lightning" style="z-index: 4;"></div>
-        <div class="lightning" style="z-index: 4;"></div>
-        <div class="thunder-effect" style="z-index: 4;"></div>
+        <!-- Lightning effects -->
+        <div class="lightning-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;"></div>
+        <div class="lightning" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 4;"></div>
+        <div class="lightning" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 4;"></div>
+        <div class="thunder-effect" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 4;"></div>
         
-        <!-- Main content with higher z-index to ensure visibility -->
-        <div class="header-content"></div>
-            <h1 class="logo">DANDYSHOES</h1>
-            <p class="tagline">BLOODY R'n'R BAND FROM CHARLEROI 🇧🇪.</p>
-            <a href="#music" class="cta-button">Out now : "Thunder"</a>
+        <!-- Main content with higher z-index -->
+        <div class="header-content" style="position: relative; z-index: 10; text-align: center; padding-top: 25vh;">
+            <h1 class="logo" style="position: relative; z-index: 10;">DANDYSHOES</h1>
+            <p class="tagline" style="position: relative; z-index: 10;">BLOODY R'n'R BAND FROM CHARLEROI 🇧🇪.</p>
+            <a href="#music" class="cta-button" style="position: relative; z-index: 10;">Out now : "Thunder"</a>
             
-            <!-- Platforms section with increased z-index -->
-            <div class="platforms-container" style="position: relative; z-index: 15;"></div>
+            <!-- Platforms section -->
+            <div class="platforms-container" style="position: relative; z-index: 15; margin-top: 5rem;"></div>
                 <p class="as-seen-on">already sound on</p>
                 <div class="platforms-scroll">
                     <div class="platforms-track">
                         <!-- Logos des radios et plateformes en blanc -->
-                        <a href="https://www.rtbf.be/classic21/" target="_blank" class="platform-logo"><img src="img/classic21.png" alt="Classic 21" class="platform-logo-img"></a>
-                        <a href="https://www.nostalgie.be/" target="_blank" class="platform-logo"><img src="img/nostalgie.png" alt="Nostalgie" class="platform-logo-img"></a>
-                        <a href="https://www.rtbf.be/vivacite/" target="_blank" class="platform-logo"><img src="img/vivacite.png" alt="Vivacité" class="platform-logo-img"></a>
+                        <a href="https://www.rtbf.be/classic21/" target="_blank" class="platform-logo"><img src="img/classic21.png" alt="Classic 21" class="platform-logo-img" style="filter: brightness(0) invert(1); max-height: 52px; width: auto;"></a>
+                        <a href="https://www.nostalgie.be/" target="_blank" class="platform-logo"><img src="img/nostalgie.png" alt="Nostalgie" class="platform-logo-img" style="filter: brightness(0) invert(1); max-height: 52px; width: auto;"></a>
+                        <a href="https://www.rtbf.be/vivacite/" target="_blank" class="platform-logo"><img src="img/vivacite.png" alt="Vivacité" class="platform-logo-img" style="filter: brightness(0) invert(1); max-height: 52px; width: auto;"></a>
                         <a href="https://www.rtbf.be/tipik/" target="_blank" class="platform-logo"><img src="img/tipik.png" alt="Tipik" style="filter: brightness(0) invert(1); max-height: 52px; width: auto;"></a>
                         <a href="https://open.spotify.com/artist/66q035OaxY3ZEhEuaErIUU" target="_blank" class="platform-logo"><img src="img/spotify-logo.png" alt="Spotify" style="filter: brightness(0) invert(1); max-height: 52px; width: auto;"></a>
                         <a href="https://www.deezer.com/fr/artist/8785458" target="_blank" class="platform-logo"><img src="img/deezer.png" alt="Deezer" style="filter: brightness(0) invert(1); max-height: 52px; width: auto;"></a>
