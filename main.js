@@ -219,6 +219,163 @@ ticketButtons.forEach(button => {
     });
 });
 
+// Code du lecteur audio - ajoutez ceci à votre fichier main.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments du lecteur audio
+    const audioElement = document.getElementById('audioPlayer');
+    const playBtn = document.querySelector('.play-btn');
+    const progressBar = document.querySelector('.progress-bar');
+    const progressContainer = document.querySelector('.progress-container');
+    const timeDisplay = document.querySelectorAll('.time-display span');
+    const prevBtn = document.querySelector('.control-btn:first-child');
+    const nextBtn = document.querySelector('.control-btn:last-child');
+    
+    // Playlist (liste des morceaux)
+    const playlist = [
+        {
+            title: "Thunder",
+            file: "audio/thunder.mp3"
+        },
+        {
+            title: "All About Love",
+            file: "audio/all_about_love.mp3"
+        },
+        // Ajoutez d'autres morceaux selon vos besoins
+    ];
+    
+    let currentTrack = 0;
+    let isPlaying = false;
+    
+    // Charger un morceau
+    function loadTrack(trackIndex) {
+        if (trackIndex >= 0 && trackIndex < playlist.length) {
+            currentTrack = trackIndex;
+            audioElement.src = playlist[trackIndex].file;
+            audioElement.load();
+            
+            // Mettre à jour le titre si nécessaire
+            const titleElement = document.querySelector('.neon-text');
+            if (titleElement) {
+                titleElement.textContent = '"' + playlist[trackIndex].title + '"';
+            }
+            
+            if (isPlaying) {
+                audioElement.play()
+                    .then(() => {
+                        // Lecture démarrée avec succès
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la lecture:', error);
+                        isPlaying = false;
+                        updatePlayButton();
+                    });
+            }
+            
+            // Réinitialiser la barre de progression
+            progressBar.style.width = "0%";
+        }
+    }
+    
+    // Mettre à jour le bouton play/pause
+    function updatePlayButton() {
+        if (isPlaying) {
+            playBtn.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6h2v12H6zm10 0h2v12h-2z"/>
+                </svg>
+            `;
+        } else {
+            playBtn.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            `;
+        }
+    }
+    
+    // Fonction play/pause
+    function togglePlay() {
+        if (audioElement.paused) {
+            audioElement.play()
+                .then(() => {
+                    isPlaying = true;
+                    updatePlayButton();
+                })
+                .catch(error => {
+                    console.error('Erreur lors de la lecture:', error);
+                });
+        } else {
+            audioElement.pause();
+            isPlaying = false;
+            updatePlayButton();
+        }
+    }
+    
+    // Format du temps (secondes -> MM:SS)
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
+    }
+    
+    // Événements du lecteur audio
+    
+    // Mise à jour de la progression
+    audioElement.addEventListener('timeupdate', function() {
+        const percent = (audioElement.currentTime / audioElement.duration) * 100;
+        progressBar.style.width = percent + '%';
+        
+        // Mise à jour de l'affichage du temps
+        timeDisplay[0].textContent = formatTime(audioElement.currentTime);
+    });
+    
+    // Quand les métadonnées sont chargées
+    audioElement.addEventListener('loadedmetadata', function() {
+        timeDisplay[1].textContent = formatTime(audioElement.duration);
+    });
+    
+    // Quand un morceau se termine
+    audioElement.addEventListener('ended', function() {
+        // Passer au morceau suivant
+        currentTrack = (currentTrack + 1) % playlist.length;
+        loadTrack(currentTrack);
+    });
+    
+    // Clic sur la barre de progression
+    if (progressContainer) {
+        progressContainer.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const clickPosition = (e.clientX - rect.left) / rect.width;
+            const seekTime = clickPosition * audioElement.duration;
+            audioElement.currentTime = seekTime;
+        });
+    }
+    
+    // Bouton précédent
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+            loadTrack(currentTrack);
+        });
+    }
+    
+    // Bouton suivant
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            currentTrack = (currentTrack + 1) % playlist.length;
+            loadTrack(currentTrack);
+        });
+    }
+    
+    // Bouton play/pause
+    if (playBtn) {
+        playBtn.addEventListener('click', togglePlay);
+    }
+    
+    // Initialiser le lecteur avec le premier morceau
+    loadTrack(currentTrack);
+});
+
 // Read More / Read Less Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const readMoreBtn = document.getElementById('readMoreBtn');
@@ -278,4 +435,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize animation on load to prevent FOUC (Flash of Unstyled Content)
     animateOnScroll();
+});
+
+// Audio/Video configuration - ensure videos play with sound by default
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        // Set muted to false to enable sound by default
+        video.muted = false;
+        
+        // Optional: Add controls to allow users to adjust volume
+        video.controls = true;
+        
+        // Note: Many browsers require user interaction before allowing autoplay with sound
+        video.addEventListener('canplay', function() {
+            // This will only work after user interaction with the page
+            if (video.autoplay) {
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Autoplay with sound was prevented. User interaction required.');
+                        // You might want to add a play button overlay or other UI for better UX
+                    });
+                }
+            }
+        });
+    });
 });
