@@ -73,17 +73,35 @@ header {
     overflow: hidden;
 }
 
+.parallax-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 100px 20px rgba(0,0,0,0.8);
+    pointer-events: none;
+    z-index: 2;
+}
+
 .parallax-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: translateZ(-1px) scale(2);
+    object-position: center 25%; /* Adjust this to position the focal point of your image */
+    transform: translateZ(-1px) scale(1.3); /* Reduced scale for better visibility */
 }
 
 .header-content {
     position: relative;
-    z-index: 1;
+    z-index: 3; /* Supérieur à l'overlay et l'effet vignette */
+    text-align: center;
+    padding-top: 25vh; /* Seulement sur le haut */
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
+
 .header-content h1 {
     font-size: 5rem;
     color: var(--primary);
@@ -127,6 +145,21 @@ header {
     backdrop-filter: blur(10px);
 }
 
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.1) 0%,
+        rgba(0,0,0,0.3) 30%,
+        rgba(0,0,0,0.5) 60%,
+        rgba(0,0,0,0.8) 100%
+    );
+    z-index: 1;
+}
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 800;
@@ -511,6 +544,57 @@ header {
 .gallery-item:hover::after {
     opacity: 1;
 }
+
+@media screen and (max-width: 768px) {
+    .parallax-image {
+        object-position: center center; /* Ajustement pour mobile */
+        transform: translateZ(-1px) scale(1.5); /* Zoom légèrement plus fort sur mobile */
+    }
+    
+    .dark-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.2) 0%,
+            rgba(0,0,0,0.4) 30%,
+            rgba(0,0,0,0.6) 60%,
+            rgba(0,0,0,0.9) 100%
+        ); /* Gradient légèrement plus foncé pour garantir la lisibilité sur petit écran */
+    }
+    
+    .header-content {
+        padding-top: 20vh; /* Ajustement pour smartphone */
+    }
+    
+    .logo {
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Ombre plus forte pour meilleure lisibilité */
+    }
+    
+    .tagline {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Pour très petits écrans */
+@media screen and (max-width: 480px) {
+    .parallax-image {
+        object-position: center 30%; /* Focus encore plus sur les visages sur petit écran */
+    }
+    
+    .dark-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.3) 0%,
+            rgba(0,0,0,0.5) 40%,
+            rgba(0,0,0,0.7) 70%,
+            rgba(0,0,0,0.9) 100%
+        ); /* Encore plus foncé pour très petits écrans */
+    }
+    
+    .header-content {
+        padding-top: 15vh;
+    }
+
+}    
 
 @keyframes lightning-pulse {
     0% {
