@@ -2165,3 +2165,45 @@ img {
                     0 0 40px rgba(255, 255, 255, 0.4);
     }
 }
+/* Add these styles to your CSS file */
+.video-promo-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/DandyShoesBand.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.video-promo-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-promo-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.video-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+    background: var(--primary);
+    border: none;
+}
+
+.video-cta:hover {
+    transform: scale(1.05);
+    background: #ff4c4c;
+}
+
+.video-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
