@@ -555,9 +555,9 @@ header {
         background: linear-gradient(
             to bottom,
             rgba(0,0,0,0.2) 0%,
-            rgba(0,0,0,0.4) 30%,
-            rgba(0,0,0,0.6) 60%,
-            rgba(0,0,0,0.9) 100%
+            rgba(0,0,0,0.3) 30%,
+            rgba(0,0,0,0.5) 60%,
+            rgba(0,0,0,0.7) 100%
         ); /* Gradient légèrement plus foncé pour garantir la lisibilité sur petit écran */
     }
     
@@ -583,10 +583,10 @@ header {
     .dark-overlay {
         background: linear-gradient(
             to bottom,
-            rgba(0,0,0,0.3) 0%,
-            rgba(0,0,0,0.5) 40%,
-            rgba(0,0,0,0.7) 70%,
-            rgba(0,0,0,0.9) 100%
+            rgba(0,0,0,0.2) 0%,
+            rgba(0,0,0,0.3) 40%,
+            rgba(0,0,0,0.5) 70%,
+            rgba(0,0,0,0.7) 100%
         ); /* Encore plus foncé pour très petits écrans */
     }
     
