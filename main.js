@@ -439,25 +439,20 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
-// Audio/Video configuration - ensure videos play with sound by default
+// Audio/Video configuration
 document.addEventListener('DOMContentLoaded', function() {
     const videos = document.querySelectorAll('video');
     videos.forEach(video => {
-        // Set muted to false to enable sound by default
-        video.muted = false;
-        
-        // Optional: Add controls to allow users to adjust volume
-        video.controls = true;
+        // Conserve la valeur de muted définie dans le HTML
+        // Ne pas modifier video.muted ici
         
         // Note: Many browsers require user interaction before allowing autoplay with sound
         video.addEventListener('canplay', function() {
-            // This will only work after user interaction with the page
             if (video.autoplay) {
                 const playPromise = video.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.log('Autoplay with sound was prevented. User interaction required.');
-                        // You might want to add a play button overlay or other UI for better UX
+                        console.log('Autoplay was prevented. User interaction required.');
                     });
                 }
             }
