@@ -37,6 +37,19 @@ header {
     overflow: hidden;
 }
 
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, /* Changé de 'to bottom' à '90deg' pour avoir un gradient horizontal */
+        rgba(18, 18, 18, 0.2) 0%, /* Réduit de 0.75 à 0.6 */
+        rgba(18, 18, 18, 0.2) 50%, /* Réduit de 0.4 à 0.3 */
+        rgba(18, 18, 18, 0.1) 100% /* Réduit de 0.2 à 0.1 */
+    );
+    z-index: 2;
 
 
 .parallax-bg {
