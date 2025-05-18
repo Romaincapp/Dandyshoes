@@ -122,28 +122,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function filterVideos(category) {
-        // For a simple implementation, we'll just log the category
         console.log('Filtering by category:', category);
         
-        // If using the "all" category, show all videos
-        if (category === 'all') {
-            videoCards.forEach(card => {
-                card.style.display = 'block';
-            });
-        } else {
-            // Otherwise, filter by category
-            videoCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (cardCategory === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+        // Compter les cartes visibles dans chaque conteneur
+        const containerMap = new Map();
         
-        // In a full implementation, you might need to restructure the rows
-        // or adjust the sliders after filtering
+        videoCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            const container = card.closest('.slider-container');
+            
+            if (!containerMap.has(container)) {
+                containerMap.set(container, 0);
+            }
+            
+            if (category === 'all' || cardCategory === category) {
+                card.style.display = ''; // Utiliser le style par défaut au lieu de 'block'
+                containerMap.set(container, containerMap.get(container) + 1);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Ajuster l'affichage des conteneurs vides
+        containerMap.forEach((count, container) => {
+            const row = container.closest('.video-row');
+            if (row) {
+                if (count === 0) {
+                    row.style.display = 'none';
+                } else {
+                    row.style.display = '';
+                }
+            }
+        });
+        
+        // Réinitialiser la position de défilement des sliders
+        sliderContainers.forEach(container => {
+            container.scrollLeft = 0;
+        });
     }
     
     // Netflix-style hover effect for video cards
@@ -226,6 +241,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
+    
+    // Appliquer le filtre initial (si un bouton a la classe 'active' par défaut)
+    const activeButton = document.querySelector('.category-btn.active');
+    if (activeButton) {
+        const defaultCategory = activeButton.getAttribute('data-category');
+        filterVideos(defaultCategory);
+    } else if (categoryButtons.length > 0) {
+        // Sinon, utiliser le premier bouton comme filtre par défaut
+        const defaultCategory = categoryButtons[0].getAttribute('data-category');
+        categoryButtons[0].classList.add('active');
+        filterVideos(defaultCategory);
+    }
 });
 
 // Add CSS styles for lightning effect

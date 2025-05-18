@@ -59,6 +59,8 @@ if (playBtn) {
 const progressBar = document.querySelector('.progress-bar');
 let width = 30;
 
+
+
 function animateProgressBar() {
     if (!isPlaying) return;
     
@@ -459,6 +461,66 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             }
+        });
+    });
+});
+
+// Add this code to handle streaming links to play local audio files
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get audio player element
+    const audioPlayer = document.getElementById('audioPlayer');
+    
+    // Get all streaming links in the release info section
+    const streamingLinks = document.querySelectorAll('.streaming-links a');
+    
+    // Audio files mapping
+    const audioFiles = {
+        'spotify': 'audio/thunder.mp3',
+        'apple': 'audio/all_about_love.mp3',
+        'facebook': 'audio/have_a_dandy_day.mp3',
+        'instagram': 'audio/thunder_acoustic.mp3',
+        'youtube': 'audio/rock_n_roll.mp3'
+    };
+    
+    // Set up click handlers for streaming icons
+    streamingLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Check if this is for local playback (has a data-play attribute) or external link
+            const audioKey = this.getAttribute('data-play');
+            
+            if (audioKey && audioFiles[audioKey]) {
+                e.preventDefault(); // Prevent the default navigation
+                
+                // Load and play the corresponding audio file
+                audioPlayer.src = audioFiles[audioKey];
+                audioPlayer.load();
+                audioPlayer.play()
+                    .then(() => {
+                        // Update play button to pause
+                        const playBtn = document.querySelector('.play-btn');
+                        if (playBtn) {
+                            playBtn.innerHTML = `
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 6h2v12H6zm10 0h2v12h-2z"/>
+                                </svg>
+                            `;
+                        }
+                        
+                        // Update track title if needed
+                        const titleElement = document.querySelector('.neon-text');
+                        if (titleElement) {
+                            const trackName = audioKey.charAt(0).toUpperCase() + audioKey.slice(1);
+                            titleElement.textContent = `"${trackName}"`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error playing audio:', error);
+                    });
+                
+                return false;
+            }
+            // If no data-play attribute, let the link navigate normally
         });
     });
 });
