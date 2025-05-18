@@ -1580,7 +1580,7 @@ img {
 
 /* Amélioration de la visibilité des logos de plateformes */
 .platforms-scroll {
-    background: rgba(255, 255, 255, 0.1);  /* Fond légèrement plus clair pour améliorer le contraste */
+    background: rgba(255, 255, 255, 0.041);  /* Fond légèrement plus clair pour améliorer le contraste */
 }
 
 .platform-logo {
