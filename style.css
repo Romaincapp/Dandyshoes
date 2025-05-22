@@ -232,41 +232,34 @@ header {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Conteneur spécifique pour la vidéo carrée Instagram */
+/* Conteneur adapté pour la vidéo YouTube 16:9 */
 .release-art.video-container {
     width: 100%;
-    max-width: 500px; /* Limitez la largeur max sur grands écrans */
+    max-width: 700px; /* Augmenté pour le format 16:9 */
     position: relative;
     margin: 0 auto 2rem;
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 1/1; /* Format carré pour vidéo Instagram */
+    background: transparent; /* Retiré le fond noir */
+    border-radius: 15px;
+    overflow: visible; /* Permet aux effets de déborder */
+    aspect-ratio: 16/9; /* Format 16:9 pour YouTube */
 }
 
-.release-art.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Préserve le ratio tout en remplissant le conteneur */
-}
+/* Suppression de la règle vidéo car nous utilisons YouTube */
 
-/* Assurer la cohérence sur desktop et toutes tailles d'écran */
+/* Assurer la cohérence sur desktop */
 @media screen and (min-width: 993px) {
     .release-art.video-container {
-        width: 500px;
-        height: 500px;
-        aspect-ratio: 1/1;
+        width: 700px;
+        aspect-ratio: 16/9; /* Maintient le ratio 16:9 */
     }
 }
 
 /* Ajuster les tailles pour tablettes */
 @media screen and (max-width: 992px) {
     .release-art.video-container {
-        width: 450px;
-        height: 450px;
+        width: 90%;
+        max-width: 600px;
+        aspect-ratio: 16/9;
     }
 }
 
@@ -836,10 +829,10 @@ h1, h2, h3, h4 {
     }
 
     .release-art.video-container {
-        max-width: 90%;
-        aspect-ratio: 1/1;
-        margin-bottom: 1.5rem;
-    }
+    max-width: 90%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+}
 
     .about-image {
         height: 300px; /* Reduced from 350px */
@@ -899,10 +892,10 @@ h1, h2, h3, h4 {
     }
 
     .release-art.video-container {
-        max-width: 85%;
-        aspect-ratio: 1/1;
-        border-radius: 8px;
-    }
+    max-width: 90%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+}
 
     .about-image {
         height: 220px; /* Reduced from 280px */
