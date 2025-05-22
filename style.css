@@ -1079,11 +1079,7 @@ h1, h2, h3, h4 {
     transform: translateY(-10px);
 }
 
-.video-container.static-border {
-    border: 2px solid var(--primary);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 222, 89, 0.3);
-}
+
 /* 3D Hover Effect */
 /* Utilisation de la perspective pour créer un effet 3D */
 
