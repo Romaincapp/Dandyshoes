@@ -2164,3 +2164,75 @@ img {
     height: 24px;
     fill: #fff;
 }
+
+/* Styles pour l'intégration YouTube */
+.youtube-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    border-radius: 15px;
+    overflow: hidden;
+    background: #000;
+}
+
+.youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+}
+
+/* Ajustements pour mobile */
+@media (max-width: 768px) {
+    .youtube-container {
+        border-radius: 10px;
+        padding-bottom: 56.25%; /* Maintient le ratio 16:9 */
+    }
+    
+    .youtube-container iframe {
+        border-radius: 10px;
+    }
+}
+
+/* Effet hover sur le container vidéo */
+.video-container.hover-3d:hover .youtube-container {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(255, 60, 60, 0.4);
+}
+
+/* Animation pour la bordure du container vidéo */
+.video-container.animated-border .youtube-container {
+    transition: all 0.3s ease;
+}
+
+/* Styles pour maintenir la cohérence avec le design existant */
+.latest-release .video-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Optionnel: Overlay personnalisé pour le chargement */
+.youtube-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+/* Amélioration responsive pour très petits écrans */
+@media (max-width: 480px) {
+    .latest-release {
+        flex-direction: column;
+    }
+    
+    .youtube-container {
+        margin-bottom: 1.5rem;
+    }
+}
