@@ -1079,30 +1079,13 @@ h1, h2, h3, h4 {
     transform: translateY(-10px);
 }
 
-/* New Features for 2025 */
-.animated-border {
-    position: relative;
+.video-container.static-border {
+    border: 2px solid var(--primary);
     border-radius: 15px;
-    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 222, 89, 0.3);
 }
-
-.animated-border::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
-    z-index: -1;
-    border-radius: 15px;
-    animation: border-animation 3s linear infinite;
-}
-
-@keyframes border-animation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* 3D Hover Effect */
+/* Utilisation de la perspective pour créer un effet 3D */
 
 .hover-3d {
     transition: transform 0.5s ease;
@@ -1123,6 +1106,7 @@ h1, h2, h3, h4 {
     from { text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 20px var(--primary); }
     to { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary); }
 }
+
 
 /* Spotify link styling */
 .spotify-link {
