@@ -209,7 +209,7 @@
     margin-top: 2px;
     background-color: rgba(50, 50, 50, 0.5);
     position: relative;
-    pointer-events: none; /* IMPORTANT : Le checkmark ne capture PAS les clics */
+    
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {
