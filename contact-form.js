@@ -190,17 +190,96 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Gestion du checkbox RGPD
+    // BACKUP JAVASCRIPT pour s'assurer que la checkbox fonctionne
+// Ajoutez ce code dans votre contact-form.js ou dans un script tag
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner la checkbox et son label
     const consentCheckbox = document.querySelector('input[name="consent"]');
-    if (consentCheckbox) {
-        consentCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                this.parentElement.style.opacity = '1';
-            } else {
-                this.parentElement.style.opacity = '0.7';
+    const checkboxLabel = document.querySelector('.checkbox-label');
+    const checkmark = document.querySelector('.checkmark');
+    
+    if (consentCheckbox && checkboxLabel) {
+        console.log('Checkbox trouvée, ajout des événements...');
+        
+        // Backup 1: S'assurer que le clic sur le label fonctionne
+        checkboxLabel.addEventListener('click', function(e) {
+            // Si le clic n'est pas directement sur l'input
+            if (e.target !== consentCheckbox) {
+                e.preventDefault();
+                consentCheckbox.checked = !consentCheckbox.checked;
+                
+                // Déclencher l'événement change manuellement
+                const event = new Event('change', { bubbles: true });
+                consentCheckbox.dispatchEvent(event);
+                
+                console.log('Checkbox state:', consentCheckbox.checked);
             }
         });
+        
+        // Backup 2: S'assurer que le clic sur le checkmark fonctionne
+        if (checkmark) {
+            checkmark.addEventListener('click', function(e) {
+                e.preventDefault();
+                consentCheckbox.checked = !consentCheckbox.checked;
+                
+                // Déclencher l'événement change
+                const event = new Event('change', { bubbles: true });
+                consentCheckbox.dispatchEvent(event);
+                
+                console.log('Checkbox state via checkmark:', consentCheckbox.checked);
+            });
+        }
+        
+        // Backup 3: Gestion du changement d'état pour les styles
+        consentCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                checkboxLabel.style.opacity = '1';
+                console.log('Checkbox cochée !');
+            } else {
+                checkboxLabel.style.opacity = '0.7';
+                console.log('Checkbox décochée !');
+            }
+        });
+        
+        // Backup 4: Support du clavier (Espace pour cocher/décocher)
+        checkboxLabel.addEventListener('keydown', function(e) {
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                consentCheckbox.checked = !consentCheckbox.checked;
+                
+                // Déclencher l'événement change
+                const event = new Event('change', { bubbles: true });
+                consentCheckbox.dispatchEvent(event);
+                
+                console.log('Checkbox toggled via keyboard:', consentCheckbox.checked);
+            }
+        });
+        
+        // Backup 5: Rendre le label focusable pour l'accessibilité
+        checkboxLabel.setAttribute('tabindex', '0');
+        checkboxLabel.setAttribute('role', 'checkbox');
+        checkboxLabel.setAttribute('aria-checked', consentCheckbox.checked);
+        
+        // Mettre à jour l'attribut aria-checked quand l'état change
+        consentCheckbox.addEventListener('change', function() {
+            checkboxLabel.setAttribute('aria-checked', this.checked);
+        });
+    } else {
+        console.error('Checkbox de consentement non trouvée !');
     }
+});
+
+// BONUS: Fonction pour tester la checkbox depuis la console
+function testCheckbox() {
+    const checkbox = document.querySelector('input[name="consent"]');
+    if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        const event = new Event('change', { bubbles: true });
+        checkbox.dispatchEvent(event);
+        console.log('Test checkbox - État:', checkbox.checked);
+    }
+}
 });
 
 // CSS pour les notifications et améliorations (injecté dynamiquement)
