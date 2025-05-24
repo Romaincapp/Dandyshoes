@@ -171,39 +171,7 @@ document.querySelectorAll('.section-title, .glass-card, .tour-date, .gallery-ite
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 
-// Form submission with validation
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        // Basic validation
-        if (!name || !email || !message) {
-            alert('Veuillez remplir tous les champs obligatoires (nom, email, message).');
-            return;
-        }
-        
-        // Email validation using regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Veuillez entrer une adresse email valide.');
-            return;
-        }
-        
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', { name, email, subject, message });
-        
-        // Reset form and show success message
-        this.reset();
-        alert('Merci pour votre message ! Nous vous répondrons très bientôt.');
-    });
-}
+
 
 // Ticket button functionality - amélioré
 const ticketButtons = document.querySelectorAll('.tickets-btn');
