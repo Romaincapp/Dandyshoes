@@ -1,14 +1,15 @@
 /* DANDYSHOES - Typography */
 @font-face {
     font-family: 'Microgramma-D-Extended-Bold';
-    src: url('../font/Microgramma-D-Extended-Bold.otf') format('opentype');
+    /* Chemin corrigé depuis css/dist/ vers font/ */
+    src: url('../../font/Microgramma-D-Extended-Bold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    font-family: 'Microgramma-D-Extended-Bold', 'Arial Black', sans-serif;
     font-weight: normal;
     line-height: 1.2;
 }
@@ -19,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary);
     margin-bottom: 3rem;
     text-align: center;
-    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    font-family: 'Microgramma-D-Extended-Bold', 'Arial Black', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -33,13 +34,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 6rem 2rem;
 }
 
-/* Logo styling */
+/* Logo styling avec font améliorée */
 .logo {
-    font-size: 5rem;
-    color: var(--primary);
-    text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
-    animation: pulse 2s infinite;
-    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    font-size: 5rem
 }
 
 /* Responsive typography */
