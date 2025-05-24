@@ -1,0 +1,118 @@
+/* DANDYSHOES - Tablet Responsive (768px to 992px) */
+
+@media (min-width: 769px) and (max-width: 992px) {
+    /* Container adjustments */
+    .container {
+        width: 95%;
+        padding: 0 15px;
+    }
+    
+    /* Header tablet */
+    .header-content h1.logo {
+        font-size: 4rem;
+    }
+    
+    .tagline {
+        font-size: 1.3rem;
+    }
+    
+    /* About section tablet */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        height: 350px;
+        order: -1; /* Image en premier sur tablettes */
+    }
+    
+    .about-text {
+        padding: 0 1rem;
+    }
+    
+    /* Music section tablet */
+    .latest-release {
+        flex-direction: column;
+    }
+    
+    .release-art, .release-info {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .release-art.video-container {
+        width: 90%;
+        max-width: 600px;
+        aspect-ratio: 16/9;
+    }
+    
+    /* Gallery tablet */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Tour dates tablet */
+    .tour-date {
+        padding: 1.2rem;
+    }
+    
+    .date {
+        font-size: 1.3rem;
+    }
+    
+    /* Contact tablet */
+    .contact-form {
+        max-width: 500px;
+    }
+    
+    /* Navigation tablet */
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+    
+    /* Platform logos tablet */
+    .platform-logo {
+        padding: 0 15px;
+    }
+    
+    .platforms-scroll {
+        height: 45px;
+    }
+}
+
+/* iPad specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .section {
+        padding: 5rem 2rem;
+    }
+    
+    .header-content {
+        padding-top: 22vh;
+    }
+    
+    .release-art.video-container {
+        max-width: 80%;
+    }
+}
+
+/* iPad landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .header-content {
+        padding-top: 15vh;
+    }
+    
+    .header-content h1.logo {
+        font-size: 3.5rem;
+    }
+    
+    .section {
+        padding: 4rem 2rem;
+    }
+}

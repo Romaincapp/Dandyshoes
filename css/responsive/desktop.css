@@ -1,0 +1,179 @@
+/* DANDYSHOES - Desktop Responsive (993px and above) */
+
+@media screen and (min-width: 993px) {
+    /* Container desktop */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Section spacing desktop */
+    .section {
+        padding: 6rem 2rem;
+    }
+    
+    /* Header desktop */
+    .header-content h1.logo {
+        font-size: 5rem;
+    }
+    
+    .tagline {
+        font-size: 1.5rem;
+    }
+    
+    /* Music section desktop */
+    .release-art.video-container {
+        width: 700px;
+        aspect-ratio: 16/9;
+    }
+    
+    .latest-release {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .streaming-links {
+        gap: 2rem;
+    }
+    
+    /* About section desktop */
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    
+    .about-image {
+        height: 400px;
+    }
+    
+    .member-img {
+        width: 65px;
+        height: 65px;
+    }
+    
+    /* Gallery desktop */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    /* Tour section desktop */
+    .tour-date {
+        padding: 1.5rem;
+    }
+    
+    .date-location {
+        gap: 2rem;
+    }
+    
+    .date {
+        font-size: 1.5rem;
+    }
+    
+    /* Navigation desktop */
+    .nav-links {
+        gap: 2rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    /* Hover effects enhanced for desktop */
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+    
+    .streaming-links a:hover {
+        transform: translateY(-8px) scale(1.15);
+    }
+    
+    .social-links a:hover {
+        transform: translateY(-8px) rotate(15deg);
+    }
+    
+    /* Platform scrolling desktop */
+    .platforms-scroll {
+        height: 50px;
+    }
+    
+    .platform-logo {
+        padding: 0 20px;
+    }
+    
+    .platform-logo img {
+        max-height: 30px;
+    }
+    
+    /* Contact desktop */
+    .contact-form {
+        max-width: 600px;
+    }
+    
+    /* Footer desktop */
+    .footer-nav {
+        gap: 2rem;
+    }
+    
+    .social-links {
+        gap: 1.5rem;
+    }
+}
+
+/* Large desktop (1200px+) */
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .section {
+        padding: 8rem 2rem;
+    }
+    
+    .header-content h1.logo {
+        font-size: 6rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .release-art.video-container {
+        width: 800px;
+    }
+}
+
+/* Ultra-wide screens (1400px+) */
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .about-content {
+        gap: 6rem;
+    }
+    
+    .date-location {
+        gap: 3rem;
+    }
+    
+    .streaming-links {
+        gap: 2.5rem;
+    }
+}
+
+/* High DPI displays */
+@media screen and (min-resolution: 2dppx) {
+    .platform-logo img,
+    .member-img,
+    .gallery-item img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
