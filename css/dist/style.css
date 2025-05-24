@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-24T16:22:02.381Z
+ * Built on: 2025-05-24T16:28:00.334Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -1439,7 +1439,233 @@ footer {
 }
 
 /* ===== MODALS ===== */
+/* DANDYSHOES - Modals */
 
+/* Base modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Video Modal (pour la page videos.html) */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal close button */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-close:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.1);
+}
+
+.modal-close svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--light);
+    transition: fill 0.3s ease;
+}
+
+.modal-close:hover svg {
+    fill: var(--dark);
+}
+
+/* Modal content container */
+.modal-content {
+    width: 80%;
+    max-width: 1000px;
+    max-height: 80vh;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--dark);
+}
+
+.modal-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: black;
+}
+
+/* Audio player modal (si utilisé) */
+.audio-modal .modal-content {
+    background: linear-gradient(145deg, #1c1c1c, #181818);
+    border: 1px solid rgba(255, 222, 89, 0.3);
+    padding: 2rem;
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+/* Image gallery modal */
+.gallery-modal .modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    background: transparent;
+    box-shadow: none;
+}
+
+.gallery-modal img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Contact success modal */
+.success-modal .modal-content {
+    background: var(--dark);
+    border: 2px solid var(--primary);
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    border-radius: 15px;
+}
+
+.success-modal h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+}
+
+.success-modal p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Modal animations */
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-exit-active {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Responsive modals */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+        margin: 0 10px;
+    }
+    
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .modal-close svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .audio-modal .modal-content,
+    .success-modal .modal-content {
+        width: 90%;
+        margin: 0 5%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 98%;
+        max-height: 90vh;
+    }
+    
+    .gallery-modal .modal-content {
+        width: 95%;
+        max-height: 80vh;
+    }
+    
+    .audio-modal .modal-content {
+        padding: 1rem;
+    }
+}
+
+/* Accessibility */
+.modal[aria-hidden="true"] {
+    display: none;
+}
+
+.modal-content:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
 
 /* ===== ANIMATIONS ===== */
 /* DANDYSHOES - Animations */
@@ -1625,7 +1851,325 @@ footer {
 }
 
 /* ===== HOVER EFFECTS ===== */
+/* DANDYSHOES - Hover Effects */
 
+/* Neon text effect */
+.neon-text {
+    color: var(--light);
+    text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 20px var(--primary);
+    animation: neon-pulse 2s infinite alternate;
+}
+
+/* 3D tilt effect for cards */
+.hover-3d {
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+    transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+}
+
+/* Enhanced 3D tilt with mouse tracking */
+.tilt-3d {
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+}
+
+/* Glow effects */
+.glow-on-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 20px rgba(255, 222, 89, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Scale effects */
+.scale-on-hover {
+    transition: transform 0.3s ease;
+}
+
+.scale-on-hover:hover {
+    transform: scale(1.05);
+}
+
+/* Lift effect */
+.lift-on-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lift-on-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Border glow effect */
+.border-glow-hover {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.border-glow-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.border-glow-hover:hover::before {
+    opacity: 1;
+}
+
+/* Text highlight effects */
+.highlight-on-hover {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.highlight-on-hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.highlight-on-hover:hover {
+    color: var(--primary);
+}
+
+.highlight-on-hover:hover::after {
+    width: 100%;
+}
+
+/* Underline expand effect */
+.underline-expand {
+    position: relative;
+    text-decoration: none;
+}
+
+.underline-expand::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.underline-expand:hover::before {
+    width: 100%;
+}
+
+/* Button pulse effect */
+.pulse-on-hover {
+    transition: all 0.3s ease;
+}
+
+.pulse-on-hover:hover {
+    animation: pulse-effect 0.6s ease;
+}
+
+@keyframes pulse-effect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Rotate effect */
+.rotate-on-hover {
+    transition: transform 0.3s ease;
+}
+
+.rotate-on-hover:hover {
+    transform: rotate(5deg);
+}
+
+/* Shake effect */
+.shake-on-hover:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Color transition effects */
+.color-transition {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Specific DANDYSHOES hover effects */
+
+/* Streaming links hover */
+.streaming-links a {
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.streaming-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 222, 89, 0.4);
+}
+
+/* Gallery items lightning hover */
+.gallery-item {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+/* Navigation links hover */
+.nav-links a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Social links hover effect */
+.social-links a {
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) rotate(10deg);
+    box-shadow: 0 8px 20px rgba(255, 222, 89, 0.3);
+}
+
+/* Platform logos hover */
+.platform-logo {
+    transition: all 0.3s ease;
+}
+
+.platform-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Tour date cards hover */
+.tour-date {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tour-date::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 222, 89, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.tour-date:hover::before {
+    left: 100%;
+}
+
+/* Form elements hover */
+.form-group input:hover,
+.form-group textarea:hover {
+    background-color: rgba(60, 60, 60, 0.9);
+    box-shadow: 0 0 15px rgba(255, 222, 89, 0.2);
+}
+
+/* Member images hover */
+.member-img {
+    transition: all 0.3s ease;
+}
+
+.member-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 222, 89, 0.5);
+}
+
+/* CTA button advanced hover */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Responsive hover effects */
+@media (max-width: 768px) {
+    /* Disable complex hovers on mobile for performance */
+    .hover-3d:hover {
+        transform: scale(1.03);
+    }
+    
+    .gallery-item:hover::before {
+        animation: lightning-pulse 3s infinite;
+    }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .hover-3d,
+    .scale-on-hover,
+    .lift-on-hover,
+    .rotate-on-hover {
+        transition: none;
+    }
+    
+    .hover-3d:hover,
+    .scale-on-hover:hover,
+    .lift-on-hover:hover,
+    .rotate-on-hover:hover {
+        transform: none;
+    }
+}
 
 /* ===== MOBILE ===== */
 
