@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-24T15:36:14.640Z
+ * Built on: 2025-05-24T15:45:44.716Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -276,7 +276,274 @@ header {
 
 
 /* ===== MUSIC ===== */
+/* DANDYSHOES - Music Section */
+.music-section {
+    background-color: rgba(30, 30, 30, 1);
+}
 
+.latest-release {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.release-art {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-bottom: 1rem;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.release-art img, 
+.release-art video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Conteneur adapté pour la vidéo YouTube 16:9 */
+.release-art.video-container {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    margin: 0 auto 2rem;
+    background: transparent;
+    border-radius: 15px;
+    overflow: visible;
+    aspect-ratio: 16/9;
+}
+
+.youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 0 2px var(--primary),
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 222, 89, 0.3);
+    transition: all 0.3s ease;
+}
+
+.video-container:hover iframe {
+    box-shadow: 
+        0 0 0 2px var(--primary),
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(255, 222, 89, 0.5);
+    transform: translateY(-2px);
+}
+
+.release-info {
+    text-align: center;
+}
+
+.release-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    letter-spacing: 1px;
+}
+
+.release-type {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.release-announcement {
+    color: #ff3c3c;
+    font-weight: bold;
+    margin-top: 10px;
+    animation: pulse 2s infinite;
+}
+
+.streaming-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.streaming-links a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.streaming-links a:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary);
+}
+
+.streaming-links svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--light);
+    transition: fill 0.3s ease;
+}
+
+.streaming-links a:hover svg {
+    fill: var(--dark);
+}
+
+/* Discography */
+.discography {
+    margin-top: 3rem;
+}
+
+.discography .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.discography .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Spotify link styling */
+.spotify-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.spotify-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 215, 96, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+}
+
+.spotify-link:hover .spotify-overlay {
+    opacity: 1;
+}
+
+.spotify-icon {
+    width: 40px;
+    height: 40px;
+    fill: white;
+    margin-bottom: 10px;
+}
+
+.spotify-overlay span {
+    color: white;
+    font-weight: bold;
+}
+
+/* Coming Soon overlay */
+.coming-soon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 60, 60, 0.3), rgba(255, 222, 89, 0.3));
+    border-radius: 4px;
+}
+
+.coming-soon-overlay span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.coming-soon {
+    position: relative;
+    overflow: hidden;
+    animation: pulse-border 2s infinite;
+}
+
+/* Responsive music section */
+@media screen and (min-width: 993px) {
+    .release-art.video-container {
+        width: 700px;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .latest-release {
+        flex-direction: column;
+    }
+    
+    .release-art, .release-info {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .release-art.video-container {
+        width: 90%;
+        max-width: 600px;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .release-title {
+        font-size: 2rem;
+    }
+    
+    .release-art.video-container {
+        max-width: 90%;
+        aspect-ratio: 16/9;
+        border-radius: 8px;
+    }
+    
+    .streaming-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .release-art.video-container {
+        max-width: 90%;
+        aspect-ratio: 16/9;
+        border-radius: 8px;
+    }
+    
+    .streaming-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
 
 /* ===== ABOUT ===== */
 
