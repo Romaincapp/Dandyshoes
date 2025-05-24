@@ -1,0 +1,61 @@
+/* DANDYSHOES - Buttons Components */
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--primary);
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-top: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(255, 222, 89, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(255, 222, 89, 0.5);
+}
+
+.cta-button:active {
+    transform: translateY(-2px);
+}
+
+/* Video CTA Button */
+.video-cta {
+    display: inline-flex;
+    align-items: center;
+    background: #ff3c3c;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(255, 60, 60, 0.4);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.video-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 60, 60, 0.6);
+    background: #fff;
+    color: #ff3c3c;
+    border: 2px solid #ff3c3c;
+}
+
+.video-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 60, 60, 0.4);
+}
+
+/* Video icon dans le bouton */
+.video-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: currentColor;
+}
