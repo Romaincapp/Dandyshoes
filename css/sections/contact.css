@@ -247,8 +247,7 @@
 /* DEBUG : Optionnel - Pour voir où est l'input */
 .checkbox-label input[type="checkbox"] {
     background: red !important;
-    opacity: 0.3 !important;
-}
+    }
 
 /* BOUTON D'ENVOI - Position parfaite */
 .contact-form .submit-btn {
