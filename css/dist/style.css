@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-24T19:35:58.842Z
+ * Built on: 2025-05-24T21:03:35.270Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -1177,11 +1177,15 @@ footer {
 /* ===== CONTACT ===== */
 /* DANDYSHOES - Contact Section Enhanced - Solution SÛRE */
 
+/* FORMULAIRE CONTACT - ESPACEMENTS HARMONIEUX ET BIEN RÉPARTIS */
+
+/* Section contact - Padding équilibré */
 .contact-section {
     background-color: rgba(30, 30, 30, 1);
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    padding: 5rem 2rem 6rem 2rem; /* Plus d'espace en bas */
 }
 
 /* Background effect */
@@ -1200,20 +1204,42 @@ footer {
 .contact-section > .container {
     position: relative;
     z-index: 1;
+    max-width: 800px; /* Légèrement plus large */
+    margin: 0 auto;
 }
 
-/* FORMULAIRE PRINCIPAL - SANS FLEXBOX */
+/* Titre - Espacement harmonieux */
+.contact-section .section-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 4rem; /* Plus d'espace sous le titre */
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* FORMULAIRE PRINCIPAL - Proportions équilibrées */
 .contact-form {
-    max-width: 600px;
+    max-width: 650px; /* Légèrement plus large */
     margin: 0 auto;
     position: relative;
-    /* PAS de flexbox pour éviter les conflits */
+    padding: 3rem 2.5rem; /* Padding interne pour aérer */
+    background: rgba(20, 20, 20, 0.3); /* Fond léger pour délimiter */
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* GROUPES DE CHAMPS */
+/* GROUPES DE CHAMPS - Espacement uniforme */
 .form-group {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem; /* Espacement généreux entre les champs */
+}
+
+/* Dernier champ (message) - Moins d'espace en bas */
+.form-group:last-of-type {
+    margin-bottom: 1.5rem;
 }
 
 /* Labels flottants */
@@ -1244,11 +1270,11 @@ footer {
     transform: scale(0.9);
 }
 
-/* Champs de formulaire */
+/* Champs de formulaire - Taille confortable */
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1.2rem;
+    padding: 1.3rem 1.2rem; /* Padding légèrement plus généreux */
     background-color: rgba(50, 50, 50, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -1295,28 +1321,29 @@ footer {
     75% { transform: translateX(5px); }
 }
 
-/* Textarea spécifique */
+/* Textarea - Hauteur confortable */
 .form-group textarea {
-    min-height: 150px;
+    min-height: 160px; /* Un peu plus haut */
     resize: vertical;
     font-family: inherit;
     line-height: 1.6;
 }
 
-/* CHECKBOX RGPD - VERSION SIMPLE ET FONCTIONNELLE */
+/* CHECKBOX RGPD - Espacement parfait */
 .contact-form .checkbox-group {
-    margin: 2rem 0 1rem 0;
+    margin: 2rem 0 2rem 0; /* Espacement équilibré */
     text-align: left;
     position: relative;
     z-index: 10;
+    padding: 1rem 0; /* Padding pour éviter les coupures */
 }
 
 .checkbox-label {
     display: flex;
     align-items: flex-start;
-    gap: 0.8rem;
+    gap: 1rem; /* Plus d'espace entre checkbox et texte */
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem; /* Légèrement plus grand */
     line-height: 1.5;
     text-align: left;
     padding: 0;
@@ -1333,13 +1360,13 @@ footer {
     opacity: 0.9;
 }
 
-/* SOLUTION SIMPLE : L'input reste au-dessus de tout */
+/* Input checkbox */
 .checkbox-label input[type="checkbox"] {
     position: absolute;
     top: 2px;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 22px; /* Légèrement plus grand */
+    height: 22px;
     margin: 0;
     cursor: pointer;
     opacity: 0;
@@ -1347,8 +1374,8 @@ footer {
 }
 
 .checkmark {
-    width: 20px;
-    height: 20px;
+    width: 22px; /* Légèrement plus grand */
+    height: 22px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 4px;
     display: flex;
@@ -1372,7 +1399,7 @@ footer {
     content: '✓';
     color: var(--dark);
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px; /* Un peu plus grand */
     animation: checkmark-pop 0.3s ease;
 }
 
@@ -1395,27 +1422,23 @@ footer {
 }
 
 /* DEBUG : Optionnel - Pour voir où est l'input */
-
 .checkbox-label input[type="checkbox"] {
     background: red !important;
     opacity: 0.3 !important;
 }
 
-/* BOUTON D'ENVOI - SOLUTION SÛRE SANS FLEXBOX */
+/* BOUTON D'ENVOI - Position parfaite */
 .contact-form .submit-btn {
-    /* Réinitialiser toutes les propriétés de positionnement */
     position: static;
     top: auto;
     bottom: auto;
     left: auto;
     right: auto;
     
-    /* Forcer l'affichage en bloc normal */
     display: block;
-    margin: 2rem auto 0 auto; /* Centré avec marge du haut */
+    margin: 3rem auto 0 auto; /* Plus d'espace au-dessus */
     
-    /* Styles du bouton */
-    padding: 1.2rem 3rem;
+    padding: 1.3rem 4rem; /* Plus généreux */
     background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
     color: var(--dark);
     border: none;
@@ -1429,23 +1452,10 @@ footer {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(255, 222, 89, 0.3);
     
-    /* Largeur adaptative */
     width: auto;
     max-width: 100%;
-    
-    /* S'assurer qu'il apparaît après la checkbox */
     clear: both;
-}
-
-/* SOLUTION ALTERNATIVE : Forcer l'ordre avec CSS float/clear si nécessaire */
-.contact-form .checkbox-group {
-    float: none;
-    clear: both;
-}
-
-.contact-form .submit-btn {
-    float: none;
-    clear: both;
+    z-index: 1;
 }
 
 .submit-btn::before {
@@ -1478,18 +1488,6 @@ footer {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
-}
-
-/* CORRECTION SPÉCIFIQUE pour éviter les débordements de titre */
-.contact-section .section-title {
-    /* S'assurer que le titre ne déborde pas */
-    display: block;
-    position: static;
-    width: auto;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
 /* Spinner de chargement */
@@ -1702,18 +1700,28 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    .contact-section {
+        padding: 4rem 1rem 5rem 1rem;
+    }
+    
+    .contact-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
     .contact-form {
-        padding: 20px;
-        margin: 0 20px;
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+        max-width: 90%;
     }
     
     .form-group {
-        margin-bottom: 1.8rem;
+        margin-bottom: 2rem;
     }
     
     .form-group input,
     .form-group textarea {
-        padding: 1rem;
+        padding: 1.1rem;
         font-size: 0.95rem;
     }
     
@@ -1723,14 +1731,23 @@ footer {
     
     .contact-form .submit-btn {
         width: 100%;
-        padding: 1.1rem;
+        padding: 1.2rem;
         font-size: 0.95rem;
-        letter-spacing: 1px;
-        margin: 2rem 0 0 0; /* Pleine largeur sur mobile */
+        margin: 2.5rem 0 0 0;
+    }
+    
+    .checkbox-label {
+        font-size: 0.9rem;
+        gap: 0.8rem;
+    }
+    
+    .checkbox-label input[type="checkbox"],
+    .checkmark {
+        width: 20px;
+        height: 20px;
     }
     
     .contact-grid {
-        grid-template-columns: 1fr;
         gap: 1.5rem;
         margin-top: 2rem;
     }
@@ -1741,16 +1758,6 @@ footer {
     
     .contact-card h3 {
         font-size: 1.1rem;
-    }
-    
-    .checkbox-label {
-        font-size: 0.85rem;
-        gap: 0.6rem;
-    }
-    
-    .checkmark {
-        width: 18px;
-        height: 18px;
     }
     
     .notification {
@@ -1781,11 +1788,16 @@ footer {
 
 @media (max-width: 576px) {
     .contact-section {
-        padding: 3rem 1rem;
+        padding: 3rem 0.5rem 4rem 0.5rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
     }
     
     .form-group {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.8rem;
     }
     
     .form-group input,
@@ -1800,8 +1812,8 @@ footer {
     
     .contact-form .submit-btn {
         font-size: 0.9rem;
-        padding: 1rem;
-        letter-spacing: 1px;
+        padding: 1.1rem;
+        margin: 2rem 0 0 0;
     }
     
     .contact-card {
