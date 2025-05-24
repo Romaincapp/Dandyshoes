@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-24T18:56:50.601Z
+ * Built on: 2025-05-24T19:04:56.371Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -1175,8 +1175,7 @@ footer {
 }
 
 /* ===== CONTACT ===== */
-/* css/sections/contact.css - Version améliorée */
-/* DANDYSHOES - Contact Section Enhanced */
+/* DANDYSHOES - Contact Section Enhanced - Solution SÛRE */
 
 .contact-section {
     background-color: rgba(30, 30, 30, 1);
@@ -1203,18 +1202,21 @@ footer {
     z-index: 1;
 }
 
+/* FORMULAIRE PRINCIPAL - SANS FLEXBOX */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
     position: relative;
+    /* PAS de flexbox pour éviter les conflits */
 }
 
-/* Labels flottants */
+/* GROUPES DE CHAMPS */
 .form-group {
     position: relative;
     margin-bottom: 2rem;
 }
 
+/* Labels flottants */
 .form-group label {
     position: absolute;
     top: 1rem;
@@ -1242,7 +1244,7 @@ footer {
     transform: scale(0.9);
 }
 
-/* Champs de formulaire améliorés */
+/* Champs de formulaire */
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -1301,10 +1303,13 @@ footer {
     line-height: 1.6;
 }
 
-/* Checkbox RGPD */
-.checkbox-group {
-    margin: 2rem 0;
+/* CHECKBOX RGPD - SOLUTION SÛRE */
+.contact-form .checkbox-group {
+    margin: 2rem 0 1rem 0; /* Réduire la marge du bas */
     text-align: left;
+    position: relative;
+    /* Forcer l'apparition avant le bouton avec un z-index */
+    z-index: 10;
 }
 
 .checkbox-label {
@@ -1366,8 +1371,20 @@ footer {
     100% { transform: scale(1); }
 }
 
-/* Bouton d'envoi amélioré */
-.submit-btn {
+/* BOUTON D'ENVOI - SOLUTION SÛRE SANS FLEXBOX */
+.contact-form .submit-btn {
+    /* Réinitialiser toutes les propriétés de positionnement */
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    
+    /* Forcer l'affichage en bloc normal */
+    display: block;
+    margin: 2rem auto 0 auto; /* Centré avec marge du haut */
+    
+    /* Styles du bouton */
     padding: 1.2rem 3rem;
     background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
     color: var(--dark);
@@ -1379,9 +1396,26 @@ footer {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1rem;
-    position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(255, 222, 89, 0.3);
+    
+    /* Largeur adaptative */
+    width: auto;
+    max-width: 100%;
+    
+    /* S'assurer qu'il apparaît après la checkbox */
+    clear: both;
+}
+
+/* SOLUTION ALTERNATIVE : Forcer l'ordre avec CSS float/clear si nécessaire */
+.contact-form .checkbox-group {
+    float: none;
+    clear: both;
+}
+
+.contact-form .submit-btn {
+    float: none;
+    clear: both;
 }
 
 .submit-btn::before {
@@ -1416,6 +1450,18 @@ footer {
     transform: none;
 }
 
+/* CORRECTION SPÉCIFIQUE pour éviter les débordements de titre */
+.contact-section .section-title {
+    /* S'assurer que le titre ne déborde pas */
+    display: block;
+    position: static;
+    width: auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 /* Spinner de chargement */
 .loading-spinner {
     display: inline-block;
@@ -1432,7 +1478,7 @@ footer {
     to { transform: rotate(360deg); }
 }
 
-/* Grille d'informations de contact */
+/* GRILLE D'INFORMATIONS DE CONTACT */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1488,7 +1534,7 @@ footer {
     font-weight: 600;
 }
 
-/* Liens sociaux inline */
+/* LIENS SOCIAUX INLINE */
 .social-links-inline {
     display: flex;
     justify-content: center;
@@ -1546,7 +1592,7 @@ footer {
     transform: scale(1.1);
 }
 
-/* Notifications */
+/* NOTIFICATIONS */
 .notification {
     position: fixed;
     top: 20px;
@@ -1624,7 +1670,7 @@ footer {
     transform: scale(1.1);
 }
 
-/* Responsive Contact */
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     .contact-form {
         padding: 20px;
@@ -1645,11 +1691,12 @@ footer {
         font-size: 0.8rem;
     }
     
-    .submit-btn {
+    .contact-form .submit-btn {
         width: 100%;
         padding: 1.1rem;
         font-size: 0.95rem;
         letter-spacing: 1px;
+        margin: 2rem 0 0 0; /* Pleine largeur sur mobile */
     }
     
     .contact-grid {
@@ -1721,7 +1768,7 @@ footer {
         font-size: 0.75rem;
     }
     
-    .submit-btn {
+    .contact-form .submit-btn {
         font-size: 0.9rem;
         padding: 1rem;
         letter-spacing: 1px;
@@ -1739,87 +1786,6 @@ footer {
     .social-links-inline {
         gap: 0.8rem;
     }
-}
-/* Animation pour les notifications */
-@keyframes notification-slide-in {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes notification-slide-out {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-}
-/* Animation pour les notifications */
-@keyframes notification-fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@keyframes notification-fade-out {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-/* Animation pour les notifications */
-@keyframes notification-pop {
-    0% {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Correction pour l'ordre des éléments du formulaire */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Checkbox RGPD - Position forcée avant le bouton */
-.checkbox-group {
-    margin: 2rem 0;
-    text-align: left;
-    order: 10; /* Force la position avant le bouton */
-    position: relative;
-    z-index: 1;
-}
-
-/* Bouton - Position forcée APRÈS la checkbox */
-.submit-btn {
-    order: 20; /* Force la position après la checkbox */
-    margin-top: 2rem;
-    align-self: center;
-    width: auto;
-    /* Éviter les conflits de positionnement */
-    position: relative !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
 }
 
 /* ===== VIDEO ===== */
