@@ -1,0 +1,115 @@
+/* DANDYSHOES - Gallery Section */
+.gallery-section {
+    background-color: var(--dark);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1/1; /* Force le ratio carré */
+    transition: all 0.3s ease;
+    z-index: 1;
+    width: 100%; /* S'assure que l'élément prend toute la largeur */
+    height: 0; /* La hauteur sera définie par l'aspect-ratio */
+    padding-bottom: 100%; /* Alternative à aspect-ratio pour une meilleure compatibilité */
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Effets Lightning spectaculaires ! */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 222, 89, 0),
+        rgba(255, 222, 89, 0),
+        rgba(255, 222, 89, 0)
+    );
+    z-index: -1;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: opacity 0.2s ease;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    z-index: 2;
+    animation: lightning-glare 6s infinite;
+}
+
+.gallery-item:hover::before {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 222, 89, 0.4),
+        rgba(255, 222, 89, 0.1) 30%,
+        rgba(255, 222, 89, 0) 70%
+    );
+    animation: lightning-pulse 2s infinite;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Animated borders */
+.animated-border {
+    position: relative;
+}
+
+/* Responsive Gallery */
+@media screen and (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .gallery-item:hover::before {
+        animation: lightning-pulse 3s infinite;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+}
