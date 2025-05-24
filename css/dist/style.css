@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-24T15:32:55.622Z
+ * Built on: 2025-05-24T15:36:14.640Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -10,7 +10,13 @@
 
 
 /* ===== VARIABLES ===== */
-
+/* DANDYSHOES - CSS Variables */
+:root {
+    --primary: #ffde59;
+    --dark: #121212;
+    --light: #f5f5f5;
+    --accent: #ff3e3e;
+}
 
 /* ===== RESET ===== */
 
