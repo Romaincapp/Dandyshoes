@@ -1,0 +1,27 @@
+{
+  "name": "dandyshoes-website",
+  "version": "1.0.0",
+  "description": "Belgian Rock'n'Roll Band Website - CSS Build System",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "node build-css.js",
+    "watch:css": "node build-css.js --watch",
+    "dev": "npm run watch:css",
+    "build": "npm run build:css",
+    "clean": "Remove-Item -Recurse -Force css/dist -ErrorAction SilentlyContinue"
+  },
+  "keywords": [
+    "dandyshoes",
+    "rock",
+    "belgium",
+    "charleroi",
+    "css",
+    "build"
+  ],
+  "author": "DANDYSHOES",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar": "^3.6.0",
+    "clean-css": "^5.3.3"
+  }
+}
