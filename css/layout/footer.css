@@ -1,0 +1,92 @@
+/* DANDYSHOES - Footer */
+footer {
+    background-color: rgba(20, 20, 20, 1);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary);
+}
+
+.social-links svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--light);
+    transition: fill 0.3s ease;
+}
+
+.social-links a:hover svg {
+    fill: var(--dark);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--primary);
+}
+
+.copyright {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .footer-nav a {
+        margin: 5px 10px;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+}

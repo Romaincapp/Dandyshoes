@@ -1,0 +1,62 @@
+/* DANDYSHOES - Cards Components */
+
+.glass-card {
+    background: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Neomorphic Elements */
+.neomorph {
+    border-radius: 20px;
+    background: linear-gradient(145deg, #1c1c1c, #181818);
+    box-shadow: 8px 8px 16px #121212, -8px -8px 16px #242424;
+}
+
+/* 3D Hover Effect */
+.hover-3d {
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+    transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+}
+
+/* Static border for certain elements */
+.static-border {
+    border: 2px solid rgba(255, 222, 89, 0.3);
+    border-radius: 8px;
+}
+
+/* Video container specific styles */
+.video-container {
+    position: relative;
+    overflow: visible;
+}
+
+/* Coming soon card */
+.coming-soon {
+    position: relative;
+    overflow: hidden;
+    animation: pulse-border 2s infinite;
+}
+
+/* Spotify link specific styling */
+.spotify-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.spotify-link:hover {
+    transform: scale(1.02);
+}
