@@ -70,10 +70,9 @@
     }
     
     .header-content h1.logo {
-        font-size: 2rem;
+        font-size: 1.5rem;
         max-width: 100%;
-        text-align: center;
-        overflow-wrap: break-word;
+        text-align: center; 
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     }
     
