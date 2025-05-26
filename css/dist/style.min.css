@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-24T22:06:47.308Z
+ * Built on: 2025-05-26T17:44:47.902Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -363,37 +363,7 @@ header {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Responsive header */
-@media screen and (max-width: 768px) {
-    .parallax-image {
-        object-position: center center;
-        transform: translateZ(-1px) scale(1.5);
-    }
-    
-    .header-content {
-        padding-top: 20vh;
-    }
-    
-    .header-content h1 {
-        font-size: 3.5rem;
-        text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-    }
-    
-    .tagline {
-        font-size: 1.2rem;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-}
 
-@media screen and (max-width: 480px) {
-    .header-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .header-content {
-        padding-top: 15vh;
-    }
-}
 
 /* ===== FOOTER ===== */
 /* DANDYSHOES - Footer */
@@ -3564,7 +3534,7 @@ body.modal-open {
     }
     
     .header-content h1.logo {
-        font-size: 2.8rem;
+        font-size: 2rem;
         max-width: 100%;
         text-align: center;
         overflow-wrap: break-word;
@@ -3717,6 +3687,15 @@ body.modal-open {
     .video-promo-text {
         font-size: 1rem;
     }
+    .header-content h1.logo {
+    font-size: 2.5rem; /* Réduction de la taille pour les très petits écrans */
+    max-width: 90%; /* Limitation de la largeur du texte */
+    margin: 0 auto; /* Centrage horizontal */
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word; /* Évite les débordements */
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
     
     /* Platform logos mobile */
     .platform-logo {
@@ -3731,6 +3710,7 @@ body.modal-open {
         animation: scroll 20s linear infinite;
     }
 }
+
 
 /* ===== TABLET ===== */
 /* DANDYSHOES - Tablet Responsive (768px to 992px) */
