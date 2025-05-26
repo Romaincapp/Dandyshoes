@@ -70,7 +70,7 @@
     }
     
     .header-content h1.logo {
-        font-size: 2.8rem;
+        font-size: 2.8 rem;
         max-width: 100%;
         text-align: center;
         overflow-wrap: break-word;
@@ -222,6 +222,15 @@
     
     .video-promo-text {
         font-size: 1rem;
+    }
+    .header-content h1.logo {
+    font-size: 2.5rem; /* Réduction de la taille pour les très petits écrans */
+    max-width: 90%; /* Limitation de la largeur du texte */
+    margin: 0 auto; /* Centrage horizontal */
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word; /* Évite les débordements */
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     }
     
     /* Platform logos mobile */
