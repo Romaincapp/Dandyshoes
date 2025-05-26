@@ -359,9 +359,9 @@ document.addEventListener('DOMContentLoaded', function() {
             hiddenContent.classList.toggle('visible');
             
             if (hiddenContent.classList.contains('visible')) {
-                readMoreBtn.textContent = 'Voir moins';
+                readMoreBtn.textContent = 'Read more';
             } else {
-                readMoreBtn.textContent = 'Voir plus';
+                readMoreBtn.textContent = 'Show less';
                 
                 // Scroll back to the about section if needed
                 const aboutSection = document.getElementById('about');
