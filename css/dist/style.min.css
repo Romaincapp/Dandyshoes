@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-26T17:54:27.513Z
+ * Built on: 2025-05-26T18:09:09.113Z
  * Files combined: 22
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -3707,7 +3707,376 @@ body.modal-open {
         animation: scroll 20s linear infinite;
     }
 }
+/* DANDYSHOES - Mobile Responsive CTA Buttons (max-width: 768px) */
 
+@media (max-width: 768px) {
+    /* CTA Principal - Optimisé mobile */
+    .cta-button {
+        display: block;
+        width: 90%;
+        max-width: 280px;
+        margin: 1.5rem auto;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 40px;
+        transition: all 0.2s ease;
+        letter-spacing: 1px;
+        font-size: 0.95rem;
+        box-shadow: 0 4px 15px rgba(255, 222, 89, 0.3);
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        /* Optimisation tactile */
+        -webkit-tap-highlight-color: rgba(255, 222, 89, 0.3);
+        touch-action: manipulation;
+        user-select: none;
+        min-height: 48px; /* Taille minimum pour les doigts */
+    }
+
+    .cta-button:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 10px rgba(255, 222, 89, 0.4);
+        background: linear-gradient(135deg, #ffea8c 0%, var(--primary) 100%);
+    }
+
+    /* Bouton vidéo mobile */
+    .video-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 260px;
+        margin: 1rem auto;
+        background: linear-gradient(135deg, #ff3c3c 0%, #ff5555 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 35px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(255, 60, 60, 0.4);
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        /* Optimisation tactile */
+        -webkit-tap-highlight-color: rgba(255, 60, 60, 0.3);
+        touch-action: manipulation;
+        user-select: none;
+        min-height: 48px;
+    }
+
+    .video-cta:active {
+        transform: scale(0.97);
+        box-shadow: 0 2px 8px rgba(255, 60, 60, 0.5);
+        background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+        color: #ff3c3c;
+        border: 2px solid #ff3c3c;
+    }
+
+    /* Icône vidéo mobile */
+    .video-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        fill: currentColor;
+        flex-shrink: 0;
+    }
+
+    /* Boutons de tickets mobile */
+    .tickets-btn {
+        width: 100%;
+        max-width: 200px;
+        padding: 0.8rem 1.5rem;
+        background: linear-gradient(135deg, transparent 0%, rgba(255, 222, 89, 0.1) 100%);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: 40px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        margin: 1rem auto 0 auto;
+        /* Optimisation tactile */
+        -webkit-tap-highlight-color: rgba(255, 222, 89, 0.3);
+        touch-action: manipulation;
+        user-select: none;
+        min-height: 44px;
+    }
+
+    .tickets-btn:active {
+        background: var(--primary);
+        color: var(--dark);
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(255, 222, 89, 0.3);
+    }
+
+    /* Bouton Read More mobile */
+    .read-more-btn {
+        background: linear-gradient(135deg, transparent 0%, rgba(255, 222, 89, 0.1) 100%);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        margin: 1rem auto;
+        transition: all 0.2s ease;
+        display: block;
+        width: fit-content;
+        min-width: 130px;
+        text-align: center;
+        /* Optimisation tactile */
+        -webkit-tap-highlight-color: rgba(255, 222, 89, 0.3);
+        touch-action: manipulation;
+        user-select: none;
+        min-height: 44px;
+    }
+
+    .read-more-btn:active {
+        background: var(--primary);
+        color: var(--dark);
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(255, 222, 89, 0.3);
+    }
+
+    /* Bouton de soumission mobile */
+    .submit-btn {
+        position: static;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem 0 0 0;
+        padding: 1.2rem 2rem;
+        background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+        color: var(--dark);
+        border: none;
+        border-radius: 40px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+        box-shadow: 0 4px 15px rgba(255, 222, 89, 0.3);
+        text-align: center;
+        /* Optimisation tactile */
+        -webkit-tap-highlight-color: rgba(255, 222, 89, 0.3);
+        touch-action: manipulation;
+        user-select: none;
+        min-height: 52px; /* Plus haut pour le bouton principal */
+    }
+
+    .submit-btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 10px rgba(255, 222, 89, 0.4);
+        background: linear-gradient(135deg, #ffea8c 0%, var(--primary) 100%);
+    }
+
+    /* États de focus pour l'accessibilité mobile */
+    .cta-button:focus,
+    .video-cta:focus,
+    .tickets-btn:focus,
+    .read-more-btn:focus,
+    .submit-btn:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+
+    /* Conteneurs de boutons mobile */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .streaming-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    /* Tour dates - boutons adaptés */
+    .tour-date {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        padding: 1.2rem;
+    }
+
+    .date-location {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        text-align: left;
+    }
+
+    /* Espacement des sections avec boutons */
+    .platforms-container {
+        margin-top: 2rem;
+    }
+
+    .latest-release .streaming-links {
+        margin-top: 2rem;
+    }
+}
+
+/* Très petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+    .cta-button {
+        width: 95%;
+        max-width: 260px;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.9rem;
+        margin: 1.2rem auto;
+    }
+
+    .video-cta {
+        width: 95%;
+        max-width: 240px;
+        padding: 11px 20px;
+        font-size: 0.85rem;
+    }
+
+    .tickets-btn {
+        max-width: 180px;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .read-more-btn {
+        padding: 9px 18px;
+        font-size: 0.8rem;
+        min-width: 120px;
+    }
+
+    .submit-btn {
+        padding: 1.1rem 1.8rem;
+        font-size: 0.9rem;
+        margin: 1.8rem 0 0 0;
+    }
+
+    /* Ajustements des conteneurs */
+    .hero-buttons {
+        padding: 0 0.5rem;
+    }
+
+    .streaming-links {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Très petits écrans (max-width: 375px) */
+@media (max-width: 375px) {
+    .cta-button {
+        width: 100%;
+        max-width: 240px;
+        padding: 0.85rem 1.3rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+
+    .video-cta {
+        width: 100%;
+        max-width: 220px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+
+    .video-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+
+    .tickets-btn {
+        max-width: 160px;
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .read-more-btn {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+        min-width: 110px;
+    }
+
+    .submit-btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Optimisations spécifiques iOS */
+@supports (-webkit-touch-callout: none) {
+    .cta-button,
+    .video-cta,
+    .tickets-btn,
+    .read-more-btn,
+    .submit-btn {
+        -webkit-appearance: none;
+        appearance: none; /* Standard property for broader compatibility */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none; /* Standard property for broader compatibility */
+    }
+
+    /* Évite le zoom sur les inputs */
+    .submit-btn {
+        font-size: 16px;
+    }
+}
+
+/* Animation de feedback tactile */
+@keyframes mobile-tap {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+
+/* États désactivés pour mobile */
+.cta-button:disabled,
+.video-cta:disabled,
+.tickets-btn:disabled,
+.read-more-btn:disabled,
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    pointer-events: none;
+}
+
+/* Amélioration de la lisibilité sur petits écrans */
+@media (max-width: 768px) and (max-height: 600px) {
+    /* Écrans courts - réduction des marges */
+    .cta-button {
+        margin: 1rem auto;
+    }
+
+    .submit-btn {
+        margin: 1.5rem 0 0 0;
+    }
+
+    .hero-buttons {
+        gap: 0.8rem;
+    }
+}
 
 /* ===== TABLET ===== */
 /* DANDYSHOES - Tablet Responsive (768px to 992px) */
