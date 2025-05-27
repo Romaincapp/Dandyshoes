@@ -2,7 +2,7 @@
 
 // Configuration
 const PRO_CONFIG = {
-    password: "dandyrock2025", // ⚠️ À CHANGER pour plus de sécurité !
+    password: "dandyrock2025", 
     sessionDuration: 4 * 60 * 60 * 1000, // 4 heures en millisecondes
     storageKey: 'dandyshoes_pro_access'
 };
