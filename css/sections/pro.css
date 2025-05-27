@@ -1,3 +1,223 @@
+    /* Styles spécifiques pour la page Pro */
+        .pro-section {
+            background-color: rgba(20, 20, 20, 1);
+            padding: 6rem 2rem;
+        }
+        
+        .pro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pro-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 222, 89, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 222, 89, 0.2);
+        }
+        
+        .pro-card h3 {
+            color: var(--primary);
+            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tech-specs table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .tech-specs th,
+        .tech-specs td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-specs th {
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(255, 222, 89, 0.1);
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info strong {
+            color: var(--primary);
+            min-width: 100px;
+        }
+        
+        .rider-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rider-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .rider-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 222, 89, 0.4);
+        }
+        
+        .emergency-contact {
+            background: linear-gradient(145deg, rgba(255, 60, 60, 0.1), rgba(255, 222, 89, 0.1));
+            border: 2px solid rgba(255, 60, 60, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .emergency-contact h4 {
+            color: #ff3c3c;
+            margin-bottom: 1rem;
+            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+        }
+        
+        /* Protection par mot de passe */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .password-form {
+            background: rgba(30, 30, 30, 0.9);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .password-form h2 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(50, 50, 50, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(255, 222, 89, 0.3);
+        }
+        
+        .password-submit {
+            background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 222, 89, 0.4);
+        }
+        
+        .error-message {
+            color: #ff3c3c;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .pro-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pro-card {
+                padding: 1.5rem;
+            }
+            
+            .tech-specs th,
+            .tech-specs td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+         }
+            
+            .password-form {
+                padding: 2rem;
+                margin: 1rem;
+            }
+        }
+   
+
 /* pro.css - Styles spécifiques pour la page Pro DANDYSHOES */
 
 /* ==========================================================================
@@ -676,222 +896,4 @@
         padding: 1.5rem;
     }
 }
-        /* Styles spécifiques pour la page Pro */
-        .pro-section {
-            background-color: rgba(20, 20, 20, 1);
-            padding: 6rem 2rem;
-        }
-        
-        .pro-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .pro-card {
-            background: rgba(30, 30, 30, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 222, 89, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .pro-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 222, 89, 0.2);
-        }
-        
-        .pro-card h3 {
-            color: var(--primary);
-            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .tech-specs table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        
-        .tech-specs th,
-        .tech-specs td {
-            padding: 0.8rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .tech-specs th {
-            color: var(--primary);
-            font-weight: 600;
-            background: rgba(255, 222, 89, 0.1);
-        }
-        
-        .contact-info p {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .contact-info strong {
-            color: var(--primary);
-            min-width: 100px;
-        }
-        
-        .rider-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .rider-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .rider-list li::before {
-            content: "•";
-            color: var(--primary);
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
-            color: var(--dark);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 222, 89, 0.4);
-        }
-        
-        .emergency-contact {
-            background: linear-gradient(145deg, rgba(255, 60, 60, 0.1), rgba(255, 222, 89, 0.1));
-            border: 2px solid rgba(255, 60, 60, 0.3);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-        
-        .emergency-contact h4 {
-            color: #ff3c3c;
-            margin-bottom: 1rem;
-            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
-        }
-        
-        /* Protection par mot de passe */
-        .password-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(18, 18, 18, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        
-        .password-form {
-            background: rgba(30, 30, 30, 0.9);
-            border: 2px solid var(--primary);
-            border-radius: 15px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        
-        .password-form h2 {
-            color: var(--primary);
-            margin-bottom: 2rem;
-            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
-        }
-        
-        .password-input {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(50, 50, 50, 0.8);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: var(--light);
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            text-align: center;
-        }
-        
-        .password-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(255, 222, 89, 0.3);
-        }
-        
-        .password-submit {
-            background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
-            color: var(--dark);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .password-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 222, 89, 0.4);
-        }
-        
-        .error-message {
-            color: #ff3c3c;
-            margin-top: 1rem;
-            display: none;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .pro-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .pro-card {
-                padding: 1.5rem;
-            }
-            
-            .tech-specs th,
-            .tech-specs td {
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .password-form {
-                padding: 2rem;
-                margin: 1rem;
-            }
-        }
-   
+    
