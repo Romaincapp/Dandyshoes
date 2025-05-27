@@ -2,8 +2,8 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-27T18:55:55.991Z
- * Files combined: 22
+ * Built on: 2025-05-27T19:00:29.045Z
+ * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
  */
@@ -2596,6 +2596,686 @@ slider-arrow:hover svg {
 .nav-links a.active {
     color: var(--primary);
     border-bottom: 2px solid var(--primary);
+}
+
+/* ===== PRO ===== */
+/* pro.css - Styles spécifiques pour la page Pro DANDYSHOES */
+
+/* ==========================================================================
+   PROTECTION PAR MOT DE PASSE
+   ========================================================================== */
+
+.password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 0.98));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    animation: fadeInOverlay 0.5s ease;
+}
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.password-form {
+    background: rgba(30, 30, 30, 0.95);
+    border: 2px solid var(--primary);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 222, 89, 0.2);
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.password-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 222, 89, 0.03), transparent);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.password-form h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(255, 222, 89, 0.5);
+}
+
+.password-form p {
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    font-size: 1rem;
+}
+
+.password-input {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(50, 50, 50, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 
+        0 0 20px rgba(255, 222, 89, 0.4),
+        inset 0 0 10px rgba(255, 222, 89, 0.1);
+    background: rgba(60, 60, 60, 0.9);
+}
+
+.password-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+.password-submit {
+    background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+    color: var(--dark);
+    padding: 1.2rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.password-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.password-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 222, 89, 0.5);
+}
+
+.password-submit:hover::before {
+    left: 100%;
+}
+
+.password-submit:active {
+    transform: translateY(-1px);
+}
+
+.error-message {
+    color: #ff3c3c;
+    margin-top: 1rem;
+    display: none;
+    font-weight: 600;
+    animation: slideInError 0.3s ease;
+}
+
+@keyframes slideInError {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL PRO
+   ========================================================================== */
+
+.pro-section {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 1) 0%, rgba(30, 30, 30, 1) 100%);
+    padding: 6rem 2rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+.pro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 222, 89, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 60, 60, 0.03) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.pro-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.pro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/* ==========================================================================
+   CARTES PRO
+   ========================================================================== */
+
+.pro-card {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(40, 40, 40, 0.7));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 222, 89, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pro-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), transparent, var(--primary));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.pro-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(255, 222, 89, 0.2);
+    border-color: rgba(255, 222, 89, 0.4);
+}
+
+.pro-card:hover::before {
+    transform: scaleX(1);
+}
+
+.pro-card h3 {
+    color: var(--primary);
+    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.pro-card h3::before {
+    content: attr(data-emoji);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 10px rgba(255, 222, 89, 0.5));
+}
+
+/* ==========================================================================
+   TABLEAUX TECHNIQUES
+   ========================================================================== */
+
+.tech-specs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tech-specs th,
+.tech-specs td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-specs th {
+    color: var(--primary);
+    font-weight: 700;
+    background: rgba(255, 222, 89, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.tech-specs td {
+    color: var(--light);
+    font-weight: 500;
+}
+
+.tech-specs tr:last-child th,
+.tech-specs tr:last-child td {
+    border-bottom: none;
+}
+
+.tech-specs tr:hover {
+    background: rgba(255, 222, 89, 0.05);
+}
+
+/* ==========================================================================
+   LISTES ET INFORMATIONS
+   ========================================================================== */
+
+.rider-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.rider-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    padding-left: 2rem;
+    transition: all 0.3s ease;
+}
+
+.rider-list li::before {
+    content: "⚡";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    font-size: 1rem;
+    filter: drop-shadow(0 0 5px rgba(255, 222, 89, 0.7));
+}
+
+.rider-list li:hover {
+    background: rgba(255, 222, 89, 0.05);
+    padding-left: 2.5rem;
+}
+
+.rider-list li:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   INFORMATIONS DE CONTACT
+   ========================================================================== */
+
+.contact-info p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.contact-info p:hover {
+    background: rgba(255, 222, 89, 0.05);
+}
+
+.contact-info strong {
+    color: var(--primary);
+    min-width: 120px;
+    font-weight: 600;
+}
+
+.contact-info a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffea8c;
+    text-shadow: 0 0 8px rgba(255, 222, 89, 0.5);
+}
+
+/* ==========================================================================
+   CONTACT D'URGENCE
+   ========================================================================== */
+
+.emergency-contact {
+    background: linear-gradient(145deg, rgba(255, 60, 60, 0.1), rgba(255, 222, 89, 0.1));
+    border: 2px solid rgba(255, 60, 60, 0.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.emergency-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff3c3c, var(--primary), #ff3c3c);
+    animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+@keyframes emergency-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.emergency-contact h4 {
+    color: #ff3c3c;
+    margin-bottom: 1rem;
+    font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.emergency-contact a {
+    color: #ff3c3c !important;
+    font-weight: 700;
+}
+
+.emergency-contact a:hover {
+    color: #ff6b6b !important;
+    text-shadow: 0 0 10px rgba(255, 60, 60, 0.7);
+}
+
+/* ==========================================================================
+   BOUTONS DE TÉLÉCHARGEMENT
+   ========================================================================== */
+
+.download-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+    color: var(--dark);
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 222, 89, 0.5);
+}
+
+.download-btn:hover::before {
+    left: 100%;
+}
+
+.download-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   PLAN DE SCÈNE ET PATCH LIST
+   ========================================================================== */
+
+.pro-card pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 222, 89, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    color: var(--light);
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.pro-card pre:hover {
+    border-color: rgba(255, 222, 89, 0.4);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   SETLIST ET NUMÉROTATION
+   ========================================================================== */
+
+.pro-card ol {
+    padding-left: 2rem;
+    color: var(--light);
+}
+
+.pro-card ol li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.pro-card ol li:hover {
+    background: rgba(255, 222, 89, 0.05);
+    padding-left: 0.5rem;
+    border-radius: 5px;
+}
+
+.pro-card ol li:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   SECTIONS SPÉCIALISÉES
+   ========================================================================== */
+
+.pro-card h4 {
+    color: var(--primary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.pro-card h4::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.8rem;
+    top: 2px;
+}
+
+/* Zones d'information avec style spécial */
+.pro-card > div[style*="background"] {
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.pro-card > div[style*="background"]:hover {
+    transform: translateX(5px);
+    box-shadow: -5px 0 15px rgba(255, 222, 89, 0.1);
+}
+
+/* ==========================================================================
+   FOOTER PRO
+   ========================================================================== */
+
+.pro-section .container > div:last-child {
+    background: rgba(20, 20, 20, 0.5);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+    color: var(--dark) !important;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 222, 89, 0.4);
+}
+
+.cta-button[style*="background: #ff3c3c"] {
+    background: linear-gradient(135deg, #ff3c3c 0%, #ff6b6b 100%) !important;
+    color: white !important;
+}
+
+/* ==========================================================================
+   UTILITAIRES
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+/* Animation pour l'erreur de mot de passe */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .pro-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .pro-card {
+        padding: 1.5rem;
+    }
+    
+    .pro-card h3 {
+        font-size: 1.3rem;
+        padding-left: 2.5rem;
+    }
+    
+    .tech-specs th,
+    .tech-specs td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .password-form {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .password-form h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-info strong {
+        min-width: 80px;
+        font-size: 0.9rem;
+    }
+    
+    .download-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .pro-card pre {
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pro-section {
+        padding: 4rem 1rem;
+    }
+    
+    .pro-card {
+        padding: 1rem;
+    }
+    
+    .contact-info p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .contact-info strong {
+        min-width: auto;
+    }
+    
+    .emergency-contact {
+        padding: 1rem;
+    }
+    
+    .password-form {
+        padding: 1.5rem;
+    }
 }
 
 /* ===== AUDIO PLAYER ===== */
