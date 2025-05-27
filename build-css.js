@@ -22,6 +22,7 @@ const CSS_FILES = [
     'css/sections/gallery.css',
     'css/sections/contact.css',
     'css/sections/video.css',
+    'css/sections/pro.css',
     
     // Components - Éléments réutilisables
     'css/components/audio-player.css',
