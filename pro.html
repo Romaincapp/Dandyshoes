@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DANDYSHOES - Professional Information - Belgian Rock'n'Roll Band">
+    <title>DANDYSHOES | Pro Area</title>
+    <link rel="stylesheet" href="pro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Styles spécifiques pour la page Pro */
+        .pro-section {
+            background-color: rgba(20, 20, 20, 1);
+            padding: 6rem 2rem;
+        }
+        
+        .pro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pro-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 222, 89, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 222, 89, 0.2);
+        }
+        
+        .pro-card h3 {
+            color: var(--primary);
+            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tech-specs table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .tech-specs th,
+        .tech-specs td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-specs th {
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(255, 222, 89, 0.1);
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info strong {
+            color: var(--primary);
+            min-width: 100px;
+        }
+        
+        .rider-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rider-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .rider-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 222, 89, 0.4);
+        }
+        
+        .emergency-contact {
+            background: linear-gradient(145deg, rgba(255, 60, 60, 0.1), rgba(255, 222, 89, 0.1));
+            border: 2px solid rgba(255, 60, 60, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .emergency-contact h4 {
+            color: #ff3c3c;
+            margin-bottom: 1rem;
+            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+        }
+        
+        /* Protection par mot de passe */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .password-form {
+            background: rgba(30, 30, 30, 0.9);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .password-form h2 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-family: 'Microgramma-D-Extended-Bold', sans-serif;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(50, 50, 50, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(255, 222, 89, 0.3);
+        }
+        
+        .password-submit {
+            background: linear-gradient(135deg, var(--primary) 0%, #ffea8c 100%);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 222, 89, 0.4);
+        }
+        
+        .error-message {
+            color: #ff3c3c;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .pro-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pro-card {
+                padding: 1.5rem;
+            }
+            
+            .tech-specs th,
+            .tech-specs td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .password-form {
+                padding: 2rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Protection par mot de passe -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-form">
+            <h2>🎸 PRO ACCESS</h2>
+            <p style="color: var(--light); margin-bottom: 2rem;">Accès réservé aux organisateurs et professionnels</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="Mot de passe">
+            <button class="password-submit" onclick="checkPassword()">Accéder</button>
+            <div class="error-message" id="errorMessage">Mot de passe incorrect</div>
+        </div>
+    </div>
+
+    <!-- Contenu principal (caché par défaut) -->
+    <div class="main-content hidden" id="mainContent">
+        <nav class="navbar">
+            <div class="nav-logo">DANDYSHOES</div>
+            
+            <!-- Mobile hamburger menu -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#music">Music</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#tour">Tour</a>
+                <a href="index.html#gallery">Gallery</a>
+                <a href="videos.html">Videos</a>
+                <a href="pro.html" class="active">Pro</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </nav>
+
+        <section class="pro-section">
+            <div class="container">
+                <h1 class="section-title">Professional Area</h1>
+                <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem; opacity: 0.8;">
+                    Informations techniques et pratiques pour les organisateurs et professionnels du spectacle
+                </p>
+
+                <div class="pro-grid">
+                    <!-- Fiche Technique -->
+                    <div class="pro-card tech-specs">
+                        <h3>🎛️ Fiche Technique</h3>
+                        <table>
+                            <tr>
+                                <th>Formation</th>
+                                <td>4 musiciens</td>
+                            </tr>
+                            <tr>
+                                <th>Style</th>
+                                <td>Rock'n'Roll / Blues Rock</td>
+                            </tr>
+                            <tr>
+                                <th>Durée concert</th>
+                                <td>45 min à 1h30 (modulable)</td>
+                            </tr>
+                            <tr>
+                                <th>Montage</th>
+                                <td>1h30 à 2h</td>
+                            </tr>
+                            <tr>
+                                <th>Balance</th>
+                                <td>30 min</td>
+                            </tr>
+                            <tr>
+                                <th>Démontage</th>
+                                <td>45 min</td>
+                            </tr>
+                            <tr>
+                                <th>Puissance requise</th>
+                                <td>16A/380V + 2x 16A/220V</td>
+                            </tr>
+                            <tr>
+                                <th>Espace scène</th>
+                                <td>6m x 4m minimum</td>
+                            </tr>
+                        </table>
+                        
+                        <h4 style="color: var(--primary); margin: 2rem 0 1rem 0;">Matériel fourni par le groupe :</h4>
+                        <ul class="rider-list">
+                            <li>2 guitares électriques + amplificateurs</li>
+                            <li>1 basse électrique + amplificateur</li>
+                            <li>Batterie acoustique complète</li>
+                            <li>Micros et pieds (chant et instruments)</li>
+                            <li>Câbles et pédales d'effets</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--primary); margin: 2rem 0 1rem 0;">Matériel requis (organisateur) :</h4>
+                        <ul class="rider-list">
+                            <li>Table de mixage 16 pistes minimum</li>
+                            <li>Système de diffusion adapté à la jauge</li>
+                            <li>4 retours de scène</li>
+                            <li>Éclairage scène (spots et ambiance)</li>
+                            <li>Technicien son/lumière</li>
+                        </ul>
+                        
+                        <button class="download-btn" onclick="downloadTechSheet()">
+                            📄 Télécharger la fiche complète
+                        </button>
+                    </div>
+
+                    <!-- Coordonnées Booking -->
+                    <div class="pro-card contact-info">
+                        <h3>📞 Contacts Booking</h3>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">Contact Principal :</h4>
+                            <p><strong>Nom :</strong> Allan Berger</p>
+                            <p><strong>Email :</strong> <a href="mailto:dandyshoes@hotmail.be" style="color: var(--primary);">dandyshoes@hotmail.be</a></p>
+                            <p><strong>Téléphone :</strong> <a href="tel:+32470123456" style="color: var(--primary);">+32 470 12 34 56</a></p>
+                            <p><strong>Rôle :</strong> Manager / Chanteur-Guitariste</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">Contact Technique :</h4>
+                            <p><strong>Nom :</strong> Romain Dumoulin</p>
+                            <p><strong>Email :</strong> <a href="mailto:romain.dandyshoes@gmail.com" style="color: var(--primary);">romain.dandyshoes@gmail.com</a></p>
+                            <p><strong>Téléphone :</strong> <a href="tel:+32485789123" style="color: var(--primary);">+32 485 78 91 23</a></p>
+                            <p><strong>Rôle :</strong> Batteur / Régisseur</p>
+                        </div>
+                        
+                        <div class="emergency-contact">
+                            <h4>🚨 Contact Urgence (Jour J)</h4>
+                            <p><strong>Allan :</strong> <a href="tel:+32470123456" style="color: #ff3c3c;">+32 470 12 34 56</a></p>
+                            <p><strong>Romain :</strong> <a href="tel:+32485789123" style="color: #ff3c3c;">+32 485 78 91 23</a></p>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
+                                Disponibles 24h/24 le jour du concert
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Catering & Hospitality -->
+                    <div class="pro-card">
+                        <h3>🍽️ Catering & Hospitality</h3>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Loge (4 personnes) :</h4>
+                        <ul class="rider-list">
+                            <li>Espace privé fermé et sécurisé</li>
+                            <li>Éclairage suffisant + miroir</li>
+                            <li>4 chaises + table</li>
+                            <li>Accès toilettes privées si possible</li>
+                            <li>Électricité (220V) pour matériel</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Restauration :</h4>
+                        <ul class="rider-list">
+                            <li><strong>Repas chaud</strong> 2h avant le concert</li>
+                            <li>4 portions (viande/poisson/végétarien)</li>
+                            <li>1 option végétarienne obligatoire</li>
+                            <li>Accompagnements : légumes, féculents</li>
+                            <li>Pain et condiments</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Boissons :</h4>
+                        <ul class="rider-list">
+                            <li>12 bouteilles d'eau (50cl)</li>
+                            <li>8 bières locales</li>
+                            <li>4 sodas variés</li>
+                            <li>2 cafés chauds avant concert</li>
+                            <li>Serviettes en papier</li>
+                        </ul>
+                        
+                        <div style="background: rgba(255, 222, 89, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1.5rem;">
+                            <strong style="color: var(--primary);">Note importante :</strong><br>
+                            Merci de prévoir le catering 1h avant l'arrivée du groupe sur site.
+                        </div>
+                    </div>
+
+                    <!-- Rider Technique -->
+                    <div class="pro-card">
+                        <h3>⚡ Rider Technique</h3>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Plan de scène :</h4>
+                        <div style="background: rgba(50, 50, 50, 0.5); padding: 1rem; border-radius: 8px; font-family: monospace; margin-bottom: 1rem;">
+                            <pre style="color: var(--light); margin: 0; text-align: center; font-size: 0.9rem;">
+    PUBLIC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    
+[RETOUR] Allan (Chant/Guit) [RETOUR]
+      🎤        🎸
+
+[RETOUR]  Arnaud (Guitare)  [RETOUR]
+           🎸
+
+      Antoine (Basse)
+           🎸
+
+        Romain (Batterie)
+           🥁
+            </pre>
+                        </div>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Patch List (8 pistes minimum) :</h4>
+                        <table style="width: 100%; font-size: 0.9rem;">
+                            <tr style="background: rgba(255, 222, 89, 0.1);">
+                                <th>Piste</th><th>Instrument</th><th>Micro</th>
+                            </tr>
+                            <tr><td>1</td><td>Grosse caisse</td><td>DM/SM52</td></tr>
+                            <tr><td>2</td><td>Caisse claire</td><td>SM57</td></tr>
+                            <tr><td>3</td><td>Hi-Hat</td><td>SM81</td></tr>
+                            <tr><td>4</td><td>Toms (x2)</td><td>SM57</td></tr>
+                            <tr><td>5-6</td><td>Overheads</td><td>SM81 (L/R)</td></tr>
+                            <tr><td>7</td><td>Basse (DI)</td><td>Direct + micro</td></tr>
+                            <tr><td>8</td><td>Chant principal</td><td>SM58/Beta58</td></tr>
+                        </table>
+                        
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 60, 60, 0.1); border-radius: 8px;">
+                            <strong style="color: #ff3c3c;">⚠️ Important :</strong><br>
+                            Prévoir des prises DI pour guitares en backup + 1 micro de chant supplémentaire.
+                        </div>
+                    </div>
+
+                    <!-- Informations Pratiques -->
+                    <div class="pro-card">
+                        <h3>📋 Infos Pratiques Concert</h3>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Arrivée sur site :</h4>
+                        <ul class="rider-list">
+                            <li><strong>3h avant le concert</strong> (montage + balance)</li>
+                            <li>Accès véhicule proche de la scène</li>
+                            <li>Aide déchargement (2 personnes)</li>
+                            <li>Parking sécurisé pour la nuit si nécessaire</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Sécurité :</h4>
+                        <ul class="rider-list">
+                            <li>Matériel surveillé pendant les pauses</li>
+                            <li>Loge fermée à clé</li>
+                            <li>Accès scène limité au personnel autorisé</li>
+                            <li>Assurance RC organisateur obligatoire</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Promotion :</h4>
+                        <ul class="rider-list">
+                            <li>Logo/photos HD disponibles sur demande</li>
+                            <li>Biographie officielle fournie</li>
+                            <li>Réseaux sociaux : @dandyshoesband</li>
+                            <li>Relais promo sur nos réseaux</li>
+                        </ul>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Conditions :</h4>
+                        <ul class="rider-list">
+                            <li>Cacheton selon devis personnalisé</li>
+                            <li>Défraiement déplacement (+100km)</li>
+                            <li>Hébergement si concert tardif</li>
+                            <li>Contrat de cession signé obligatoire</li>
+                        </ul>
+                        
+                        <button class="download-btn" onclick="downloadFullRider()">
+                            📋 Télécharger le rider complet
+                        </button>
+                    </div>
+
+                    <!-- Setlist & Répertoire -->
+                    <div class="pro-card">
+                        <h3>🎵 Setlist & Répertoire</h3>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Set Principal (45-60 min) :</h4>
+                        <ol style="list-style: decimal; padding-left: 1.5rem; color: var(--light);">
+                            <li>Thunder (nouveau single)</li>
+                            <li>Electric Feel</li>
+                            <li>All About Love</li>
+                            <li>Rock'n'Roll Heart</li>
+                            <li>Have a Dandy Day</li>
+                            <li>Midnight Blues</li>
+                            <li>Fire in the Night</li>
+                            <li>Born to Rock</li>
+                            <li>Last Dance</li>
+                        </ol>
+                        
+                        <h4 style="color: var(--primary); margin: 1.5rem 0 1rem 0;">Rappel (15 min) :</h4>
+                        <ol style="list-style: decimal; padding-left: 1.5rem; color: var(--light);" start="10">
+                            <li>Wild Horses (reprise Rolling Stones)</li>
+                            <li>Thunder (version acoustique)</li>
+                        </ol>
+                        
+                        <div style="background: rgba(255, 222, 89, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1.5rem;">
+                            <strong style="color: var(--primary);">💡 Flexibilité :</strong><br>
+                            Setlist adaptable selon la durée souhaitée (30 min à 1h30). 
+                            Possibilité de set acoustique sur demande.
+                        </div>
+                        
+                        <button class="download-btn" onclick="downloadSetlist()">
+                            🎵 Télécharger toutes les setlists
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer Pro -->
+                <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <p style="opacity: 0.7; margin-bottom: 1rem;">
+                        Document mis à jour le <strong>27 mai 2025</strong>
+                    </p>
+                    <p style="font-size: 0.9rem; opacity: 0.6;">
+                        Pour toute question technique ou organisationnelle, n'hésitez pas à nous contacter.<br>
+                        Nous adaptons nos prestations selon vos besoins et contraintes.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="index.html" class="cta-button" style="margin-right: 1rem;">🏠 Retour au site public</a>
+                        <button class="cta-button" onclick="logout()" style="background: #ff3c3c;">🔒 Se déconnecter</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Configuration du mot de passe
+        const PRO_PASSWORD = "dandyrock2025"; // À changer !
+        
+        // Vérification du mot de passe
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const error = document.getElementById('errorMessage');
+            
+            if (input.value === PRO_PASSWORD) {
+                // Mot de passe correct
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+                
+                // Stocker la session (expire après 4h)
+                const expiry = Date.now() + (4 * 60 * 60 * 1000); // 4 heures
+                localStorage.setItem('dandyshoes_pro_access', expiry);
+                
+                // Animation d'entrée
+                document.getElementById('mainContent').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('mainContent').style.transition = 'opacity 0.5s ease';
+                    document.getElementById('mainContent').style.opacity = '1';
+                }, 100);
+            } else {
+                // Mot de passe incorrect
+                error.style.display = 'block';
+                input.value = '';
+                input.style.borderColor = '#ff3c3c';
+                
+                // Animation d'erreur
+                input.style.animation = 'shake 0.5s ease';
+                setTimeout(() => {
+                    input.style.animation = '';
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }, 500);
+            }
+        }
+        
+        // Vérifier l'accès au chargement de la page
+        function checkAccess() {
+            const access = localStorage.getItem('dandyshoes_pro_access');
+            
+            if (access && Date.now() < parseInt(access)) {
+                // Session valide
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+            }
+        }
+        
+        // Se déconnecter
+        function logout() {
+            localStorage.removeItem('dandyshoes_pro_access');
+            location.reload();
+        }
+        
+        // Fonctions de téléchargement (à adapter selon vos besoins)
+        function downloadTechSheet() {
+            alert("Fiche technique en cours de téléchargement...\n(Fonctionnalité à connecter à votre système de fichiers)");
+        }
+        
+        function downloadFullRider() {
+            alert("Rider complet en cours de téléchargement...\n(Fonctionnalité à connecter à votre système de fichiers)");
+        }
+        
+        function downloadSetlist() {
+            alert("Setlists en cours de téléchargement...\n(Fonctionnalité à connecter à votre système de fichiers)");
+        }
+        
+        // Validation par Entrée
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        // Menu mobile (copié du site principal)
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAccess();
+            
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                });
+                
+                // Fermer le menu au clic sur un lien
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    });
+                });
+            }
+        });
+        
+        // Animation CSS pour l'erreur
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
