@@ -21,12 +21,7 @@
         font-size: 1.5rem;
     }
     
-    /* Music section desktop */
-    .release-art.video-container {
-        width: 700px;
-        aspect-ratio: 16/9;
-    }
-    
+        
     .latest-release {
         flex-direction: column;
         align-items: center;
@@ -407,5 +402,98 @@
     .video-cta {
         padding: 20px 45px;
         font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .release-art.video-container {
+        max-width: 1100px; /* Encore plus grand sur large desktop */
+        border-radius: 25px;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 25px;
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
+/* Desktop Standard (993px to 1199px) */
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+    .release-art.video-container {
+        max-width: 900px; /* Taille optimale */
+        width: 95%;
+    }
+}
+/* Desktop Large (1200px+) - VIDEO ENCORE PLUS GRANDE */
+@media screen and (min-width: 1200px) {
+    .release-art.video-container {
+        max-width: 1100px; /* Encore plus grand sur large desktop */
+        border-radius: 25px;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 25px;
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
+/* Desktop Standard (993px to 1199px) */
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+    .release-art.video-container {
+        max-width: 900px; /* Taille optimale */
+        width: 95%;
+    }
+}
+
+/* Tablet Portrait (769px to 992px) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .release-art.video-container {
+        width: 90%;
+        max-width: 750px; /* Plus grand sur tablette */
+        border-radius: 18px;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 18px;
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-3px) scale(1.01);
+    }
+}
+
+/* Mobile Large (576px to 768px) - PLUS GRAND SUR MOBILE */
+@media screen and (max-width: 768px) {
+    .latest-release {
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .release-art.video-container {
+        width: 95%; /* Augmenté de 90% à 95% */
+        max-width: 600px; /* Augmenté de 500px à 600px */
+        border-radius: 15px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 15px;
+        box-shadow: 
+            0 0 0 2px var(--primary),
+            0 10px 35px rgba(0, 0, 0, 0.5),
+            0 0 20px rgba(255, 222, 89, 0.3);
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 0 0 2px var(--primary),
+            0 15px 45px rgba(0, 0, 0, 0.6),
+            0 0 25px rgba(255, 222, 89, 0.4);
     }
 }
