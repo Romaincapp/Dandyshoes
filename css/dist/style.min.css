@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-05-31T10:29:10.001Z
+ * Built on: 2025-05-31T10:29:21.957Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -5010,6 +5010,114 @@ body.modal-open {
     }
 }
 
+
+@media screen and (max-width: 575px) {
+    .release-art.video-container {
+        width: 98%; /* Presque toute la largeur */
+        max-width: 500px; /* Taille généreuse */
+        border-radius: 12px;
+        margin: 0 auto 1rem;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 12px;
+    }
+    
+    /* Réduction des effets pour les performances mobile */
+    .video-container:hover iframe {
+        transform: none;
+        box-shadow: 
+            0 0 0 2px var(--primary),
+            0 12px 40px rgba(0, 0, 0, 0.5),
+            0 0 20px rgba(255, 222, 89, 0.3);
+    }
+    
+    /* Désactiver l'animation de pulsation sur très petits écrans */
+    .video-container::before {
+        display: none;
+    }
+}
+
+/* Mobile Extra Small (max-width: 375px) */
+@media screen and (max-width: 375px) {
+    .release-art.video-container {
+        width: 100%; /* Toute la largeur disponible */
+        max-width: 350px;
+        border-radius: 10px;
+        margin: 0 auto 1rem;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 10px;
+    }
+}
+
+/* Amélioration pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+    /* Sur les appareils tactiles, simplifier les interactions */
+    .video-container:hover iframe {
+        transform: none;
+    }
+    
+    .video-container::before {
+        animation: none;
+    }
+}
+
+/* Support pour les écrans haute densité */
+@media screen and (min-resolution: 2dppx) {
+    .youtube-container iframe {
+        /* Amélioration de la netteté sur écrans Retina */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Mode sombre amélioré */
+@media (prefers-color-scheme: dark) {
+    .youtube-container {
+        background: #0a0a0a;
+    }
+    
+    .youtube-container iframe {
+        box-shadow: 
+            0 0 0 3px var(--primary),
+            0 15px 50px rgba(0, 0, 0, 0.8),
+            0 0 30px rgba(255, 222, 89, 0.3),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Animation d'apparition pour la vidéo */
+.video-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fallback pour les navigateurs qui ne supportent pas aspect-ratio */
+@supports not (aspect-ratio: 16/9) {
+    .release-art.video-container {
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    .youtube-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 /* ===== TABLET ===== */
 /* DANDYSHOES - Tablet Responsive (768px to 992px) */
 
@@ -5441,12 +5549,7 @@ body.modal-open {
         font-size: 1.5rem;
     }
     
-    /* Music section desktop */
-    .release-art.video-container {
-        width: 700px;
-        aspect-ratio: 16/9;
-    }
-    
+        
     .latest-release {
         flex-direction: column;
         align-items: center;
@@ -5827,5 +5930,98 @@ body.modal-open {
     .video-cta {
         padding: 20px 45px;
         font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .release-art.video-container {
+        max-width: 1100px; /* Encore plus grand sur large desktop */
+        border-radius: 25px;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 25px;
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
+/* Desktop Standard (993px to 1199px) */
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+    .release-art.video-container {
+        max-width: 900px; /* Taille optimale */
+        width: 95%;
+    }
+}
+/* Desktop Large (1200px+) - VIDEO ENCORE PLUS GRANDE */
+@media screen and (min-width: 1200px) {
+    .release-art.video-container {
+        max-width: 1100px; /* Encore plus grand sur large desktop */
+        border-radius: 25px;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 25px;
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
+/* Desktop Standard (993px to 1199px) */
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+    .release-art.video-container {
+        max-width: 900px; /* Taille optimale */
+        width: 95%;
+    }
+}
+
+/* Tablet Portrait (769px to 992px) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .release-art.video-container {
+        width: 90%;
+        max-width: 750px; /* Plus grand sur tablette */
+        border-radius: 18px;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 18px;
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-3px) scale(1.01);
+    }
+}
+
+/* Mobile Large (576px to 768px) - PLUS GRAND SUR MOBILE */
+@media screen and (max-width: 768px) {
+    .latest-release {
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .release-art.video-container {
+        width: 95%; /* Augmenté de 90% à 95% */
+        max-width: 600px; /* Augmenté de 500px à 600px */
+        border-radius: 15px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .youtube-container iframe {
+        border-radius: 15px;
+        box-shadow: 
+            0 0 0 2px var(--primary),
+            0 10px 35px rgba(0, 0, 0, 0.5),
+            0 0 20px rgba(255, 222, 89, 0.3);
+    }
+    
+    .video-container:hover iframe {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 0 0 2px var(--primary),
+            0 15px 45px rgba(0, 0, 0, 0.6),
+            0 0 25px rgba(255, 222, 89, 0.4);
     }
 }
