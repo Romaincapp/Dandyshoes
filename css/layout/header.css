@@ -119,3 +119,63 @@ header {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* DANDYSHOES - Header Section - Corrections complètes */
+
+/* Animations manquantes */
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 222, 89, 0.9);
+        transform: scale(1.02);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
+        transform: scale(1);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Corrections pour la structure picture */
+.parallax-bg picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.parallax-bg picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.9);
+}
+
+/* Correction du conteneur platforms */
+.platforms-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Éviter les conflits avec les styles inline */
+.platforms-container[style*="margin-top"] {
+    margin-top: 2rem !important;
+}
+
+

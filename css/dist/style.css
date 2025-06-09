@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-06-06T16:15:44.308Z
+ * Built on: 2025-06-09T07:51:30.313Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -362,6 +362,66 @@ header {
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+/* DANDYSHOES - Header Section - Corrections complètes */
+
+/* Animations manquantes */
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 222, 89, 0.9);
+        transform: scale(1.02);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
+        transform: scale(1);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Corrections pour la structure picture */
+.parallax-bg picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.parallax-bg picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.9);
+}
+
+/* Correction du conteneur platforms */
+.platforms-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Éviter les conflits avec les styles inline */
+.platforms-container[style*="margin-top"] {
+    margin-top: 2rem !important;
+}
+
 
 
 
@@ -5362,6 +5422,58 @@ body.modal-open {
         left: 0;
         width: 100%;
         height: 100%;
+    }
+}
+/* Amélioration de la responsivité pour les plateformes */
+@media (max-width: 768px) {
+    .platforms-container {
+        max-width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .platforms-scroll {
+        height: 40px;
+    }
+    
+    .platform-logo img {
+        max-height: 25px;
+    }
+    
+    .platforms-track {
+        animation: scroll 20s linear infinite;
+    }
+}
+
+/* Correction pour la hiérarchie des z-index */
+.parallax-bg {
+    z-index: 1;
+}
+
+.dark-overlay {
+    z-index: 2;
+}
+
+.header-content {
+    z-index: 3;
+    position: relative;
+}
+
+/* Amélioration du responsive pour le header-content */
+@media (max-width: 768px) {
+    .header-content {
+        padding-top: 20vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .header-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
 }
 

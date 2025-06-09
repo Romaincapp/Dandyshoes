@@ -721,3 +721,55 @@
         height: 100%;
     }
 }
+/* Amélioration de la responsivité pour les plateformes */
+@media (max-width: 768px) {
+    .platforms-container {
+        max-width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .platforms-scroll {
+        height: 40px;
+    }
+    
+    .platform-logo img {
+        max-height: 25px;
+    }
+    
+    .platforms-track {
+        animation: scroll 20s linear infinite;
+    }
+}
+
+/* Correction pour la hiérarchie des z-index */
+.parallax-bg {
+    z-index: 1;
+}
+
+.dark-overlay {
+    z-index: 2;
+}
+
+.header-content {
+    z-index: 3;
+    position: relative;
+}
+
+/* Amélioration du responsive pour le header-content */
+@media (max-width: 768px) {
+    .header-content {
+        padding-top: 20vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .header-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+}
