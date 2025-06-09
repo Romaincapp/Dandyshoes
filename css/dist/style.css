@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-06-09T07:51:30.313Z
+ * Built on: 2025-06-09T08:02:28.727Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -4769,19 +4769,29 @@ body.modal-open {
     }
     
     .header-content {
-        padding-top: 20vh;
+        padding-top: 10vh; /* Réduit de 20vh à 10vh */
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
     }
     
     .header-content h1.logo {
-        font-size: 1.5rem;
-        max-width: 100%;
-        text-align: center; 
+        font-size: 2.2rem; /* Réduit mais reste lisible */
+        margin-bottom: 0.5rem;
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        line-height: 1.1;
     }
     
     .tagline {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem; /* Réduit l'espacement */
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        opacity: 0.95;
     }
     
     /* Sections mobile */
@@ -5461,9 +5471,15 @@ body.modal-open {
 /* Amélioration du responsive pour le header-content */
 @media (max-width: 768px) {
     .header-content {
-        padding-top: 20vh;
+        padding-top: 10vh; /* Réduit de 20vh à 10vh */
         padding-left: 1rem;
         padding-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
     }
     
     .header-content h1 {
@@ -5475,6 +5491,77 @@ body.modal-open {
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
     }
+}
+
+/* Remonter tout le contenu */
+.header-content {
+    padding-top: 10vh; /* Réduit de 20vh à 10vh */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+/* Logo plus compact */
+.header-content h1.logo {
+    font-size: 2.2rem; /* Réduit mais reste lisible */
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    line-height: 1.1;
+}
+
+/* Tagline plus compact */
+.tagline {
+    font-size: 0.9rem;
+    margin-bottom: 1rem; /* Réduit l'espacement */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    opacity: 0.95;
+}
+
+/* Bouton CTA plus compact */
+.cta-button {
+    margin-top: 1rem; /* Réduit de 2rem à 1rem */
+    margin-bottom: 1rem;
+    padding: 0.8rem 1.8rem;
+    font-size: 0.85rem;
+    min-width: 200px;
+}
+
+/* Section plateformes compacte */
+.platforms-container {
+    margin-top: 1rem; /* Réduit drastiquement */
+    width: 100%;
+    max-width: 90%;
+}
+
+.as-seen-on {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+.platforms-scroll {
+    height: 35px; /* Plus petit */
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.platform-logo {
+    padding: 0 8px;
+}
+
+.platform-logo img {
+    max-height: 20px; /* Plus petit */
+    opacity: 0.8;
+}
+
+/* Animation plus rapide sur mobile */
+.platforms-track {
+    animation: scroll 15s linear infinite;
 }
 
 /* ===== TABLET ===== */
