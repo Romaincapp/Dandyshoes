@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-06-09T08:21:31.701Z
+ * Built on: 2025-06-09T08:33:28.028Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -311,72 +311,68 @@ header {
     font-weight: lighter;
 }
 
-/* SECTION LOGOS AGRANDIE - Meilleure lisibilité sur tous écrans */
+/* FORCER L'AGRANDISSEMENT DES LOGOS - Override toutes les règles existantes */
 
-/* Conteneur principal ajusté */
+/* RÈGLES GLOBALES FORCÉES */
 .platforms-container {
-    margin-top: 2.5rem !important; /* Légèrement plus d'espace */
+    margin-top: 2.5rem !important;
     width: 100%;
-    max-width: 900px; /* Augmenté de 800px à 900px */
+    max-width: 900px !important;
     overflow: hidden;
     position: relative;
 }
 
-/* Texte "as seen on" plus visible */
 .as-seen-on {
     color: var(--light);
-    font-size: 1rem; /* Augmenté de 0.9rem à 1rem */
+    font-size: 1rem !important;
     opacity: 0.9;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 1rem; /* Plus d'espace */
-    font-weight: 500; /* Légèrement plus gras */
+    margin-bottom: 1rem !important;
+    font-weight: 500 !important;
 }
 
-/* Agrandir le conteneur principal */
 .platforms-scroll {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 70px; /* Augmenté de 50px à 70px */
-    border-radius: 35px; /* Proportionnel à la hauteur */
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6); /* Ombre plus prononcée */
+    height: 70px !important;
+    border-radius: 35px !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Animation plus fluide et visible */
 .platforms-track {
     display: flex;
     align-items: center;
     position: absolute;
     width: max-content;
-    animation: scroll 35s linear infinite; /* Légèrement plus lent pour la lisibilité */
+    animation: scroll 35s linear infinite;
 }
 
-/* Plus d'espace pour les logos */
 .platform-logo {
-    height: 60px; /* Augmenté pour occuper plus d'espace */
-    padding: 0 25px; /* Plus d'espace horizontal */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 60px !important;
+    padding: 0 25px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-/* Logos beaucoup plus grands */
 .platform-logo img {
-    max-height: 45px; /* Augmenté de 30px à 45px */
-    max-width: 120px; /* Augmenté de 80px à 120px */
-    object-fit: contain;
-    opacity: 1;
+    max-height: 45px !important;
+    max-width: 120px !important;
+    min-height: 35px !important; /* Hauteur minimum pour forcer la taille */
+    object-fit: contain !important;
+    opacity: 1 !important;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    filter: brightness(1.1); /* Légèrement plus lumineux */
+    filter: brightness(1.1) !important;
 }
 
 /* Effet hover amélioré */
 .platform-logo:hover img {
     opacity: 1;
     transform: scale(1.1);
-    filter: brightness(1.3);
+    filter: brightness(1.3) !important;
 }
 
 /* Animations */
@@ -422,72 +418,54 @@ header {
     filter: brightness(0.9);
 }
 
-/* Versions spécifiques pour différentes tailles d'écran */
-
-/* Desktop Large */
-@media screen and (min-width: 1200px) {
+/* DESKTOP - Encore plus gros */
+@media screen and (min-width: 993px) {
     .platforms-scroll {
-        height: 80px;
-        border-radius: 40px;
+        height: 80px !important;
+        border-radius: 40px !important;
     }
     
     .platform-logo {
-        height: 70px;
-        padding: 0 30px;
+        height: 70px !important;
+        padding: 0 30px !important;
     }
     
     .platform-logo img {
-        max-height: 50px;
-        max-width: 140px;
+        max-height: 55px !important;
+        max-width: 150px !important;
+        min-height: 45px !important;
     }
     
     .as-seen-on {
-        font-size: 1.1rem;
-        margin-bottom: 1.2rem;
+        font-size: 1.2rem !important;
+        margin-bottom: 1.5rem !important;
     }
 }
 
-/* Desktop Standard */
-@media screen and (min-width: 993px) and (max-width: 1199px) {
-    .platforms-scroll {
-        height: 75px;
-        border-radius: 37px;
-    }
-    
-    .platform-logo {
-        height: 65px;
-        padding: 0 28px;
-    }
-    
-    .platform-logo img {
-        max-height: 48px;
-        max-width: 130px;
-    }
-}
-
-/* Tablet */
+/* TABLET */
 @media screen and (min-width: 769px) and (max-width: 992px) {
     .platforms-scroll {
-        height: 65px;
-        border-radius: 32px;
+        height: 65px !important;
+        border-radius: 32px !important;
     }
     
     .platform-logo {
-        height: 55px;
-        padding: 0 22px;
+        height: 55px !important;
+        padding: 0 22px !important;
     }
     
     .platform-logo img {
-        max-height: 42px;
-        max-width: 110px;
+        max-height: 48px !important;
+        max-width: 130px !important;
+        min-height: 38px !important;
     }
     
     .as-seen-on {
-        font-size: 0.95rem;
+        font-size: 1.1rem !important;
     }
 }
 
-/* Mobile - gardez une taille décente */
+/* MOBILE - Plus gros que votre CSS actuel */
 @media screen and (max-width: 768px) {
     .header-content h1 {
         font-size: 3rem;
@@ -498,27 +476,28 @@ header {
     }
     
     .platforms-scroll {
-        height: 55px; /* Plus grand que dans votre mobile.css actuel */
-        border-radius: 27px;
+        height: 60px !important; /* Override votre 35px ou 40px */
+        border-radius: 30px !important;
     }
     
     .platform-logo {
-        height: 45px;
-        padding: 0 18px;
+        height: 50px !important;
+        padding: 0 20px !important; /* Override votre 10px */
     }
     
     .platform-logo img {
-        max-height: 35px; /* Plus grand que les 25px actuels */
-        max-width: 90px;
+        max-height: 40px !important; /* Override votre 25px ou 20px */
+        max-width: 100px !important;
+        min-height: 30px !important;
     }
     
     .as-seen-on {
-        font-size: 0.85rem;
-        margin-bottom: 0.8rem;
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
     }
     
     .platforms-track {
-        animation: scroll 25s linear infinite; /* Plus rapide sur mobile */
+        animation: scroll 25s linear infinite !important;
     }
     
     .platforms-container {
@@ -526,7 +505,7 @@ header {
     }
 }
 
-/* Très petits écrans */
+/* TRÈS PETITS ÉCRANS */
 @media screen and (max-width: 480px) {
     .header-content h1 {
         font-size: 2.5rem;
@@ -537,18 +516,37 @@ header {
     }
     
     .platforms-scroll {
-        height: 50px;
-        border-radius: 25px;
+        height: 55px !important;
+        border-radius: 27px !important;
     }
     
     .platform-logo {
-        height: 40px;
-        padding: 0 15px;
+        height: 45px !important;
+        padding: 0 18px !important;
     }
     
     .platform-logo img {
-        max-height: 30px;
-        max-width: 80px;
+        max-height: 35px !important; /* Beaucoup plus gros que votre 18px actuel */
+        max-width: 90px !important;
+        min-height: 25px !important;
+    }
+}
+
+/* TRÈS TRÈS PETITS ÉCRANS */
+@media screen and (max-width: 375px) {
+    .platforms-scroll {
+        height: 50px !important;
+    }
+    
+    .platform-logo {
+        height: 40px !important;
+        padding: 0 15px !important;
+    }
+    
+    .platform-logo img {
+        max-height: 32px !important;
+        max-width: 80px !important;
+        min-height: 24px !important;
     }
 }
 
