@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-06-09T08:02:28.727Z
+ * Built on: 2025-06-09T08:21:31.701Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -311,61 +311,75 @@ header {
     font-weight: lighter;
 }
 
-/* Platforms scrolling section */
+/* SECTION LOGOS AGRANDIE - Meilleure lisibilité sur tous écrans */
+
+/* Conteneur principal ajusté */
 .platforms-container {
-    margin-top: 2rem;
+    margin-top: 2.5rem !important; /* Légèrement plus d'espace */
     width: 100%;
-    max-width: 800px;
+    max-width: 900px; /* Augmenté de 800px à 900px */
     overflow: hidden;
     position: relative;
 }
 
+/* Texte "as seen on" plus visible */
 .as-seen-on {
     color: var(--light);
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 1rem; /* Augmenté de 0.9rem à 1rem */
+    opacity: 0.9;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem; /* Plus d'espace */
+    font-weight: 500; /* Légèrement plus gras */
 }
 
+/* Agrandir le conteneur principal */
 .platforms-scroll {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    height: 70px; /* Augmenté de 50px à 70px */
+    border-radius: 35px; /* Proportionnel à la hauteur */
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6); /* Ombre plus prononcée */
 }
 
+/* Animation plus fluide et visible */
 .platforms-track {
     display: flex;
     align-items: center;
     position: absolute;
     width: max-content;
-    animation: scroll 30s linear infinite;
+    animation: scroll 35s linear infinite; /* Légèrement plus lent pour la lisibilité */
 }
 
+/* Plus d'espace pour les logos */
 .platform-logo {
-    height: 40px;
-    padding: 0 20px;
+    height: 60px; /* Augmenté pour occuper plus d'espace */
+    padding: 0 25px; /* Plus d'espace horizontal */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Logos beaucoup plus grands */
 .platform-logo img {
-    max-height: 30px;
-    max-width: 80px;
+    max-height: 45px; /* Augmenté de 30px à 45px */
+    max-width: 120px; /* Augmenté de 80px à 120px */
     object-fit: contain;
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: brightness(1.1); /* Légèrement plus lumineux */
 }
 
-/* DANDYSHOES - Header Section - Corrections complètes */
+/* Effet hover amélioré */
+.platform-logo:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(1.3);
+}
 
-/* Animations manquantes */
+/* Animations */
 @keyframes pulse {
     0% {
         text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
@@ -408,18 +422,139 @@ header {
     filter: brightness(0.9);
 }
 
-/* Correction du conteneur platforms */
-.platforms-container {
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 800px;
-    overflow: hidden;
-    position: relative;
+/* Versions spécifiques pour différentes tailles d'écran */
+
+/* Desktop Large */
+@media screen and (min-width: 1200px) {
+    .platforms-scroll {
+        height: 80px;
+        border-radius: 40px;
+    }
+    
+    .platform-logo {
+        height: 70px;
+        padding: 0 30px;
+    }
+    
+    .platform-logo img {
+        max-height: 50px;
+        max-width: 140px;
+    }
+    
+    .as-seen-on {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+/* Desktop Standard */
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+    .platforms-scroll {
+        height: 75px;
+        border-radius: 37px;
+    }
+    
+    .platform-logo {
+        height: 65px;
+        padding: 0 28px;
+    }
+    
+    .platform-logo img {
+        max-height: 48px;
+        max-width: 130px;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .platforms-scroll {
+        height: 65px;
+        border-radius: 32px;
+    }
+    
+    .platform-logo {
+        height: 55px;
+        padding: 0 22px;
+    }
+    
+    .platform-logo img {
+        max-height: 42px;
+        max-width: 110px;
+    }
+    
+    .as-seen-on {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile - gardez une taille décente */
+@media screen and (max-width: 768px) {
+    .header-content h1 {
+        font-size: 3rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .platforms-scroll {
+        height: 55px; /* Plus grand que dans votre mobile.css actuel */
+        border-radius: 27px;
+    }
+    
+    .platform-logo {
+        height: 45px;
+        padding: 0 18px;
+    }
+    
+    .platform-logo img {
+        max-height: 35px; /* Plus grand que les 25px actuels */
+        max-width: 90px;
+    }
+    
+    .as-seen-on {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .platforms-track {
+        animation: scroll 25s linear infinite; /* Plus rapide sur mobile */
+    }
+    
+    .platforms-container {
+        max-width: 90%;
+    }
+}
+
+/* Très petits écrans */
+@media screen and (max-width: 480px) {
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .header-content {
+        padding-top: 20vh;
+    }
+    
+    .platforms-scroll {
+        height: 50px;
+        border-radius: 25px;
+    }
+    
+    .platform-logo {
+        height: 40px;
+        padding: 0 15px;
+    }
+    
+    .platform-logo img {
+        max-height: 30px;
+        max-width: 80px;
+    }
 }
 
 /* Éviter les conflits avec les styles inline */
 .platforms-container[style*="margin-top"] {
-    margin-top: 2rem !important;
+    margin-top: 2.5rem !important;
 }
 
 
