@@ -51,7 +51,7 @@
     
     <!-- Stylesheet and Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/dist/style.min.css">    
+    <link rel="stylesheet" href="css/dist/style.min.css?v=2.1">
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="dandyshoes-180x180.png">
@@ -322,60 +322,53 @@
             </div>
         </div>
         
-        <div class="discography">
-            <div class="section-title" style="font-size: 1.8rem;">Discography</div>
-            <div class="gallery-grid">
-                <div class="glass-card coming-soon">
-                    <div class="release-art" style="width: 100%; height: 200px; margin-bottom: 1rem; position: relative;">
-                        <picture>
-  <source srcset="img/webp/DandyShoesBand.webp" type="image/webp">
-  <img src="img/compressed/DandyShoesBand.jpg" alt="Next Dandyshoes album" loading="lazy">
-</picture>
-                        <div class="coming-soon-overlay">
-                            <span>AUTUMN 2025</span>
-                        </div>
-                    </div>
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">New EP</h4>
-                    <p style="opacity: 0.7; font-size: 0.9rem; color: #ff3c3c;">Coming soon • 2025</p>
+        <!-- Section Spotify Players -->
+        <div class="spotify-players" style="margin-top: 4rem;">
+            <div class="section-title" style="font-size: 1.8rem; margin-bottom: 2rem;">Listen Now</div>
+
+            <!-- Announcement New EP -->
+            <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; background: linear-gradient(135deg, rgba(255, 60, 60, 0.1), rgba(138, 43, 226, 0.1));">
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.3rem;">🎵 New EP Coming Soon</h4>
+                <p style="color: #ff3c3c; font-weight: bold; font-size: 1.1rem; animation: pulse 2s infinite;">Autumn 2025</p>
+                <p style="opacity: 0.8; margin-top: 0.5rem;">We're working on new music. Stay tuned!</p>
+            </div>
+
+            <div class="spotify-embeds" style="display: grid; gap: 2rem; max-width: 800px; margin: 0 auto;">
+                <!-- Thunder -->
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">🎸 Thunder (Single)</h4>
+                    <iframe style="border-radius:12px; width: 100%;"
+                            src="https://open.spotify.com/embed/track/1vI4M0sVfCIHsRkPhO9SlP?utm_source=generator&theme=0"
+                            height="152"
+                            frameBorder="0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                 </div>
-                
-                <a href="https://open.spotify.com/intl-fr/track/1YHP8r3u7uaVrPRd2LAWHW?si=4beab2a5c69c4d4f" target="_blank" class="spotify-link">
-                    <div class="glass-card">
-                        <div class="release-art" style="width: 100%; height: 200px; margin-bottom: 1rem; position: relative;">
-                            <picture>
-  <source srcset="img/webp/allaboutlove.webp" type="image/webp">
-  <img src="img/compressed/allaboutlove.jpg" alt="allaboutlove Dandyshoes" loading="lazy">
-</picture>
-                            <div class="spotify-overlay">
-                                <svg viewBox="0 0 24 24" class="spotify-icon">
-                                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                                </svg>
-                                <span>Listen on Spotify</span>
-                            </div>
-                        </div>
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">All About Love</h4>
-                        <p style="opacity: 0.7; font-size: 0.9rem;">2019 • Album</p>
-                    </div>
-                </a>
-                
-                <a href="https://open.spotify.com/album/4lTyRudnOo6UJ8OaTHC5Fk?si=gBv8-CLvTVa6WtaQKsidlA" target="_blank" class="spotify-link">
-                    <div class="glass-card">
-                        <div class="release-art" style="width: 100%; height: 200px; margin-bottom: 1rem; position: relative;">
-                            <picture>
-  <source srcset="img/webp/haveadandyday.webp" type="image/webp">
-  <img src="img/compressed/haveadandyday.jpg" alt="Album Have a Dandy Day de Dandyshoes" loading="lazy">
-</picture>
-                            <div class="spotify-overlay">
-                                <svg viewBox="0 0 24 24" class="spotify-icon">
-                                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                                </svg>
-                                <span>Listen on Spotify</span>
-                            </div>
-                        </div>
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Have a Dandy Day</h4>
-                        <p style="opacity: 0.7; font-size: 0.9rem;">2014 • Album</p>
-                    </div>
-                </a>
+
+                <!-- All About Love Album -->
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">🎵 All About Love (Album 2019)</h4>
+                    <iframe style="border-radius:12px; width: 100%;"
+                            src="https://open.spotify.com/embed/album/4QwNvDeA8aiX94zgaXlz1r?utm_source=generator&theme=0"
+                            height="352"
+                            frameBorder="0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                </div>
+
+                <!-- Have a Dandy Day Album -->
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">🎶 Have a Dandy Day (Album 2014)</h4>
+                    <iframe style="border-radius:12px; width: 100%;"
+                            src="https://open.spotify.com/embed/album/4lTyRudnOo6UJ8OaTHC5Fk?utm_source=generator&theme=0"
+                            height="352"
+                            frameBorder="0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -399,7 +392,7 @@
                     <button id="readMoreBtn" class="read-more-btn">See more</button>
                     
                     <div id="hiddenContent" class="hidden-content">
-                        <p><strong>DANDY SHOES</strong> is a belgian Rock band consisting of Allan Berger (guitar & vocals), Romain Dumoulin (drums), Antoine Chauvaux (bass) and Arnaud Lietor Torres (guitar). Each with a distinct musical universe, the result gives a mixture of influences in a burst of shades such as ,<strong>Balck Rebel Motorcycle Club</strong>,<strong>The Rolling Stones</strong>,<strong>Triggerfinger</strong>, <strong>The Balck Angels</strong> ... and many others. </p>
+                        <p><strong>DANDY SHOES</strong> is a belgian Rock band consisting of Allan Berger (guitar & vocals), Romain Dumoulin (drums), Antoine Chauvaux (bass) and Arnaud Lietor Torres (guitar). Each with a distinct musical universe, the result gives a mixture of influences in a burst of shades such as <strong>Black Rebel Motorcycle Club</strong>, <strong>The Rolling Stones</strong>, <strong>Triggerfinger</strong>, <strong>The Black Angels</strong> ... and many others. </p>
 
                         <p> "The dandy must aspire to be sublime without interruption" Baudelaire. </p>
 
@@ -543,13 +536,13 @@
     </div>
 </section>
     
-    <section class="section video-promo-section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('img/DandyShoesBand.jpg') no-repeat center/cover; padding: 80px 0; position: relative; overflow: hidden;"></section>
+    <section class="section video-promo-section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('img/DandyShoesBand.jpg') no-repeat center/cover; padding: 80px 0; position: relative; overflow: hidden;">
         <div class="container">
-            <div class="video-promo-content" style="position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto;"></div>
+            <div class="video-promo-content" style="position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto;">
                 <h2 class="section-title" style="color: #fff; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">Check Out Our Music Videos</h2>
                 <p class="video-promo-text" style="color: #f5f5f5; margin-bottom: 2rem; font-size: 1.2rem;">Watch our latest music videos, live performances and behind-the-scenes footage.</p>
                 <a href="videos.html" class="cta-button video-cta" style="display: inline-flex; align-items: center; background: #ff3c3c; color: white; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 60, 60, 0.4); transition: all 0.3s ease; border: 2px solid transparent;">
-                    <svg viewBox="0 0 24 24" class="video-icon" style="width: 24px; height: 24px; margin-right: 10px; fill: currentColor;"></svg>
+                    <svg viewBox="0 0 24 24" class="video-icon" style="width: 24px; height: 24px; margin-right: 10px; fill: currentColor;">
                         <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
                     </svg>
                     Watch All Videos
@@ -658,9 +651,10 @@
         <div class="contact-info" style="margin-top: 4rem; text-align: center;">
             <div class="contact-grid">
                 <div class="contact-card glass-card">
-                    <h3>🎸 Booking & Press</h3>
-                    <p>Pour les demandes professionnelles :</p>
-                    <p><strong>dandyshoes@hotmail.be</strong></p>
+                    <h3>🎸 Booking & Management</h3>
+                    <p><strong>DRF Booking</strong></p>
+                    <p><a href="https://durbuyrock.be/booking" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">durbuyrock.be/booking</a></p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Press: <strong>dandyshoes@hotmail.be</strong></p>
                 </div>
                 
                 <div class="contact-card glass-card">

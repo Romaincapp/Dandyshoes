@@ -32,15 +32,15 @@
 /* Conteneur adapté pour la vidéo YouTube 16:9 */
 .release-art.video-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1400px;
     position: relative;
     margin: 0 auto 2rem;
     background: transparent;
     border-radius: 20px;
     overflow: visible;
     aspect-ratio: 16/9;
-    box-shadow: 0 0 0  3px var(--primary), 
-                0 10px 30px rgba(0, 0, 0, 0.5), 
+    box-shadow: 0 0 0  3px var(--primary),
+                0 10px 30px rgba(0, 0, 0, 0.5),
                 0 0 20px rgba(255, 222, 89, 0.3);
 }
 
@@ -245,7 +245,8 @@
 /* Responsive music section */
 @media screen and (min-width: 993px) {
     .release-art.video-container {
-        width: 700px;
+        width: 90%;
+        max-width: 1400px;
         aspect-ratio: 16/9;
     }
 }
@@ -254,16 +255,16 @@
     .latest-release {
         flex-direction: column;
     }
-    
+
     .release-art, .release-info {
         width: 100%;
         max-width: 500px;
         margin: 0 auto 1.5rem;
     }
-    
+
     .release-art.video-container {
-        width: 90%;
-        max-width: 600px;
+        width: 95%;
+        max-width: 900px;
         aspect-ratio: 16/9;
     }
 }
@@ -272,13 +273,14 @@
     .release-title {
         font-size: 2rem;
     }
-    
+
     .release-art.video-container {
-        max-width: 90%;
+        width: 95%;
+        max-width: none;
         aspect-ratio: 16/9;
-        border-radius: 8px;
+        border-radius: 12px;
     }
-    
+
     .streaming-links {
         flex-wrap: wrap;
         gap: 1rem;
@@ -287,11 +289,12 @@
 
 @media screen and (max-width: 576px) {
     .release-art.video-container {
-        max-width: 90%;
+        width: 95%;
+        max-width: none;
         aspect-ratio: 16/9;
-        border-radius: 8px;
+        border-radius: 12px;
     }
-    
+
     .streaming-links {
         flex-wrap: wrap;
         gap: 1rem;

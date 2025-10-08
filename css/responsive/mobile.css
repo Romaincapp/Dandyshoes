@@ -107,15 +107,16 @@
     }
     
     .release-art.video-container {
-        max-width: 90%;
+        width: 98%;
+        max-width: none;
         aspect-ratio: 16/9;
-        border-radius: 8px;
+        border-radius: 10px;
     }
-    
+
     .youtube-container iframe {
         border-radius: 10px;
-        box-shadow: 
-            0 0 0 1px var(--primary),
+        box-shadow:
+            0 0 0 2px var(--primary),
             0 8px 20px rgba(0, 0, 0, 0.4),
             0 0 15px rgba(255, 222, 89, 0.3);
     }
@@ -240,18 +241,7 @@
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     }
     
-    /* Platform logos mobile */
-    .platform-logo {
-        padding: 0 10px;
-    }
-    
-    .platform-logo img {
-        max-height: 25px;
-    }
-    
-    .platforms-track {
-        animation: scroll 20s linear infinite;
-    }
+    /* Platform logos mobile - supprimé pour éviter les conflits, voir header.css */
 }
 /* DANDYSHOES - Mobile Responsive CTA Buttons (max-width: 768px) */
 
@@ -627,8 +617,8 @@
 
 @media screen and (max-width: 575px) {
     .release-art.video-container {
-        width: 98%; /* Presque toute la largeur */
-        max-width: 500px; /* Taille généreuse */
+        width: 98%;
+        max-width: none;
         border-radius: 12px;
         margin: 0 auto 1rem;
     }
@@ -655,8 +645,8 @@
 /* Mobile Extra Small (max-width: 375px) */
 @media screen and (max-width: 375px) {
     .release-art.video-container {
-        width: 100%; /* Toute la largeur disponible */
-        max-width: 350px;
+        width: 98%;
+        max-width: none;
         border-radius: 10px;
         margin: 0 auto 1rem;
     }
@@ -731,25 +721,7 @@
         height: 100%;
     }
 }
-/* Amélioration de la responsivité pour les plateformes */
-@media (max-width: 768px) {
-    .platforms-container {
-        max-width: 100%;
-        margin-top: 1.5rem;
-    }
-    
-    .platforms-scroll {
-        height: 40px;
-    }
-    
-    .platform-logo img {
-        max-height: 25px;
-    }
-    
-    .platforms-track {
-        animation: scroll 20s linear infinite;
-    }
-}
+/* Amélioration de la responsivité pour les plateformes - voir header.css */
 
 /* Correction pour la hiérarchie des z-index */
 .parallax-bg {
@@ -828,35 +800,4 @@
     min-width: 200px;
 }
 
-/* Section plateformes compacte */
-.platforms-container {
-    margin-top: 1rem; /* Réduit drastiquement */
-    width: 100%;
-    max-width: 90%;
-}
-
-.as-seen-on {
-    font-size: 0.75rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.7;
-}
-
-.platforms-scroll {
-    height: 35px; /* Plus petit */
-    border-radius: 25px;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.platform-logo {
-    padding: 0 8px;
-}
-
-.platform-logo img {
-    max-height: 20px; /* Plus petit */
-    opacity: 0.8;
-}
-
-/* Animation plus rapide sur mobile */
-.platforms-track {
-    animation: scroll 15s linear infinite;
-}
+/* Section plateformes compacte - voir header.css pour les styles */
