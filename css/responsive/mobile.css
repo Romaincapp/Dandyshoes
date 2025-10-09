@@ -82,6 +82,11 @@
         margin-bottom: 0.5rem;
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
         line-height: 1.1;
+        text-align: center;
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .tagline {
@@ -518,8 +523,22 @@
     }
 }
 
-/* Très petits écrans (max-width: 375px) */
+/* Écrans Samsung Galaxy et similaires (360px-375px) */
 @media (max-width: 375px) {
+    .header-content h1.logo {
+        font-size: 2rem;
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+        left: 0 !important;
+        transform: translateX(0) !important;
+    }
+
     .cta-button {
         width: 100%;
         max-width: 240px;
@@ -614,6 +633,31 @@
     }
 }
 
+/* Samsung Galaxy et petits écrans (360px) */
+@media screen and (max-width: 360px) {
+    .header-content h1.logo {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 auto 0.5rem auto !important;
+        padding: 0 !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateX(0) !important;
+    }
+
+    .header-content {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
 
 @media screen and (max-width: 575px) {
     .release-art.video-container {
