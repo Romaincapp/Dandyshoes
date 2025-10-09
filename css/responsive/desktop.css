@@ -41,12 +41,7 @@
     .about-image {
         height: 400px;
     }
-    
-    .member-img {
-        width: 65px;
-        height: 65px;
-    }
-    
+
     /* Gallery desktop */
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

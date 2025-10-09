@@ -669,3 +669,46 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Modal pour agrandir les images des membres
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('memberModal');
+    const modalImg = document.getElementById('memberModalImg');
+    const modalCaption = document.getElementById('memberModalCaption');
+    const closeBtn = document.querySelector('.member-modal-close');
+    const memberCards = document.querySelectorAll('.member-card');
+
+    // Ouvrir la modale au clic sur une carte
+    memberCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const img = this.querySelector('.member-img');
+            const memberName = this.querySelector('strong').textContent;
+            const memberRole = this.querySelector('span').textContent;
+
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalCaption.innerHTML = `<strong>${memberName}</strong> - ${memberRole}`;
+        });
+    });
+
+    // Fermer la modale
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Fermer au clic en dehors de l'image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Fermer avec la touche Echap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
+});

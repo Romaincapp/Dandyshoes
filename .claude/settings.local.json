@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(node:*)",
-      "Bash(npm run build:css:*)"
+      "Bash(npm run build:css:*)",
+      "Bash(npx live-server:*)"
     ],
     "deny": [],
     "ask": []

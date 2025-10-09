@@ -258,16 +258,6 @@
     box-shadow: 0 0 15px rgba(255, 222, 89, 0.2);
 }
 
-/* Member images hover */
-.member-img {
-    transition: all 0.3s ease;
-}
-
-.member-img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 222, 89, 0.5);
-}
-
 /* CTA button advanced hover */
 .cta-button {
     position: relative;

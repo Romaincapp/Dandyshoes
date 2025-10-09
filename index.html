@@ -377,15 +377,15 @@
     <section id="about" class="section about-section">
         <div class="container">
             <h2 class="section-title">About</h2>
-            
+
+            <div class="about-image-top neomorph">
+                <picture>
+                    <source srcset="img/webp/DandyShoesBand.webp" type="image/webp">
+                    <img src="img/compressed/DandyShoesBand.jpg" alt="Dandyshoes band" loading="lazy">
+                </picture>
+            </div>
+
             <div class="about-content">
-                <div class="about-image neomorph">
-                    <picture>
-  <source srcset="img/webp/DandyShoesBand.webp" type="image/webp">
-  <img src="img/compressed/DandyShoesBand.jpg" alt="Dandyshoes band" loading="lazy">
-</picture>
-                </div>
-                
                 <div class="about-text">
                     <p>Bloody Rock'n'roll from Charleroi, BE. Fed by bands stamped with a "Black" that set the tone, DANDY SHOES is a vintage spirit formation where dirty fuzz collides with muddy and verby sounds. </p>
 
@@ -405,44 +405,63 @@
                     
                     <div class="glass-card members-card" style="margin-top: 2rem;">
                         <h4 style="color: var(--primary); margin-bottom: 1rem;">The Band</h4>
-                        <ul class="members-list">
-                            <li class="member-item">
-                                <picture>
-  <source srcset="img/webp/Allan Chant.webp" type="image/webp">
-  <img src="img/compressed/Allan Chant.jpg" alt="Allan" loading="lazy">
-</picture>
-                                <div>
-                                    <strong style="color: var(--primary);">Allan</strong> - Vocals, Guitar
+                        <div class="members-grid">
+                            <div class="member-card" data-member="allan">
+                                <div class="member-card-image">
+                                    <picture>
+                                        <source srcset="img/webp/Allan Chant.webp" type="image/webp">
+                                        <img src="img/compressed/Allan Chant.jpg" alt="Allan" loading="lazy" class="member-img">
+                                    </picture>
                                 </div>
-                            </li>
-                            <li class="member-item">
-                                <picture>
-  <source srcset="img/webp/Antoine R4.webp" type="image/webp">
-  <img src="img/compressed/Antoine R4.jpg" alt="Antoine" loading="lazy">
-</picture>
-                                <div>
-                                    <strong style="color: var(--primary);">Antoine</strong> - Bass
+                                <div class="member-card-info">
+                                    <strong style="color: var(--primary);">Allan</strong>
+                                    <span>Vocals, Guitar</span>
                                 </div>
-                            </li>
-                            <li class="member-item">
-                                <picture>
-  <source srcset="img/webp/Romain R2.webp" type="image/webp">
-  <img src="img/compressed/Romain R2.jpg" alt="Romain" loading="lazy">
-</picture>
-                                <div>
-                                    <strong style="color: var(--primary);">Romain</strong> - Drums
+                            </div>
+                            <div class="member-card" data-member="antoine">
+                                <div class="member-card-image">
+                                    <picture>
+                                        <source srcset="img/webp/Antoine R4.webp" type="image/webp">
+                                        <img src="img/compressed/Antoine R4.jpg" alt="Antoine" loading="lazy" class="member-img">
+                                    </picture>
                                 </div>
-                            </li>
-                            <li class="member-item">
-                                <picture>
-  <source srcset="img/webp/Arnaud R4 + effect.webp" type="image/webp">
-  <img src="img/compressed/Arnaud R4 + effect.jpg" alt="Arnaud" loading="lazy">
-</picture>
-                                <div>
-                                    <strong style="color: var(--primary);">Arnaud</strong> - Guitar
+                                <div class="member-card-info">
+                                    <strong style="color: var(--primary);">Antoine</strong>
+                                    <span>Bass</span>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                            <div class="member-card" data-member="romain">
+                                <div class="member-card-image">
+                                    <picture>
+                                        <source srcset="img/webp/Romain R2.webp" type="image/webp">
+                                        <img src="img/compressed/Romain R2.jpg" alt="Romain" loading="lazy" class="member-img">
+                                    </picture>
+                                </div>
+                                <div class="member-card-info">
+                                    <strong style="color: var(--primary);">Romain</strong>
+                                    <span>Drums</span>
+                                </div>
+                            </div>
+                            <div class="member-card" data-member="arnaud">
+                                <div class="member-card-image">
+                                    <picture>
+                                        <source srcset="img/webp/Arnaud R4 + effect.webp" type="image/webp">
+                                        <img src="img/compressed/Arnaud R4 + effect.jpg" alt="Arnaud" loading="lazy" class="member-img">
+                                    </picture>
+                                </div>
+                                <div class="member-card-info">
+                                    <strong style="color: var(--primary);">Arnaud</strong>
+                                    <span>Guitar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal pour agrandir les images -->
+                    <div id="memberModal" class="member-modal">
+                        <span class="member-modal-close">&times;</span>
+                        <img class="member-modal-content" id="memberModalImg">
+                        <div id="memberModalCaption"></div>
                     </div>
                 </div>
             </div>

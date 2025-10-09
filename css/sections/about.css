@@ -3,12 +3,28 @@
     background-color: transparent;
 }
 
+/* Photo principale en haut */
+.about-image-top {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto 3rem;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -79,32 +95,181 @@
     transition: max-height 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
 }
 
-/* Membres du groupe */
+/* Membres du groupe - Grid de petites cartes */
 .members-card {
-    overflow: hidden;
+    overflow: visible;
 }
 
-.members-list {
-    list-style: none;
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
     padding: 0;
 }
 
-.member-item {
-    margin-bottom: 1.2rem;
+.member-card {
+    background: rgba(18, 18, 18, 0.4);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(255, 222, 89, 0.4);
+    border-color: var(--primary);
+    background: rgba(18, 18, 18, 0.6);
+}
+
+.member-card-image {
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.member-card-image picture {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .member-img {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-right: 15px;
-    border: 2px solid var(--primary);
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-img {
+    transform: scale(1.1);
+}
+
+.member-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.member-card-info strong {
+    font-size: 1rem;
+    display: block;
+}
+
+.member-card-info span {
+    font-size: 0.85rem;
+    color: var(--light);
+    opacity: 0.8;
+}
+
+/* Modal pour agrandir les images */
+.member-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.member-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 222, 89, 0.5);
+    animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.member-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: var(--primary);
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.member-modal-close:hover,
+.member-modal-close:focus {
+    color: var(--light);
+}
+
+#memberModalCaption {
+    margin: 20px auto;
+    text-align: center;
+    color: var(--light);
+    font-size: 1.2rem;
+    max-width: 700px;
 }
 
 /* Responsive About */
+@media (min-width: 993px) {
+    .members-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .member-card {
+        padding: 1.5rem;
+    }
+
+    .member-card-image {
+        margin-bottom: 1rem;
+    }
+
+    .member-card-info strong {
+        font-size: 1.1rem;
+    }
+
+    .member-card-info span {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .members-grid {
+        gap: 2.5rem;
+    }
+
+    .member-card {
+        padding: 1.8rem;
+    }
+
+    .member-card-info strong {
+        font-size: 1.2rem;
+    }
+
+    .member-card-info span {
+        font-size: 1rem;
+    }
+}
+
 @media (min-width: 1600px) {
     .about-content {
         max-width: 1600px;
@@ -118,6 +283,22 @@
     .about-text p {
         font-size: 1.15rem;
         line-height: 1.9;
+    }
+
+    .members-grid {
+        gap: 3rem;
+    }
+
+    .member-card {
+        padding: 2rem;
+    }
+
+    .member-card-info strong {
+        font-size: 1.3rem;
+    }
+
+    .member-card-info span {
+        font-size: 1.05rem;
     }
 }
 
@@ -140,6 +321,12 @@
 }
 
 @media screen and (max-width: 768px) {
+    .about-image-top {
+        height: 300px;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+    }
+
     .about-image {
         height: 300px;
         margin-bottom: 1.5rem;
@@ -147,31 +334,13 @@
         top: 0;
     }
 
-    .member-img {
-        width: 55px;
-        height: 55px;
-    }
-
     .about-text p {
         text-align: left;
         font-size: 1rem;
     }
 
-    /* Amélioration pour les membres du groupe sur tablette */
-    .members-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .member-item {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .member-img {
-        margin-right: 0;
-        margin-bottom: 10px;
+    .members-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     }
 
     .read-more-btn {
@@ -185,29 +354,31 @@
     .about-section {
         padding: 3rem 1rem;
     }
-    
+
+    .about-image-top {
+        height: 220px;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+    }
+
     .about-image {
         height: 220px;
         border-radius: 8px;
     }
-    
+
     .about-text p {
         font-size: 0.95rem;
         line-height: 1.6;
         text-align: center;
     }
-    
-    /* Style pour petits écrans - membres du groupe en une colonne */
-    .members-list {
-        grid-template-columns: 1fr;
+
+    .members-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
     }
-    
-    .member-item {
-        margin-bottom: 1.2rem;
-    }
-    
-    .member-img {
-        width: 50px;
-        height: 50px;
+
+    .member-modal-close {
+        top: 10px;
+        right: 20px;
+        font-size: 35px;
     }
 }
