@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-10-09T17:05:06.752Z
+ * Built on: 2025-10-08T13:20:33.375Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -27,73 +27,11 @@
 }
 
 body {
-    background-color: #0a0a0a;
-    background-image:
-        radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(25, 25, 112, 0.1) 0%, transparent 100%);
-    background-attachment: fixed;
-    position: relative;
+    background-color: var(--dark);
     color: var(--light);
     overflow-x: hidden;
     line-height: 1.6;
     font-family: 'Inter', sans-serif;
-}
-
-/* Effet d'orage animé sur le body */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at var(--x, 50%) var(--y, 50%), rgba(255, 222, 89, 0.15) 0%, transparent 40%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9999;
-    animation: thunder-flash 2s infinite;
-}
-
-@keyframes thunder-flash {
-    0%, 100% {
-        opacity: 0;
-    }
-    2% {
-        opacity: 0.8;
-        --x: 30%;
-        --y: 20%;
-    }
-    2.5% {
-        opacity: 0;
-    }
-    3% {
-        opacity: 0.6;
-        --x: 70%;
-        --y: 40%;
-    }
-    3.5% {
-        opacity: 0;
-    }
-    45% {
-        opacity: 0;
-    }
-    47% {
-        opacity: 0.9;
-        --x: 50%;
-        --y: 30%;
-    }
-    47.5% {
-        opacity: 0;
-    }
-    48% {
-        opacity: 0.7;
-        --x: 60%;
-        --y: 50%;
-    }
-    48.5% {
-        opacity: 0;
-    }
 }
 
 img {
@@ -180,10 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Logo styling avec font améliorée */
 .logo {
-    font-size: 5rem;
-    text-align: center;
-    width: 100%;
-    display: block;
+    font-size: 5rem
 }
 
 /* Responsive typography */
@@ -615,7 +550,7 @@ header {
 /* ===== FOOTER ===== */
 /* DANDYSHOES - Footer */
 footer {
-    background-color: transparent;
+    background-color: rgba(20, 20, 20, 1);
     padding: 4rem 2rem;
     text-align: center;
 }
@@ -709,7 +644,7 @@ footer {
 /* ===== MUSIC ===== */
 /* DANDYSHOES - Music Section */
 .music-section {
-    background-color: transparent;
+    background-color: rgba(30, 30, 30, 1);
 }
 
 .latest-release {
@@ -741,8 +676,7 @@ footer {
 /* Conteneur adapté pour la vidéo YouTube 16:9 */
 .release-art.video-container {
     width: 100%;
-    max-width: 900px;
-    height: auto;
+    max-width: 1400px;
     position: relative;
     margin: 0 auto 2rem;
     background: transparent;
@@ -758,7 +692,6 @@ footer {
     position: relative;
     width: 100%;
     height: 100%;
-    padding-bottom: 56.25%; /* 16:9 ratio (9/16 = 0.5625) */
     border-radius: 20px;
     overflow: hidden;
     background: #000;
@@ -956,9 +889,8 @@ footer {
 /* Responsive music section */
 @media screen and (min-width: 993px) {
     .release-art.video-container {
-        width: 80%;
-        max-width: 900px;
-        height: auto;
+        width: 90%;
+        max-width: 1400px;
         aspect-ratio: 16/9;
     }
 }
@@ -976,8 +908,7 @@ footer {
 
     .release-art.video-container {
         width: 95%;
-        max-width: 750px;
-        height: auto;
+        max-width: 900px;
         aspect-ratio: 16/9;
     }
 }
@@ -1017,31 +948,15 @@ footer {
 /* ===== ABOUT ===== */
 /* DANDYSHOES - About Section */
 .about-section {
-    background-color: transparent;
-}
-
-/* Photo principale en haut */
-.about-image-top {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    height: 400px;
-    margin: 0 auto 3rem;
-    border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-image-top img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-color: var(--dark);
 }
 
 .about-content {
-    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -1112,181 +1027,32 @@ footer {
     transition: max-height 1s ease-in-out, opacity 0.5s 0.3s ease, margin-top 0.3s ease;
 }
 
-/* Membres du groupe - Grid de petites cartes */
+/* Membres du groupe */
 .members-card {
-    overflow: visible;
+    overflow: hidden;
 }
 
-.members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.5rem;
+.members-list {
+    list-style: none;
     padding: 0;
 }
 
-.member-card {
-    background: rgba(18, 18, 18, 0.4);
-    border: 2px solid var(--primary);
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+.member-item {
+    margin-bottom: 1.2rem;
     display: flex;
-    flex-direction: column;
-}
-
-.member-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(255, 222, 89, 0.4);
-    border-color: var(--primary);
-    background: rgba(18, 18, 18, 0.6);
-}
-
-.member-card-image {
-    width: 100%;
-    aspect-ratio: 1;
-    margin-bottom: 0.8rem;
-    overflow: hidden;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.member-card-image picture {
-    width: 100%;
-    height: 100%;
-    display: block;
+    align-items: center;
 }
 
 .member-img {
-    width: 100%;
-    height: 100%;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
     object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.member-card:hover .member-img {
-    transform: scale(1.1);
-}
-
-.member-card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    flex: 1;
-    justify-content: center;
-}
-
-.member-card-info strong {
-    font-size: 1rem;
-    display: block;
-}
-
-.member-card-info span {
-    font-size: 0.85rem;
-    color: var(--light);
-    opacity: 0.8;
-}
-
-/* Modal pour agrandir les images */
-.member-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-}
-
-.member-modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 80vh;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255, 222, 89, 0.5);
-    animation: zoom 0.3s ease;
-}
-
-@keyframes zoom {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.member-modal-close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    color: var(--primary);
-    font-size: 45px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.member-modal-close:hover,
-.member-modal-close:focus {
-    color: var(--light);
-}
-
-#memberModalCaption {
-    margin: 20px auto;
-    text-align: center;
-    color: var(--light);
-    font-size: 1.2rem;
-    max-width: 700px;
+    margin-right: 15px;
+    border: 2px solid var(--primary);
 }
 
 /* Responsive About */
-@media (min-width: 993px) {
-    .members-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-    }
-
-    .member-card {
-        padding: 1.5rem;
-    }
-
-    .member-card-image {
-        margin-bottom: 1rem;
-    }
-
-    .member-card-info strong {
-        font-size: 1.1rem;
-    }
-
-    .member-card-info span {
-        font-size: 0.9rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .members-grid {
-        gap: 2.5rem;
-    }
-
-    .member-card {
-        padding: 1.8rem;
-    }
-
-    .member-card-info strong {
-        font-size: 1.2rem;
-    }
-
-    .member-card-info span {
-        font-size: 1rem;
-    }
-}
-
 @media (min-width: 1600px) {
     .about-content {
         max-width: 1600px;
@@ -1300,22 +1066,6 @@ footer {
     .about-text p {
         font-size: 1.15rem;
         line-height: 1.9;
-    }
-
-    .members-grid {
-        gap: 3rem;
-    }
-
-    .member-card {
-        padding: 2rem;
-    }
-
-    .member-card-info strong {
-        font-size: 1.3rem;
-    }
-
-    .member-card-info span {
-        font-size: 1.05rem;
     }
 }
 
@@ -1338,12 +1088,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    .about-image-top {
-        height: 300px;
-        margin-bottom: 2rem;
-        border-radius: 12px;
-    }
-
     .about-image {
         height: 300px;
         margin-bottom: 1.5rem;
@@ -1351,13 +1095,31 @@ footer {
         top: 0;
     }
 
+    .member-img {
+        width: 55px;
+        height: 55px;
+    }
+
     .about-text p {
         text-align: left;
         font-size: 1rem;
     }
 
-    .members-grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+    /* Amélioration pour les membres du groupe sur tablette */
+    .members-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .member-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member-img {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 
     .read-more-btn {
@@ -1371,39 +1133,37 @@ footer {
     .about-section {
         padding: 3rem 1rem;
     }
-
-    .about-image-top {
-        height: 220px;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
-    }
-
+    
     .about-image {
         height: 220px;
         border-radius: 8px;
     }
-
+    
     .about-text p {
         font-size: 0.95rem;
         line-height: 1.6;
         text-align: center;
     }
-
-    .members-grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
+    
+    /* Style pour petits écrans - membres du groupe en une colonne */
+    .members-list {
+        grid-template-columns: 1fr;
     }
-
-    .member-modal-close {
-        top: 10px;
-        right: 20px;
-        font-size: 35px;
+    
+    .member-item {
+        margin-bottom: 1.2rem;
+    }
+    
+    .member-img {
+        width: 50px;
+        height: 50px;
     }
 }
 
 /* ===== TOUR ===== */
 /* DANDYSHOES - Tour Section */
 .tour-section {
-    background-color: transparent;
+    background-color: rgba(30, 30, 30, 1);
 }
 
 .tour-list {
@@ -1511,7 +1271,7 @@ footer {
 /* ===== GALLERY ===== */
 /* DANDYSHOES - Gallery Section */
 .gallery-section {
-    background-color: transparent;
+    background-color: var(--dark);
 }
 
 .gallery-grid {
@@ -1632,7 +1392,7 @@ footer {
 
 /* Section contact - Padding équilibré */
 .contact-section {
-    background-color: transparent;
+    background-color: rgba(30, 30, 30, 1);
     text-align: center;
     position: relative;
     overflow: visible;
@@ -2417,7 +2177,7 @@ footer {
 /* Video Library Section */
 .video-library-section {
     padding: 5rem 0;
-    background-color: transparent;
+    background-color: var(--dark);
 }
 
 .video-categories {
@@ -3082,7 +2842,7 @@ slider-arrow:hover svg {
 /* ===== PRO ===== */
     /* Styles spécifiques pour la page Pro */
         .pro-section {
-            background-color: transparent;
+            background-color: rgba(20, 20, 20, 1);
             padding: 6rem 2rem;
         }
         
@@ -3466,7 +3226,7 @@ slider-arrow:hover svg {
    ========================================================================== */
 
 .pro-section {
-    background: transparent;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 1) 0%, rgba(30, 30, 30, 1) 100%);
     padding: 6rem 2rem;
     min-height: 100vh;
     position: relative;
@@ -4727,9 +4487,9 @@ body.modal-open {
     height: 200px;
     background-color: var(--primary);
     box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
-    animation: lightning 5s infinite;
+    animation: lightning 1s infinite;
     opacity: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 @keyframes lightning {
@@ -4758,7 +4518,7 @@ body.modal-open {
     height: 100%;
     background: linear-gradient(to bottom, rgba(255, 222, 89, 0) 0%, rgba(255, 222, 89, 0) 50%, rgba(255, 222, 89, 0.05) 100%);
     opacity: 0;
-    animation: thunder 2s infinite;
+    animation: thunder 1s infinite;
     z-index: 0;
 }
 
@@ -5030,6 +4790,16 @@ body.modal-open {
     box-shadow: 0 0 15px rgba(255, 222, 89, 0.2);
 }
 
+/* Member images hover */
+.member-img {
+    transition: all 0.3s ease;
+}
+
+.member-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 222, 89, 0.5);
+}
+
 /* CTA button advanced hover */
 .cta-button {
     position: relative;
@@ -5165,11 +4935,6 @@ body.modal-open {
         margin-bottom: 0.5rem;
         text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
         line-height: 1.1;
-        text-align: center;
-        width: 100%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
     
     .tagline {
@@ -5240,6 +5005,13 @@ body.modal-open {
     .member-item {
         flex-direction: column;
         text-align: center;
+    }
+    
+    .member-img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 55px;
+        height: 55px;
     }
     
     .read-more-btn {
@@ -5599,22 +5371,8 @@ body.modal-open {
     }
 }
 
-/* Écrans Samsung Galaxy et similaires (360px-375px) */
+/* Très petits écrans (max-width: 375px) */
 @media (max-width: 375px) {
-    .header-content h1.logo {
-        font-size: 2rem;
-        text-align: center !important;
-        width: 100% !important;
-        display: block !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        position: relative;
-        left: 0 !important;
-        transform: translateX(0) !important;
-    }
-
     .cta-button {
         width: 100%;
         max-width: 240px;
@@ -5709,31 +5467,6 @@ body.modal-open {
     }
 }
 
-/* Samsung Galaxy et petits écrans (360px) */
-@media screen and (max-width: 360px) {
-    .header-content h1.logo {
-        font-size: 1.8rem !important;
-        text-align: center !important;
-        width: 100% !important;
-        display: block !important;
-        margin: 0 auto 0.5rem auto !important;
-        padding: 0 !important;
-        position: relative !important;
-        left: 0 !important;
-        right: 0 !important;
-        transform: translateX(0) !important;
-    }
-
-    .header-content {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-        text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-}
 
 @media screen and (max-width: 575px) {
     .release-art.video-container {
@@ -6367,7 +6100,12 @@ body.modal-open {
     .about-image {
         height: 400px;
     }
-
+    
+    .member-img {
+        width: 65px;
+        height: 65px;
+    }
+    
     /* Gallery desktop */
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
