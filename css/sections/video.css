@@ -134,7 +134,7 @@
 /* Video Library Section */
 .video-library-section {
     padding: 5rem 0;
-    background-color: var(--dark);
+    background-color: transparent;
 }
 
 .video-categories {

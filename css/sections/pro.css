@@ -1,6 +1,6 @@
     /* Styles spécifiques pour la page Pro */
         .pro-section {
-            background-color: rgba(20, 20, 20, 1);
+            background-color: transparent;
             padding: 6rem 2rem;
         }
         
@@ -384,7 +384,7 @@
    ========================================================================== */
 
 .pro-section {
-    background: linear-gradient(135deg, rgba(20, 20, 20, 1) 0%, rgba(30, 30, 30, 1) 100%);
+    background: transparent;
     padding: 6rem 2rem;
     min-height: 100vh;
     position: relative;

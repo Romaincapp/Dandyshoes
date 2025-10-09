@@ -1,6 +1,6 @@
 /* DANDYSHOES - Gallery Section */
 .gallery-section {
-    background-color: var(--dark);
+    background-color: transparent;
 }
 
 .gallery-grid {
