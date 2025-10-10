@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-10-09T17:05:06.752Z
+ * Built on: 2025-10-10T06:56:01.012Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -529,10 +529,67 @@ header {
 
 /* MOBILE */
 @media screen and (max-width: 768px) {
+    /* Header s'adapte à la hauteur de l'image */
+    header {
+        height: auto;
+        min-height: auto;
+        position: relative;
+    }
+
+    /* Image du header en largeur complète */
+    .parallax-bg {
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+
+    .parallax-bg picture {
+        position: relative;
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+
+    .parallax-bg picture img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: top center;
+        position: relative;
+        display: block;
+    }
+
+    /* Dark overlay sur toute l'image */
+    .dark-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    /* Contenu positionné sur l'image */
+    .header-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        min-height: 100%;
+        padding-top: 15vh !important;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 3;
+    }
+
     .header-content h1 {
         font-size: 3rem;
     }
-    
+
     .tagline {
         font-size: 1.2rem;
     }
@@ -572,9 +629,13 @@ header {
     .header-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .header-content {
-        padding-top: 20vh;
+        padding-top: 10vh !important;
+    }
+
+    .platforms-container {
+        margin-top: 1.5rem !important;
     }
     
     .platforms-scroll {
@@ -596,15 +657,32 @@ header {
 
 /* TRÈS TRÈS PETITS ÉCRANS */
 @media screen and (max-width: 375px) {
+    .header-content {
+        padding-top: 8vh !important;
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .platforms-container {
+        margin-top: 1rem !important;
+    }
+
     .platforms-scroll {
         height: 50px !important;
     }
-    
+
     .platform-logo {
         height: 40px !important;
         padding: 0 15px !important;
     }
-    
+
     .platform-logo img {
         max-height: 32px !important;
         max-width: 80px !important;
@@ -5149,14 +5227,8 @@ body.modal-open {
     }
     
     .header-content {
-        padding-top: 10vh; /* Réduit de 20vh à 10vh */
         padding-left: 1rem;
         padding-right: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
         text-align: center;
     }
     
@@ -5860,14 +5932,8 @@ body.modal-open {
 /* Amélioration du responsive pour le header-content */
 @media (max-width: 768px) {
     .header-content {
-        padding-top: 10vh; /* Réduit de 20vh à 10vh */
         padding-left: 1rem;
         padding-right: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
         text-align: center;
     }
     
@@ -5882,18 +5948,7 @@ body.modal-open {
     }
 }
 
-/* Remonter tout le contenu */
-.header-content {
-    padding-top: 10vh; /* Réduit de 20vh à 10vh */
-    padding-left: 1rem;
-    padding-right: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-}
+/* Remonter tout le contenu - géré dans header.css */
 
 /* Logo plus compact */
 .header-content h1.logo {

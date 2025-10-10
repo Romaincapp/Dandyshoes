@@ -66,14 +66,8 @@
     }
     
     .header-content {
-        padding-top: 10vh; /* Réduit de 20vh à 10vh */
         padding-left: 1rem;
         padding-right: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
         text-align: center;
     }
     
@@ -777,14 +771,8 @@
 /* Amélioration du responsive pour le header-content */
 @media (max-width: 768px) {
     .header-content {
-        padding-top: 10vh; /* Réduit de 20vh à 10vh */
         padding-left: 1rem;
         padding-right: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
         text-align: center;
     }
     
@@ -799,18 +787,7 @@
     }
 }
 
-/* Remonter tout le contenu */
-.header-content {
-    padding-top: 10vh; /* Réduit de 20vh à 10vh */
-    padding-left: 1rem;
-    padding-right: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-}
+/* Remonter tout le contenu - géré dans header.css */
 
 /* Logo plus compact */
 .header-content h1.logo {
