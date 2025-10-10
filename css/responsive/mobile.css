@@ -34,25 +34,28 @@
         width: 70%;
         background-color: rgba(0, 0, 0, 0.95);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         transition: all 0.5s ease;
         z-index: 999;
-        padding-top: 60px;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        overflow-y: auto;
     }
-    
+
     .nav-links.active {
         right: 0;
     }
-    
+
     .nav-links a {
-        margin: 15px 0;
-        font-size: 1.2rem;
+        margin: 8px 0;
+        padding: 8px 0;
+        font-size: 1rem;
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.4s ease, transform 0.4s ease;
     }
-    
+
     .nav-links.active a {
         opacity: 1;
         transform: translateY(0);
@@ -467,6 +470,13 @@
 
 /* Très petits écrans (max-width: 480px) */
 @media (max-width: 480px) {
+    /* Navigation encore plus compacte */
+    .nav-links a {
+        margin: 6px 0;
+        padding: 6px 0;
+        font-size: 0.95rem;
+    }
+
     .cta-button {
         width: 95%;
         max-width: 260px;
@@ -512,6 +522,17 @@
 
 /* Écrans Samsung Galaxy et similaires (360px-375px) */
 @media (max-width: 375px) {
+    /* Navigation ultra compacte pour petits écrans */
+    .nav-links {
+        padding-top: 70px;
+    }
+
+    .nav-links a {
+        margin: 5px 0;
+        padding: 5px 0;
+        font-size: 0.9rem;
+    }
+
     .header-content h1.logo {
         font-size: 2rem;
         text-align: center !important;

@@ -6,95 +6,66 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.querySelector('.submit-btn');
     
     // ========== GESTION DE LA CHECKBOX - VERSION CORRIGÉE ==========
-    // Sélectionner la checkbox et son label
-    const consentCheckbox = document.querySelector('input[name="consent"]');
-    const checkboxLabel = document.querySelector('.checkbox-label');
-    const checkmark = document.querySelector('.checkmark');
-    
-    if (consentCheckbox && checkboxLabel) {
-        console.log('Checkbox trouvée, ajout des événements...');
-        
-        // CORRECTION : Gestionnaire simple et direct pour la checkbox
-        consentCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                checkboxLabel.style.opacity = '1';
-                console.log('Checkbox cochée !');
-            } else {
-                checkboxLabel.style.opacity = '0.7';
-                console.log('Checkbox décochée !');
-            }
-        });
-        
-        // Support du clavier (Espace pour cocher/décocher)
-        checkboxLabel.addEventListener('keydown', function(e) {
-            if (e.key === ' ' || e.key === 'Enter') {
-                e.preventDefault();
-                consentCheckbox.checked = !consentCheckbox.checked;
-                
-                // Déclencher l'événement change
-                const event = new Event('change', { bubbles: true });
-                consentCheckbox.dispatchEvent(event);
-                
-                console.log('Checkbox toggled via keyboard:', consentCheckbox.checked);
-            }
-        });
-        
-        // Rendre le label focusable pour l'accessibilité
-        checkboxLabel.setAttribute('tabindex', '0');
-        checkboxLabel.setAttribute('role', 'checkbox');
-        checkboxLabel.setAttribute('aria-checked', consentCheckbox.checked);
-        
-        // Mettre à jour l'attribut aria-checked quand l'état change
-        consentCheckbox.addEventListener('change', function() {
-            checkboxLabel.setAttribute('aria-checked', this.checked);
+    // Sélectionner la checkbox (nom correct: "privacy")
+    const privacyCheckbox = document.querySelector('input[name="privacy"]');
+
+    if (privacyCheckbox) {
+        console.log('Checkbox privacy trouvée !');
+
+        // Gestionnaire simple pour la checkbox
+        privacyCheckbox.addEventListener('change', function() {
+            console.log('Checkbox privacy:', this.checked ? 'cochée' : 'décochée');
         });
     } else {
-        console.error('Checkbox de consentement non trouvée !');
-        console.log('Elements trouvés:');
-        console.log('- consentCheckbox:', consentCheckbox);
-        console.log('- checkboxLabel:', checkboxLabel);
-        console.log('- checkmark:', checkmark);
+        console.error('Checkbox privacy non trouvée !');
     }
     
     // ========== GESTION DU FORMULAIRE ==========
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            console.log('Formulaire soumis - début de validation');
+
             // Récupérer les valeurs du formulaire
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const subject = document.getElementById('subject').value.trim();
             const message = document.getElementById('message').value.trim();
-            const consent = document.querySelector('input[name="consent"]').checked;
-            
+            const privacy = document.querySelector('input[name="privacy"]').checked;
+
+            console.log('Valeurs du formulaire:', { name, email, subject, message, privacy });
+
             // Validation côté client
-            if (!name || !email || !message) {
-                e.preventDefault(); // Empêcher la soumission seulement si erreur
-                showNotification('Veuillez remplir tous les champs obligatoires (nom, email, message).', 'error');
+            if (!name || !email || !subject || !message) {
+                e.preventDefault();
+                showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
+                console.error('Validation échouée: champs manquants');
                 return false;
             }
-            
+
             // Validation email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 e.preventDefault();
                 showNotification('Veuillez entrer une adresse email valide.', 'error');
+                console.error('Validation échouée: email invalide');
                 return false;
             }
-            
+
             // Validation consentement RGPD
-            if (!consent) {
+            if (!privacy) {
                 e.preventDefault();
                 showNotification('Veuillez accepter la politique de confidentialité.', 'error');
+                console.error('Validation échouée: politique non acceptée');
                 return false;
             }
-            
+
             // Si tout est OK, on laisse le formulaire se soumettre naturellement à Formspree
+            console.log('Validation réussie - envoi à Formspree');
             showLoadingState();
-            
-            // Message d'info pendant l'envoi
-            setTimeout(() => {
-                showNotification('Message en cours d\'envoi...', 'info');
-            }, 100);
+
+            // Le formulaire sera soumis à Formspree
+            // Formspree redirigera vers l'URL spécifiée dans _next
+            return true;
         });
     }
     
@@ -252,28 +223,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ========== FONCTIONS GLOBALES ==========
 
-// Fonction pour tester la checkbox depuis la console
-function testCheckbox() {
-    const checkbox = document.querySelector('input[name="consent"]');
-    if (checkbox) {
-        checkbox.checked = !checkbox.checked;
-        const event = new Event('change', { bubbles: true });
-        checkbox.dispatchEvent(event);
-        console.log('Test checkbox - État:', checkbox.checked);
-        return checkbox.checked;
-    } else {
-        console.error('Checkbox non trouvée !');
-        return false;
-    }
-}
+// Fonction pour tester le formulaire depuis la console
+function testForm() {
+    console.log('=== TEST FORMULAIRE ===');
+    const form = document.querySelector('.contact-form');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
+    const privacy = document.querySelector('input[name="privacy"]');
 
-// Fonction pour débugger les éléments
-function debugCheckbox() {
-    console.log('=== DEBUG CHECKBOX ===');
-    console.log('Input checkbox:', document.querySelector('input[name="consent"]'));
-    console.log('Label checkbox:', document.querySelector('.checkbox-label'));
-    console.log('Checkmark:', document.querySelector('.checkmark'));
-    console.log('Form:', document.querySelector('.contact-form'));
+    console.log('Formulaire:', form);
+    console.log('Champs:', {
+        name: name ? name.value : 'NON TROUVÉ',
+        email: email ? email.value : 'NON TROUVÉ',
+        subject: subject ? subject.value : 'NON TROUVÉ',
+        message: message ? message.value : 'NON TROUVÉ',
+        privacy: privacy ? privacy.checked : 'NON TROUVÉ'
+    });
+
+    if (form) {
+        console.log('Action du formulaire:', form.getAttribute('action'));
+        console.log('Méthode du formulaire:', form.getAttribute('method'));
+    }
 }
 
 // ========== CSS POUR LES NOTIFICATIONS ==========
