@@ -27,8 +27,16 @@
 .contact-section > .container {
     position: relative;
     z-index: 1;
-    max-width: 800px; /* Légèrement plus large */
+    max-width: 800px;
     margin: 0 auto;
+}
+
+/* Container élargi pour les informations de contact */
+.contact-info {
+    max-width: 1200px !important;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Titre - Espacement harmonieux */
@@ -330,14 +338,20 @@
 
 /* GRILLE D'INFORMATIONS DE CONTACT */
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
 }
 
 .contact-card {
-    padding: 2.5rem 2rem;
+    flex: 0 1 320px;
+    padding: 2rem 2rem;
     text-align: center;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -368,9 +382,9 @@
     color: var(--primary);
     margin-bottom: 1.5rem;
     font-family: 'Microgramma-D-Extended-Bold', sans-serif;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0;
 }
 
 .contact-card p {
@@ -521,6 +535,18 @@
 }
 
 /* RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .contact-grid {
+        gap: 1.5rem;
+    }
+
+    .contact-card {
+        flex: 0 1 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .contact-section {
         padding: 4rem 1rem 5rem 1rem;
@@ -570,11 +596,16 @@
     }
     
     .contact-grid {
+        flex-direction: column;
+        align-items: center;
         gap: 1.5rem;
         margin-top: 2rem;
     }
-    
+
     .contact-card {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 400px;
         padding: 2rem 1.5rem;
     }
     

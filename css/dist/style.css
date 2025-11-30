@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-10-10T07:02:08.400Z
+ * Built on: 2025-11-30T18:22:11.081Z
  * Files combined: 23
  * 
  * © 2025 DANDYSHOES. All rights reserved.
@@ -399,8 +399,8 @@ header {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 90px !important;
-    border-radius: 45px !important;
+    height: 115px !important;
+    border-radius: 58px !important;
     background: rgba(0, 0, 0, 0.4) !important;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6) !important;
 }
@@ -414,17 +414,17 @@ header {
 }
 
 .platform-logo {
-    height: 80px !important;
-    padding: 0 30px !important;
+    height: 105px !important;
+    padding: 0 40px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
 .platform-logo img {
-    max-height: 60px !important;
-    max-width: 160px !important;
-    min-height: 45px !important;
+    max-height: 78px !important;
+    max-width: 210px !important;
+    min-height: 60px !important;
     object-fit: contain !important;
     opacity: 1 !important;
     transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
@@ -483,19 +483,19 @@ header {
 /* DESKTOP */
 @media screen and (min-width: 993px) {
     .platforms-scroll {
-        height: 100px !important;
-        border-radius: 50px !important;
+        height: 130px !important;
+        border-radius: 65px !important;
     }
 
     .platform-logo {
-        height: 90px !important;
-        padding: 0 40px !important;
+        height: 120px !important;
+        padding: 0 52px !important;
     }
 
     .platform-logo img {
-        max-height: 70px !important;
-        max-width: 180px !important;
-        min-height: 55px !important;
+        max-height: 90px !important;
+        max-width: 235px !important;
+        min-height: 70px !important;
     }
 
     .as-seen-on {
@@ -507,21 +507,21 @@ header {
 /* TABLET */
 @media screen and (min-width: 769px) and (max-width: 992px) {
     .platforms-scroll {
-        height: 65px !important;
-        border-radius: 32px !important;
+        height: 85px !important;
+        border-radius: 42px !important;
     }
-    
+
     .platform-logo {
-        height: 55px !important;
-        padding: 0 22px !important;
+        height: 70px !important;
+        padding: 0 29px !important;
     }
-    
+
     .platform-logo img {
-        max-height: 48px !important;
-        max-width: 130px !important;
-        min-height: 38px !important;
+        max-height: 62px !important;
+        max-width: 170px !important;
+        min-height: 50px !important;
     }
-    
+
     .as-seen-on {
         font-size: 1.1rem !important;
     }
@@ -577,7 +577,7 @@ header {
         right: 0;
         height: auto;
         min-height: 100%;
-        padding-top: 15vh !important;
+        padding-top: 20vh !important;
         padding-bottom: 2rem;
         display: flex;
         flex-direction: column;
@@ -595,30 +595,30 @@ header {
     }
     
     .platforms-scroll {
-        height: 60px !important;
-        border-radius: 30px !important;
+        height: 80px !important;
+        border-radius: 40px !important;
     }
-    
+
     .platform-logo {
-        height: 50px !important;
-        padding: 0 20px !important;
+        height: 65px !important;
+        padding: 0 26px !important;
     }
-    
+
     .platform-logo img {
-        max-height: 40px !important;
-        max-width: 100px !important;
-        min-height: 30px !important;
+        max-height: 52px !important;
+        max-width: 130px !important;
+        min-height: 40px !important;
     }
-    
+
     .as-seen-on {
         font-size: 0.9rem !important;
         margin-bottom: 0.8rem !important;
     }
-    
+
     .platforms-track {
         animation: scroll 25s linear infinite !important;
     }
-    
+
     .platforms-container {
         max-width: 90%;
     }
@@ -631,7 +631,7 @@ header {
     }
 
     .header-content {
-        padding-top: 10vh !important;
+        padding-top: 18vh !important;
     }
 
     .platforms-container {
@@ -639,26 +639,26 @@ header {
     }
     
     .platforms-scroll {
-        height: 55px !important;
-        border-radius: 27px !important;
+        height: 70px !important;
+        border-radius: 35px !important;
     }
-    
+
     .platform-logo {
-        height: 45px !important;
-        padding: 0 18px !important;
+        height: 60px !important;
+        padding: 0 23px !important;
     }
-    
+
     .platform-logo img {
-        max-height: 35px !important;
-        max-width: 90px !important;
-        min-height: 25px !important;
+        max-height: 45px !important;
+        max-width: 115px !important;
+        min-height: 32px !important;
     }
 }
 
 /* TRÈS TRÈS PETITS ÉCRANS */
 @media screen and (max-width: 375px) {
     .header-content {
-        padding-top: 8vh !important;
+        padding-top: 15vh !important;
     }
 
     .header-content h1 {
@@ -675,18 +675,18 @@ header {
     }
 
     .platforms-scroll {
-        height: 50px !important;
+        height: 65px !important;
     }
 
     .platform-logo {
-        height: 40px !important;
-        padding: 0 15px !important;
+        height: 52px !important;
+        padding: 0 20px !important;
     }
 
     .platform-logo img {
-        max-height: 32px !important;
-        max-width: 80px !important;
-        min-height: 24px !important;
+        max-height: 42px !important;
+        max-width: 105px !important;
+        min-height: 31px !important;
     }
 }
 
@@ -1733,8 +1733,16 @@ footer {
 .contact-section > .container {
     position: relative;
     z-index: 1;
-    max-width: 800px; /* Légèrement plus large */
+    max-width: 800px;
     margin: 0 auto;
+}
+
+/* Container élargi pour les informations de contact */
+.contact-info {
+    max-width: 1200px !important;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Titre - Espacement harmonieux */
@@ -2036,14 +2044,20 @@ footer {
 
 /* GRILLE D'INFORMATIONS DE CONTACT */
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
 }
 
 .contact-card {
-    padding: 2.5rem 2rem;
+    flex: 0 1 320px;
+    padding: 2rem 2rem;
     text-align: center;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -2074,9 +2088,9 @@ footer {
     color: var(--primary);
     margin-bottom: 1.5rem;
     font-family: 'Microgramma-D-Extended-Bold', sans-serif;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0;
 }
 
 .contact-card p {
@@ -2227,6 +2241,18 @@ footer {
 }
 
 /* RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .contact-grid {
+        gap: 1.5rem;
+    }
+
+    .contact-card {
+        flex: 0 1 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .contact-section {
         padding: 4rem 1rem 5rem 1rem;
@@ -2276,11 +2302,16 @@ footer {
     }
     
     .contact-grid {
+        flex-direction: column;
+        align-items: center;
         gap: 1.5rem;
         margin-top: 2rem;
     }
-    
+
     .contact-card {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 400px;
         padding: 2rem 1.5rem;
     }
     
