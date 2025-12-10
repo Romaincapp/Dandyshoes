@@ -836,3 +836,203 @@
 }
 
 /* Section plateformes compacte - voir header.css pour les styles */
+
+/* ========================================
+   RELEASE PARTY BANNER - RESPONSIVE
+   ======================================== */
+
+/* Tablette et mobile */
+@media (max-width: 768px) {
+    .release-banner {
+        display: block !important;
+        width: 90% !important;
+        max-width: 320px !important;
+        margin: 1.5rem auto !important;
+    }
+
+    .release-banner > div {
+        padding: 1rem 1.2rem !important;
+        border-radius: 10px !important;
+    }
+
+    .release-banner span[style*="font-size: 0.75rem"] {
+        font-size: 0.65rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    .release-banner span[style*="font-size: 1.4rem"] {
+        font-size: 1.2rem !important;
+    }
+
+    .release-banner span[style*="font-size: 0.95rem"] {
+        font-size: 0.85rem !important;
+    }
+
+    .release-banner span[style*="font-size: 0.85rem"] {
+        font-size: 0.75rem !important;
+    }
+
+    .release-banner span[style*="padding: 0.4rem 1.2rem"] {
+        padding: 0.35rem 1rem !important;
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Mobile petit */
+@media (max-width: 480px) {
+    .release-banner {
+        width: 95% !important;
+        max-width: 280px !important;
+        margin: 1rem auto !important;
+    }
+
+    .release-banner > div {
+        padding: 0.9rem 1rem !important;
+    }
+
+    .release-banner span[style*="font-size: 0.75rem"] {
+        font-size: 0.6rem !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .release-banner span[style*="font-size: 1.4rem"] {
+        font-size: 1.1rem !important;
+    }
+
+    .release-banner span[style*="font-size: 0.95rem"] {
+        font-size: 0.8rem !important;
+    }
+
+    .release-banner span[style*="font-size: 0.85rem"] {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Très petit écran */
+@media (max-width: 360px) {
+    .release-banner {
+        width: 98% !important;
+        max-width: 260px !important;
+    }
+
+    .release-banner > div {
+        padding: 0.8rem 0.9rem !important;
+    }
+
+    .release-banner span[style*="font-size: 1.4rem"] {
+        font-size: 1rem !important;
+    }
+}
+
+/* ========================================
+   EP DIURNE CARD (Music Section) - RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .glass-card[style*="EP"] {
+        padding: 1.2rem 1rem !important;
+        margin: 0 1rem 1.5rem 1rem !important;
+        max-width: calc(100% - 2rem) !important;
+    }
+
+    .glass-card[style*="EP"] h4 {
+        font-size: 1.2rem !important;
+    }
+
+    .glass-card[style*="EP"] p {
+        font-size: 0.95rem !important;
+    }
+
+    .glass-card[style*="EP"] a[style*="Get Tickets"] {
+        padding: 0.5rem 1.2rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ========================================
+   TOUR SECTION - RELEASE PARTY & TOGGLE - RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Release party tour date */
+    .tour-date[style*="border: 2px solid #ff3c3c"] {
+        padding: 1rem !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .date {
+        font-size: 1rem !important;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .location {
+        font-size: 0.9rem !important;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .venue {
+        font-size: 0.8rem !important;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .tour-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 0.8rem;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .tickets-btn {
+        width: 100% !important;
+        max-width: none !important;
+        text-align: center;
+        margin: 0 !important;
+    }
+
+    /* Toggle button 2025 */
+    #toggle2025Dates {
+        padding: 0.8rem !important;
+        font-size: 0.9rem !important;
+        margin: 0.8rem 0 !important;
+    }
+
+    /* Dates 2025 container */
+    #dates2025 .tour-date {
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .tour-date[style*="border: 2px solid #ff3c3c"] {
+        padding: 0.8rem !important;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .date {
+        font-size: 0.9rem !important;
+    }
+
+    .tour-date[style*="border: 2px solid #ff3c3c"] .location {
+        font-size: 0.85rem !important;
+    }
+
+    #toggle2025Dates {
+        padding: 0.7rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ========================================
+   SPOTIFY EMBEDS SECTION - RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .spotify-players {
+        padding: 0 1rem !important;
+    }
+
+    .spotify-embeds {
+        padding: 0 !important;
+        gap: 1.5rem !important;
+    }
+
+    .spotify-embeds .glass-card {
+        padding: 1rem !important;
+    }
+}
