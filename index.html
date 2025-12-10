@@ -120,6 +120,24 @@
   "event": [
     {
       "@type": "MusicEvent",
+      "name": "DANDYSHOES - EP DIURNE Release Party",
+      "startDate": "2026-02-20T20:00",
+      "location": {
+        "@type": "Place",
+        "name": "Le Belvédère",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Belgium",
+          "addressCountry": "BE"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.billetweb.fr/dandy-shoes-ep-release-party-bulldozer-and-the-machine-guns-microb"
+      }
+    },
+    {
+      "@type": "MusicEvent",
       "name": "DANDYSHOES at Cercle Saint-Charles",
       "startDate": "2025-05-23T20:00",
       "location": {
@@ -191,8 +209,23 @@
         <div class="header-content" style="position: relative; text-align: center; padding-top: 25vh;">
             <h1 class="logo">DANDYSHOES</h1>
             <p class="tagline">BLOODY R'n'R BAND FROM CHARLEROI 🇧🇪.</p>
-            <a href="#music" class="cta-button">Out now : "Thunder"</a>
-    
+
+            <!-- Release Party Banner -->
+            <a href="https://www.billetweb.fr/dandy-shoes-ep-release-party-bulldozer-and-the-machine-guns-microb" target="_blank" class="release-banner" style="display: inline-block; margin-top: 2rem; text-decoration: none; position: relative;">
+                <div style="background: linear-gradient(145deg, #1a1a1a, #2d2d2d); border: 2px solid #ff3c3c; border-radius: 12px; padding: 1.2rem 2.5rem; position: relative; overflow: hidden; box-shadow: 0 0 30px rgba(255, 60, 60, 0.3), inset 0 0 20px rgba(255, 60, 60, 0.05);">
+                    <!-- Glow effect -->
+                    <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255, 60, 60, 0.15) 0%, transparent 50%); animation: pulse 3s ease-in-out infinite;"></div>
+                    <!-- Content -->
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: block; color: #ff3c3c; font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.3rem;">New EP Release</span>
+                        <span style="display: block; color: white; font-weight: 800; font-size: 1.4rem; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255, 60, 60, 0.5);">"DIURNE"</span>
+                        <span style="display: block; color: rgba(255,255,255,0.9); font-size: 0.95rem; margin-top: 0.5rem; font-weight: 500;">Release Party - 20 Feb 2026</span>
+                        <span style="display: block; color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.2rem;">@ Le Belvédère</span>
+                        <span style="display: inline-block; margin-top: 0.8rem; padding: 0.4rem 1.2rem; background: #ff3c3c; color: white; font-size: 0.8rem; font-weight: 700; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">Get Tickets</span>
+                    </div>
+                </div>
+            </a>
+
             <!-- Platforms section -->
             <div class="platforms-container" style="position: relative; margin-top: 5rem;">
                 <p class="as-seen-on">already sound on</p>
@@ -326,11 +359,12 @@
         <div class="spotify-players" style="margin-top: 4rem;">
             <div class="section-title" style="font-size: 1.8rem; margin-bottom: 2rem;">Listen Now</div>
 
-            <!-- Announcement New EP -->
-            <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; background: linear-gradient(135deg, rgba(255, 60, 60, 0.1), rgba(138, 43, 226, 0.1));">
-                <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.3rem;">🎵 New EP</h4>
-                <p style="color: #ff3c3c; font-weight: bold; font-size: 1.1rem; animation: pulse 2s infinite;">coming soon </p>
-                <p style="opacity: 0.8; margin-top: 0.5rem;">We're working on new music. Stay tuned!</p>
+            <!-- Announcement EP DIURNE -->
+            <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; background: linear-gradient(135deg, rgba(255, 60, 60, 0.15), rgba(138, 43, 226, 0.1)); border: 1px solid rgba(255, 60, 60, 0.3);">
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.4rem;">EP "DIURNE"</h4>
+                <p style="color: #ff3c3c; font-weight: bold; font-size: 1.1rem;">Release: February 20, 2026</p>
+                <p style="opacity: 0.9; margin-top: 0.5rem;">Release Party @ Le Belvédère</p>
+                <a href="https://www.billetweb.fr/dandy-shoes-ep-release-party-bulldozer-and-the-machine-guns-microb" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.5rem; background: #ff3c3c; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s ease;">Get Tickets</a>
             </div>
 
             <div class="spotify-embeds" style="display: grid; gap: 2rem; max-width: 800px; margin: 0 auto;">
@@ -482,87 +516,109 @@
     
     <section id="tour" class="section tour-section">
     <div class="container">
-        <h2 class="section-title">Tour 2025</h2>
-        
+        <h2 class="section-title">Tour Dates</h2>
+
         <div class="tour-list">
-            <div class="tour-date">
+            <!-- RELEASE PARTY EP "DIURNE" -->
+            <div class="tour-date" style="border: 2px solid #ff3c3c; background: rgba(255, 60, 60, 0.15);">
                 <div class="date-location">
-                    <div class="date">May 23</div>
+                    <div class="date">Feb 20, 2026</div>
                     <div>
-                        <div class="location">Charleroi, Belgium</div>
-                        <div class="venue">Cercle Saint-Charles</div>
+                        <div class="location" style="color: #ff3c3c; font-weight: bold;">EP "DIURNE" RELEASE PARTY</div>
+                        <div class="venue">Le Belvédère</div>
                     </div>
                 </div>
                 <div class="tour-buttons">
-                    <a href="https://maps.google.com/?q=Cercle+Saint-Charles+Charleroi+Belgique" target="_blank" class="tickets-btn">Maps</a>
-                    <!-- Le bouton calendrier sera ajouté automatiquement par JavaScript -->
-                </div>
-            </div>
-            
-            <div class="tour-date">
-                <div class="date-location">
-                    <div class="date">May 31</div>
-                    <div>
-                        <div class="location">Senzeilles, Belgium</div>
-                        <div class="venue">Nouille Stock Festival</div>
-                    </div>
-                </div>
-                <div class="tour-buttons">
-                    <a href="https://maps.google.com/?q=Nouille+Stock+Festival+Senzeilles+Belgique" target="_blank" class="tickets-btn">Maps</a>
+                    <a href="https://www.billetweb.fr/dandy-shoes-ep-release-party-bulldozer-and-the-machine-guns-microb" target="_blank" class="tickets-btn" style="background: #ff3c3c; color: white;">Tickets</a>
+                    <a href="https://www.facebook.com/events/1217793090412655/" target="_blank" class="tickets-btn">Event</a>
                 </div>
             </div>
 
-            <div class="tour-date">
-                <div class="date-location">
-                    <div class="date">June 13</div>
-                    <div>
-                        <div class="location">Beaumont, Belgium</div>
-                        <div class="venue">Les 3 Auvergniats</div>
-                    </div>
-                </div>
-                <div class="tour-buttons">
-                    <a href="https://maps.google.com/?q=3+Auvergnats+Beaumont+Belgique" target="_blank" class="tickets-btn">Maps</a>
-                </div>
-            </div>
+            <!-- Toggle pour les dates 2025 -->
+            <button id="toggle2025Dates" class="toggle-dates-btn" style="width: 100%; padding: 1rem; margin: 1rem 0; background: rgba(40, 40, 40, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; cursor: pointer; border-radius: 8px; font-size: 1rem; transition: all 0.3s ease;">
+                <span id="toggleIcon">&#9660;</span> Tour 2025 (6 dates)
+            </button>
 
-            <div class="tour-date">
-                <div class="date-location">
-                    <div class="date">July 12</div>
-                    <div>
-                        <div class="location">Erpion, Belgium</div>
-                        <div class="venue">Espace Fun</div>
+            <div id="dates2025" class="dates-2025-container" style="display: none;">
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">May 23</div>
+                        <div>
+                            <div class="location">Charleroi, Belgium</div>
+                            <div class="venue">Cercle Saint-Charles</div>
+                        </div>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://maps.google.com/?q=Cercle+Saint-Charles+Charleroi+Belgique" target="_blank" class="tickets-btn">Maps</a>
+                        <!-- Le bouton calendrier sera ajouté automatiquement par JavaScript -->
                     </div>
                 </div>
-                <div class="tour-buttons">
-                    <a href="https://maps.google.com/?q=Espace+Fun+Erpion+Belgique" target="_blank" class="tickets-btn">Maps</a>
-                </div>
-            </div>
-            
-            <div class="tour-date">
-                <div class="date-location">
-                    <div class="date">July 18</div>
-                    <div>
-                        <div class="location">Sedan, France</div>
-                        <div class="venue">Chop'n'Rock</div>
+
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">May 31</div>
+                        <div>
+                            <div class="location">Senzeilles, Belgium</div>
+                            <div class="venue">Nouille Stock Festival</div>
+                        </div>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://maps.google.com/?q=Nouille+Stock+Festival+Senzeilles+Belgique" target="_blank" class="tickets-btn">Maps</a>
                     </div>
                 </div>
-                <div class="tour-buttons">
-                    <a href="https://maps.google.com/?q=Chop+n+Rock+Sedan+France" target="_blank" class="tickets-btn">Maps</a>
-                </div>
-            </div>
-            
-            <div class="tour-date">
-                <div class="date-location">
-                    <div class="date">August 23</div>
-                    <div>
-                        <div class="location">Surprise Location</div>
-                        <div class="venue">Private Showcase</div>
+
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">June 13</div>
+                        <div>
+                            <div class="location">Beaumont, Belgium</div>
+                            <div class="venue">Les 3 Auvergniats</div>
+                        </div>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://maps.google.com/?q=3+Auvergnats+Beaumont+Belgique" target="_blank" class="tickets-btn">Maps</a>
                     </div>
                 </div>
-                <div class="tour-buttons">
-                    <a href="https://maps.google.com/?q=Dandyshoes+Private+Showcase" target="_blank" class="tickets-btn">Maps</a>
+
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">July 12</div>
+                        <div>
+                            <div class="location">Erpion, Belgium</div>
+                            <div class="venue">Espace Fun</div>
+                        </div>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://maps.google.com/?q=Espace+Fun+Erpion+Belgique" target="_blank" class="tickets-btn">Maps</a>
+                    </div>
                 </div>
-            </div>
+
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">July 18</div>
+                        <div>
+                            <div class="location">Sedan, France</div>
+                            <div class="venue">Chop'n'Rock</div>
+                        </div>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://maps.google.com/?q=Chop+n+Rock+Sedan+France" target="_blank" class="tickets-btn">Maps</a>
+                    </div>
+                </div>
+
+                <div class="tour-date">
+                    <div class="date-location">
+                        <div class="date">August 23</div>
+                        <div>
+                            <div class="location">Surprise Location</div>
+                            <div class="venue">Private Showcase</div>
+                        </div>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://maps.google.com/?q=Dandyshoes+Private+Showcase" target="_blank" class="tickets-btn">Maps</a>
+                    </div>
+                </div>
+            </div><!-- fin dates2025 -->
         </div>
     </div>
 </section>

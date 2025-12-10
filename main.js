@@ -10,6 +10,56 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Toggle dates 2025
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggle2025Dates');
+    const dates2025 = document.getElementById('dates2025');
+    const toggleIcon = document.getElementById('toggleIcon');
+
+    if (toggleBtn && dates2025) {
+        toggleBtn.addEventListener('click', function() {
+            if (dates2025.style.display === 'none') {
+                dates2025.style.display = 'block';
+                toggleIcon.innerHTML = '&#9650;';
+                toggleBtn.style.background = 'rgba(255, 60, 60, 0.2)';
+            } else {
+                dates2025.style.display = 'none';
+                toggleIcon.innerHTML = '&#9660;';
+                toggleBtn.style.background = 'rgba(40, 40, 40, 0.8)';
+            }
+        });
+
+        // Hover effect
+        toggleBtn.addEventListener('mouseenter', function() {
+            toggleBtn.style.background = 'rgba(255, 60, 60, 0.15)';
+        });
+        toggleBtn.addEventListener('mouseleave', function() {
+            if (dates2025.style.display === 'none') {
+                toggleBtn.style.background = 'rgba(40, 40, 40, 0.8)';
+            } else {
+                toggleBtn.style.background = 'rgba(255, 60, 60, 0.2)';
+            }
+        });
+    }
+
+    // Release banner hover effect
+    const releaseBanner = document.querySelector('.release-banner');
+    if (releaseBanner) {
+        const bannerBox = releaseBanner.querySelector('div');
+        releaseBanner.addEventListener('mouseenter', function() {
+            bannerBox.style.transform = 'scale(1.03)';
+            bannerBox.style.borderColor = '#ff6060';
+            bannerBox.style.boxShadow = '0 0 40px rgba(255, 60, 60, 0.5), inset 0 0 30px rgba(255, 60, 60, 0.1)';
+            bannerBox.style.transition = 'all 0.3s ease';
+        });
+        releaseBanner.addEventListener('mouseleave', function() {
+            bannerBox.style.transform = 'scale(1)';
+            bannerBox.style.borderColor = '#ff3c3c';
+            bannerBox.style.boxShadow = '0 0 30px rgba(255, 60, 60, 0.3), inset 0 0 20px rgba(255, 60, 60, 0.05)';
+        });
+    }
+});
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -600,6 +650,14 @@ function showCalendarMenu(urls) {
 document.addEventListener('DOMContentLoaded', function() {
     // Données des concerts (à adapter selon vos dates)
     const concerts = [
+        {
+            title: "DANDYSHOES - EP DIURNE Release Party",
+            location: "Le Belvédère, Belgium",
+            venue: "Le Belvédère",
+            date: "2026-02-20",
+            startTime: "20:00",
+            endTime: "23:00"
+        },
         {
             title: "DANDYSHOES - Cercle Saint-Charles",
             location: "Charleroi, Belgium",
