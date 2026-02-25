@@ -1,0 +1,15 @@
+{
+  "name": "DANDYSHOES",
+  "short_name": "DANDYSHOES",
+  "icons": [
+    {
+      "src": "img/compressed/DandyShoesBand.jpg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#121212",
+  "background_color": "#121212",
+  "display": "standalone",
+  "start_url": "/"
+}

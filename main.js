@@ -243,13 +243,14 @@ ticketButtons.forEach(button => {
 document.addEventListener('DOMContentLoaded', function() {
     // Éléments du lecteur audio
     const audioElement = document.getElementById('audioPlayer');
+    if (!audioElement) return;
     const playBtn = document.querySelector('.play-btn');
     const progressBar = document.querySelector('.progress-bar');
     const progressContainer = document.querySelector('.progress-container');
     const timeDisplay = document.querySelectorAll('.time-display span');
     const prevBtn = document.querySelector('.control-btn:first-child');
     const nextBtn = document.querySelector('.control-btn:last-child');
-    
+
     // Playlist (liste des morceaux)
     const playlist = [
         {
