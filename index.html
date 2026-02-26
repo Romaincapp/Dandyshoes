@@ -201,15 +201,9 @@
 <body>
     <nav class="navbar">
         <div class="nav-logo">DANDYSHOES</div>
-        
-        <!-- Mobile hamburger menu -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <div class="nav-links" id="navLinks">
+
+        <!-- Desktop nav -->
+        <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#music">Music</a>
             <a href="#about">About</a>
@@ -218,9 +212,33 @@
             <a href="videos.html">Videos</a>
             <a href="pro.html">Pro</a>
             <a href="#contact">Contact</a>
-            <a href="https://shop-liart-eight-13.vercel.app" class="nav-shop-link" target="_blank" style="color: #ffd700; font-weight: 600;">🛒 Shop</a>
+            <a href="https://shop-liart-eight-13.vercel.app" class="nav-shop-link" target="_blank" style="color: #ffd700; font-weight: 600;">Shop</a>
         </div>
+
+        <!-- Mobile: burger button -->
+        <button class="sheet-trigger" id="sheetTrigger" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
+
+    <!-- Mobile: Sheet sidebar (shadcn style) -->
+    <div class="sheet-overlay" id="sheetOverlay"></div>
+    <div class="sheet-content" id="sheetContent">
+        <button class="sheet-close" id="sheetClose" aria-label="Fermer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <nav class="sheet-nav">
+            <a href="#home">Home</a>
+            <a href="#music">Music</a>
+            <a href="#about">About</a>
+            <a href="#tour">Tour</a>
+            <a href="#gallery">Gallery</a>
+            <a href="videos.html">Videos</a>
+            <a href="pro.html">Pro</a>
+            <a href="#contact">Contact</a>
+            <a href="https://shop-liart-eight-13.vercel.app" target="_blank" style="color: #ffd700;">Shop</a>
+        </nav>
+    </div>
     
     <header id="home">
         <!-- Parallax background container -->
@@ -397,7 +415,7 @@
                             <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
                         </svg>
                     </button>
-                    <div class="platform-dropdown-content" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
+                    <div class="platform-dropdown-content" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
                         <a href="https://music.apple.com/fr/album/diurne-ep/1870834352" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="#fa57c1">
                                 <path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.238.239-1.446.233-2.713.924-3.527 2.13a5.003 5.003 0 00-.724 1.694 9.963 9.963 0 00-.158 1.03c-.009.083-.02.165-.024.248-.04.58-.04 1.167-.033 1.75.005.43.018.86.043 1.288.034.574.088 1.146.16 1.712.074.58.167 1.155.285 1.72.123.587.27 1.16.447 1.717.18.563.389 1.107.629 1.629.24.522.512 1.019.815 1.48.303.46.636.885 1.003 1.27.368.387.77.73 1.203 1.026.434.297.895.545 1.383.737.488.193.998.33 1.53.407.532.077 1.078.093 1.633.045.042-.003.085-.01.127-.013h12.03c.042.003.085.01.127.013.555.048 1.101.032 1.633-.045.532-.077 1.042-.214 1.53-.407.488-.192.949-.44 1.383-.737.433-.296.835-.639 1.203-1.026.367-.385.7-.81 1.003-1.27.303-.461.575-.958.815-1.48.24-.522.449-1.066.629-1.629.177-.557.324-1.13.447-1.717.118-.565.211-1.14.285-1.72.072-.566.126-1.138.16-1.712.025-.428.038-.858.043-1.288.007-.583.007-1.17-.033-1.75-.004-.083-.015-.165-.024-.248a9.963 9.963 0 00-.158-1.03 5.003 5.003 0 00-.724-1.694c-.814-1.206-2.08-1.897-3.527-2.13-.748-.116-1.491-.196-2.238-.239-.152-.009-.303-.016-.455-.026h-.001zM6.987 17.97V6.026h10.026v11.944H6.987z"/>
@@ -438,7 +456,7 @@
                             Écouter ailleurs
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-left: 0.3rem;"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </button>
-                        <div class="platform-dropdown-content" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
+                        <div class="platform-dropdown-content" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
                             <a href="https://music.apple.com/fr/album/thunder-single/1792875313" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fa57c1"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.238.239-1.446.233-2.713.924-3.527 2.13a5.003 5.003 0 00-.724 1.694 9.963 9.963 0 00-.158 1.03c-.009.083-.02.165-.024.248-.04.58-.04 1.167-.033 1.75.005.43.018.86.043 1.288.034.574.088 1.146.16 1.712.074.58.167 1.155.285 1.72.123.587.27 1.16.447 1.717.18.563.389 1.107.629 1.629.24.522.512 1.019.815 1.48.303.46.636.885 1.003 1.27.368.387.77.73 1.203 1.026.434.297.895.545 1.383.737.488.193.998.33 1.53.407.532.077 1.078.093 1.633.045.042-.003.085-.01.127-.013h12.03c.042.003.085.01.127.013.555.048 1.101.032 1.633-.045.532-.077 1.042-.214 1.53-.407.488-.192.949-.44 1.383-.737.433-.296.835-.639 1.203-1.026.367-.385.7-.81 1.003-1.27.303-.461.575-.958.815-1.48.24-.522.449-1.066.629-1.629.177-.557.324-1.13.447-1.717.118-.565.211-1.14.285-1.72.072-.566.126-1.138.16-1.712.025-.428.038-.858.043-1.288.007-.583.007-1.17-.033-1.75-.004-.083-.015-.165-.024-.248a9.963 9.963 0 00-.158-1.03 5.003 5.003 0 00-.724-1.694c-.814-1.206-2.08-1.897-3.527-2.13-.748-.116-1.491-.196-2.238-.239-.152-.009-.303-.016-.455-.026h-.001zM6.987 17.97V6.026h10.026v11.944H6.987z"/></svg>Apple Music</a>
                             <a href="https://www.deezer.com/fr/track/3125533861" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0092"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97-.001c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zM9.732 8.221H7.762c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm-3.162 0H3.6c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm9.492 3.252h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528zm-3.162 0h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528z"/></svg>Deezer</a>
                             <a href="https://music.youtube.com/watch?v=AHJQS5xd9ck" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0000"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>YouTube Music</a>
@@ -463,7 +481,7 @@
                             Écouter ailleurs
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-left: 0.3rem;"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </button>
-                        <div class="platform-dropdown-content" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
+                        <div class="platform-dropdown-content" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
                             <a href="https://music.apple.com/be/album/sunday-single/1446452681" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fa57c1"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.238.239-1.446.233-2.713.924-3.527 2.13a5.003 5.003 0 00-.724 1.694 9.963 9.963 0 00-.158 1.03c-.009.083-.02.165-.024.248-.04.58-.04 1.167-.033 1.75.005.43.018.86.043 1.288.034.574.088 1.146.16 1.712.074.58.167 1.155.285 1.72.123.587.27 1.16.447 1.717.18.563.389 1.107.629 1.629.24.522.512 1.019.815 1.48.303.46.636.885 1.003 1.27.368.387.77.73 1.203 1.026.434.297.895.545 1.383.737.488.193.998.33 1.53.407.532.077 1.078.093 1.633.045.042-.003.085-.01.127-.013h12.03c.042.003.085.01.127.013.555.048 1.101.032 1.633-.045.532-.077 1.042-.214 1.53-.407.488-.192.949-.44 1.383-.737.433-.296.835-.639 1.203-1.026.367-.385.7-.81 1.003-1.27.303-.461.575-.958.815-1.48.24-.522.449-1.066.629-1.629.177-.557.324-1.13.447-1.717.118-.565.211-1.14.285-1.72.072-.566.126-1.138.16-1.712.025-.428.038-.858.043-1.288.007-.583.007-1.17-.033-1.75-.004-.083-.015-.165-.024-.248a9.963 9.963 0 00-.158-1.03 5.003 5.003 0 00-.724-1.694c-.814-1.206-2.08-1.897-3.527-2.13-.748-.116-1.491-.196-2.238-.239-.152-.009-.303-.016-.455-.026h-.001zM6.987 17.97V6.026h10.026v11.944H6.987z"/></svg>Apple Music</a>
                             <a href="https://www.deezer.com/fr/album/78264362" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0092"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97-.001c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zM9.732 8.221H7.762c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm-3.162 0H3.6c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm9.492 3.252h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528zm-3.162 0h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528z"/></svg>Deezer</a>
                             <a href="https://music.youtube.com/watch?v=PLACEHOLDER_SUNDAY" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0000"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>YouTube Music</a>
@@ -488,7 +506,7 @@
                             Écouter ailleurs
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-left: 0.3rem;"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </button>
-                        <div class="platform-dropdown-content" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
+                        <div class="platform-dropdown-content" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
                             <a href="https://music.apple.com/us/album/all-about-love/1450370672" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fa57c1"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.238.239-1.446.233-2.713.924-3.527 2.13a5.003 5.003 0 00-.724 1.694 9.963 9.963 0 00-.158 1.03c-.009.083-.02.165-.024.248-.04.58-.04 1.167-.033 1.75.005.43.018.86.043 1.288.034.574.088 1.146.16 1.712.074.58.167 1.155.285 1.72.123.587.27 1.16.447 1.717.18.563.389 1.107.629 1.629.24.522.512 1.019.815 1.48.303.46.636.885 1.003 1.27.368.387.77.73 1.203 1.026.434.297.895.545 1.383.737.488.193.998.33 1.53.407.532.077 1.078.093 1.633.045.042-.003.085-.01.127-.013h12.03c.042.003.085-.01.127-.013.555.048 1.101.032 1.633-.045.532-.077 1.042-.214 1.53-.407.488-.192.949-.44 1.383-.737.433-.296.835-.639 1.203-1.026.367-.385.7-.81 1.003-1.27.303-.461.575-.958.815-1.48.24-.522.449-1.066.629-1.629.177-.557.324-1.13.447-1.717.118-.565.211-1.14.285-1.72.072-.566.126-1.138.16-1.712.025-.428.038-.858.043-1.288.007-.583.007-1.17-.033-1.75-.004-.083-.015-.165-.024-.248a9.963 9.963 0 00-.158-1.03 5.003 5.003 0 00-.724-1.694c-.814-1.206-2.08-1.897-3.527-2.13-.748-.116-1.491-.196-2.238-.239-.152-.009-.303-.016-.455-.026h-.001zM6.987 17.97V6.026h10.026v11.944H6.987z"/></svg>Apple Music</a>
                             <a href="https://www.deezer.com/fr/album/87943832" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0092"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97-.001c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zM9.732 8.221H7.762c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm-3.162 0H3.6c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm9.492 3.252h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528zm-3.162 0h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528z"/></svg>Deezer</a>
                             <a href="https://music.youtube.com/playlist?list=PLACEHOLDER_AAL" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0000"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>YouTube Music</a>
@@ -513,7 +531,7 @@
                             Écouter ailleurs
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-left: 0.3rem;"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </button>
-                        <div class="platform-dropdown-content" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
+                        <div class="platform-dropdown-content" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; background: rgba(30,30,30,0.98); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.5rem; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
                             <a href="https://music.apple.com/ar/album/have-a-dandy-day/919802247" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fa57c1"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.238.239-1.446.233-2.713.924-3.527 2.13a5.003 5.003 0 00-.724 1.694 9.963 9.963 0 00-.158 1.03c-.009.083-.02.165-.024.248-.04.58-.04 1.167-.033 1.75.005.43.018.86.043 1.288.034.574.088 1.146.16 1.712.074.58.167 1.155.285 1.72.123.587.27 1.16.447 1.717.18.563.389 1.107.629 1.629.24.522.512 1.019.815 1.48.303.46.636.885 1.003 1.27.368.387.77.73 1.203 1.026.434.297.895.545 1.383.737.488.193.998.33 1.53.407.532.077 1.078.093 1.633.045.042-.003.085-.01.127-.013h12.03c.042.003.085-.01.127-.013.555.048 1.101.032 1.633-.045.532-.077 1.042-.214 1.53-.407.488-.192.949-.44 1.383-.737.433-.296.835-.639 1.203-1.026.367-.385.7-.81 1.003-1.27.303-.461.575-.958.815-1.48.24-.522.449-1.066.629-1.629.177-.557.324-1.13.447-1.717.118-.565.211-1.14.285-1.72.072-.566.126-1.138.16-1.712.025-.428.038-.858.043-1.288.007-.583.007-1.17-.033-1.75-.004-.083-.015-.165-.024-.248a9.963 9.963 0 00-.158-1.03 5.003 5.003 0 00-.724-1.694c-.814-1.206-2.08-1.897-3.527-2.13-.748-.116-1.491-.196-2.238-.239-.152-.009-.303-.016-.455-.026h-.001zM6.987 17.97V6.026h10.026v11.944H6.987z"/></svg>Apple Music</a>
                             <a href="https://www.deezer.com/fr/album/9044265" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0092"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97-.001c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zM9.732 8.221H7.762c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm-3.162 0H3.6c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm9.492 3.252h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528zm-3.162 0h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528z"/></svg>Deezer</a>
                             <a href="https://music.youtube.com/playlist?list=PLACEHOLDER_HADD" target="_blank" style="display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem; color: var(--light); text-decoration: none; border-radius: 8px; transition: background 0.2s; font-size: 0.9rem;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff0000"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>YouTube Music</a>
@@ -953,59 +971,44 @@
     <script src="main.js"></script>
     <script src="contact-form.js"></script>
     
-    <!-- Script for mobile menu -->
+    <!-- Sheet sidebar script -->
     <script>
-        // Menu mobile toggle - optimized for mobile touch
         (function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (!mobileMenuToggle || !navLinks) return;
-            
-            let isOpen = false;
-            
-            function toggleMenu(e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                isOpen = !isOpen;
-                navLinks.classList.toggle('active', isOpen);
-                mobileMenuToggle.classList.toggle('active', isOpen);
+            var trigger = document.getElementById('sheetTrigger');
+            var overlay = document.getElementById('sheetOverlay');
+            var content = document.getElementById('sheetContent');
+            var close = document.getElementById('sheetClose');
+            if (!trigger || !content) return;
+
+            function open() {
+                overlay.classList.add('open');
+                content.classList.add('open');
+                document.body.style.overflow = 'hidden';
             }
-            
-            function closeMenu() {
-                isOpen = false;
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
+            function shut() {
+                overlay.classList.remove('open');
+                content.classList.remove('open');
+                document.body.style.overflow = '';
             }
-            
-            // Use pointerdown for better mobile support (unified mouse/touch)
-            mobileMenuToggle.addEventListener('pointerdown', function(e) {
-                e.preventDefault();
-                toggleMenu(e);
+
+            trigger.addEventListener('click', open);
+            close.addEventListener('click', shut);
+            overlay.addEventListener('click', shut);
+
+            content.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') shut();
             });
-            
-            // Fallback click handler
-            mobileMenuToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleMenu();
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') shut();
             });
-            
-            // Close menu when clicking on links
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    closeMenu();
-                });
-            });
-            
-            // Close menu when clicking/touching outside
-            document.addEventListener('pointerdown', function(e) {
-                if (isOpen && 
-                    !navLinks.contains(e.target) && 
-                    !mobileMenuToggle.contains(e.target)) {
-                    closeMenu();
+
+            // Platform dropdowns
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.platform-dropdown')) {
+                    document.querySelectorAll('.platform-dropdown-content.show').forEach(function(d) {
+                        d.classList.remove('show');
+                    });
                 }
             });
         })();

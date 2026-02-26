@@ -2,10 +2,10 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2025-12-10T19:54:24.484Z
+ * Built on: 2026-02-26T20:33:09.840Z
  * Files combined: 23
  * 
- * © 2025 DANDYSHOES. All rights reserved.
+ * © 2026 DANDYSHOES. All rights reserved.
  */
 
 
@@ -256,55 +256,135 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary);
 }
 
-/* Mobile menu styles */
-.mobile-menu-toggle {
+/* =============================================
+   Sheet Sidebar (shadcn/ui style)
+   ============================================= */
+
+/* Burger trigger - hidden on desktop */
+.sheet-trigger {
     display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-    position: relative;
 }
 
-.mobile-menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary);
-    transition: all 0.3s ease;
+/* Sheet overlay & content - always in DOM, hidden by default */
+.sheet-overlay {
+    display: none;
+}
+.sheet-content {
+    display: none;
 }
 
-/* Mobile responsive */
 @media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: flex;
-        position: fixed;
-        right: 20px;
-        top: 20px;
-    }
-    
+    /* Hide desktop nav on mobile */
     .nav-links {
+        display: none;
+    }
+
+    /* Burger button */
+    .sheet-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        z-index: 10;
+    }
+
+    /* Overlay backdrop */
+    .sheet-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    .sheet-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Sheet panel */
+    .sheet-content {
+        display: flex;
+        flex-direction: column;
         position: fixed;
         top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 70%;
-        background-color: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.5s ease;
-        z-index: 999;
-        padding-top: 60px;
-    }
-    
-    .nav-links.active {
         right: 0;
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        height: 100dvh;
+        background: #0a0a0a;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 1001;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 1.5rem;
+        overflow-y: auto;
+    }
+    .sheet-content.open {
+        transform: translateX(0);
+    }
+
+    /* Close button */
+    .sheet-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        align-self: flex-end;
+        margin-bottom: 2rem;
+        transition: color 0.2s, border-color 0.2s;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .sheet-close:hover {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Nav links inside sheet */
+    .sheet-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .sheet-nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .sheet-nav a:hover,
+    .sheet-nav a:active {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--primary);
     }
 }
+
 
 /* ===== HEADER ===== */
 /* DANDYSHOES - Header Section - Version nettoyée */
@@ -1089,6 +1169,105 @@ footer {
     .streaming-links {
         flex-wrap: wrap;
         gap: 1rem;
+    }
+}
+
+/* Elevate card when its dropdown is open */
+.glass-card:has(.platform-dropdown-content.show) {
+    z-index: 10;
+    position: relative;
+}
+
+/* Platform Dropdown Styles */
+.platform-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.platform-dropdown-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.platform-dropdown-btn:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.platform-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.5rem;
+    background: rgba(30,30,30,0.98);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+.platform-dropdown-content.show {
+    display: block;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.platform-dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 1rem;
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+}
+
+.platform-dropdown-content a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Close dropdown when clicking outside */
+.platform-dropdown-content.show ~ .platform-dropdown-btn,
+.platform-dropdown:focus-within .platform-dropdown-content {
+    display: block;
+}
+
+/* Responsive dropdown */
+@media screen and (max-width: 480px) {
+    .platform-dropdown-content {
+        min-width: 180px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .platform-dropdown-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -5231,67 +5410,8 @@ body.modal-open {
 /* DANDYSHOES - Mobile Responsive (max-width: 768px) */
 
 @media (max-width: 768px) {
-    /* Navigation mobile */
-    .mobile-menu-toggle {
-        display: flex;
-        position: fixed;
-        right: 20px;
-        top: 20px;
-    }
-    
-    .mobile-menu-toggle span {
-        transition: all 0.3s ease;
-        transform-origin: center;
-    }
-    
-    .mobile-menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .mobile-menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-toggle.active span:nth-child(3) {
-        transform: translateY(-10px) rotate(-45deg);
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 70%;
-        background-color: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        transition: all 0.5s ease;
-        z-index: 999;
-        padding-top: 80px;
-        padding-bottom: 20px;
-        overflow-y: auto;
-    }
+    /* Navigation mobile - styles in navbar.css */
 
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links a {
-        margin: 8px 0;
-        padding: 8px 0;
-        font-size: 1rem;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .nav-links.active a {
-        opacity: 1;
-        transform: translateY(0);
-        transition-delay: 0.3s;
-    }
-    
     /* Header mobile */
     .parallax-image {
         object-position: center center;

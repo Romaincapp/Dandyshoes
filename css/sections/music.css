@@ -305,6 +305,12 @@
     }
 }
 
+/* Elevate card when its dropdown is open */
+.glass-card:has(.platform-dropdown-content.show) {
+    z-index: 10;
+    position: relative;
+}
+
 /* Platform Dropdown Styles */
 .platform-dropdown {
     position: relative;
