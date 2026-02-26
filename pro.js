@@ -349,32 +349,52 @@ class ProMobileMenu {
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navLinks = document.getElementById('navLinks');
         
-        if (mobileMenuToggle && navLinks) {
-            // Toggle du menu
-            mobileMenuToggle.addEventListener('click', (e) => {
+        if (!mobileMenuToggle || !navLinks) return;
+        
+        let isOpen = false;
+        
+        const toggleMenu = (e) => {
+            if (e) {
+                e.preventDefault();
                 e.stopPropagation();
-                navLinks.classList.toggle('active');
-                mobileMenuToggle.classList.toggle('active');
-            });
-            
-            // Fermer le menu au clic sur un lien
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                });
-            });
-            
-            // Fermer le menu au clic à l'extérieur
-            document.addEventListener('click', (e) => {
-                if (navLinks.classList.contains('active') && 
-                    !navLinks.contains(e.target) && 
-                    !mobileMenuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                }
-            });
-        }
+            }
+            isOpen = !isOpen;
+            navLinks.classList.toggle('active', isOpen);
+            mobileMenuToggle.classList.toggle('active', isOpen);
+        };
+        
+        const closeMenu = () => {
+            isOpen = false;
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        };
+        
+        // Utiliser pointerdown pour meilleure réponse tactile
+        mobileMenuToggle.addEventListener('pointerdown', (e) => {
+            e.preventDefault();
+            toggleMenu(e);
+        });
+        
+        // Fallback click pour anciens navigateurs
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Fermer le menu au clic sur un lien
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        // Fermer en cliquant/touchant à l'extérieur
+        document.addEventListener('pointerdown', (e) => {
+            if (isOpen && 
+                !navLinks.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
     }
 }
 

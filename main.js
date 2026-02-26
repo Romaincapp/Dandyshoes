@@ -426,33 +426,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Improved Mobile Menu Handling
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuToggle && navLinks) {
-        // Use event delegation for better performance
-        document.addEventListener('click', function(event) {
-            // Toggle menu when clicking the toggle button
-            if (event.target.closest('#mobileMenuToggle')) {
-                navLinks.classList.toggle('active');
-                mobileMenuToggle.classList.toggle('active');
-                event.stopPropagation();
-            } 
-            // Close menu when clicking a link 
-            else if (event.target.closest('.nav-links a')) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            } 
-            // Close menu when clicking outside
-            else if (navLinks.classList.contains('active') && 
-                    !navLinks.contains(event.target) && 
-                    !mobileMenuToggle.contains(event.target)) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }
-        });
-    }
+    // Note: Mobile menu handling is done in the inline script in index.html
+    // to ensure it loads immediately and works reliably on all devices
     
     // Initialize animation on load to prevent FOUC (Flash of Unstyled Content)
     animateOnScroll();

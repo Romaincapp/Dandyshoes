@@ -374,10 +374,54 @@
         <div class="spotify-players" style="margin-top: 4rem;">
             <div class="section-title" style="font-size: 1.8rem; margin-bottom: 2rem;">Listen Now</div>
 
-            <!-- Announcement EP DIURNE -->
-            <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; background: linear-gradient(135deg, rgba(255, 60, 60, 0.15), rgba(138, 43, 226, 0.1)); border: 1px solid rgba(255, 60, 60, 0.3);">
-                <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.4rem;">EP "DIURNE"</h4>
-                <p style="color: #ff3c3c; font-weight: bold; font-size: 1.1rem;">OUT NOW</p>
+            <!-- EP DIURNE - Encart dédié -->
+            <div class="glass-card ep-diurne-card" style="padding: 2rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; background: linear-gradient(135deg, rgba(255, 60, 60, 0.2), rgba(138, 43, 226, 0.15), rgba(255, 193, 7, 0.1)); border: 2px solid rgba(255, 60, 60, 0.4); border-radius: 20px; position: relative; overflow: hidden;">
+                <!-- Effet de glow en arrière-plan -->
+                <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,60,60,0.1) 0%, transparent 70%); pointer-events: none;"></div>
+                
+                <div style="position: relative; z-index: 1;">
+                    <!-- Badge NEW -->
+                    <span style="display: inline-block; background: linear-gradient(135deg, #ff3c3c, #ff6b6b); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(255, 60, 60, 0.4);">🔥 New Release</span>
+                    
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 30px rgba(255, 60, 60, 0.5);">EP "DIURNE"</h3>
+                    
+                    <p style="color: #fff; font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">Notre nouvel EP est maintenant disponible sur toutes les plateformes !</p>
+                    
+                    <!-- Tracklist -->
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; display: inline-block; text-align: left;">
+                        <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Tracklist :</p>
+                        <ol style="color: #ccc; font-size: 0.95rem; margin: 0; padding-left: 1.2rem; line-height: 1.8;">
+                            <li>Thunder</li>
+                            <li>Track 2</li>
+                            <li>Track 3</li>
+                            <li>Track 4</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Boutons d'écoute -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                        <a href="https://open.spotify.com/album/PLACEHOLDER_DIURNE" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #1DB954; color: white; padding: 0.8rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                            </svg>
+                            Écouter sur Spotify
+                        </a>
+                        
+                        <a href="https://music.apple.com/fr/album/diurne-ep/PLACEHOLDER" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #fa57c1, #f59e9e); color: white; padding: 0.8rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(250, 87, 193, 0.3);">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.238.239-1.446.233-2.713.924-3.527 2.13a5.003 5.003 0 00-.724 1.694 9.963 9.963 0 00-.158 1.03c-.009.083-.02.165-.024.248-.04.58-.04 1.167-.033 1.75.005.43.018.86.043 1.288.034.574.088 1.146.16 1.712.074.58.167 1.155.285 1.72.123.587.27 1.16.447 1.717.18.563.389 1.107.629 1.629.24.522.512 1.019.815 1.48.303.46.636.885 1.003 1.27.368.387.77.73 1.203 1.026.434.297.895.545 1.383.737.488.193.998.33 1.53.407.532.077 1.078.093 1.633.045.042-.003.085-.01.127-.013h12.03c.042.003.085.01.127.013.555.048 1.101.032 1.633-.045.532-.077 1.042-.214 1.53-.407.488-.192.949-.44 1.383-.737.433-.296.835-.639 1.203-1.026.367-.385.7-.81 1.003-1.27.303-.461.575-.958.815-1.48.24-.522.449-1.066.629-1.629.177-.557.324-1.13.447-1.717.118-.565.211-1.14.285-1.72.072-.566.126-1.138.16-1.712.025-.428.038-.858.043-1.288.007-.583.007-1.17-.033-1.75-.004-.083-.015-.165-.024-.248a9.963 9.963 0 00-.158-1.03 5.003 5.003 0 00-.724-1.694c-.814-1.206-2.08-1.897-3.527-2.13-.748-.116-1.491-.196-2.238-.239-.152-.009-.303-.016-.455-.026h-.001zM6.987 17.97V6.026h10.026v11.944H6.987zM12 16.085a.54.54 0 01-.524-.537.538.538 0 01.536-.536.54.54 0 01.537.536.539.539 0 01-.549.537zm3.444-8.678H8.556v6.484h6.888V7.407z"/>
+                            </svg>
+                            Apple Music
+                        </a>
+                        
+                        <a href="https://www.deezer.com/fr/album/PLACEHOLDER" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ff0092; color: white; padding: 0.8rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 0, 146, 0.3);">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97-.001c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zM9.732 8.221H7.762c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm-3.162 0H3.6c-.156 0-.338.203-.338.527v5.477c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528V8.748c0-.324-.182-.527-.338-.527zm9.492 3.252h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528zm-3.162 0h-1.97c-.156 0-.338.203-.338.528v2.225c0 .325.182.528.338.528h1.97c.156 0 .338-.203.338-.528v-2.225c0-.325-.182-.528-.338-.528z"/>
+                            </svg>
+                            Deezer
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <div class="spotify-embeds" style="display: grid; gap: 2rem; max-width: 800px; margin: 0 auto;">
@@ -863,55 +907,60 @@
     
     <!-- Script for mobile menu -->
     <script>
-        // Menu mobile toggle - using both click and touchstart events
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        // Function to toggle menu
-        function toggleMenu(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-        }
-        
-        // Add both click and touch events for better mobile support
-        mobileMenuToggle.addEventListener('click', toggleMenu);
-        mobileMenuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
-        
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
+        // Menu mobile toggle - optimized for mobile touch
+        (function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!mobileMenuToggle || !navLinks) return;
+            
+            let isOpen = false;
+            
+            function toggleMenu(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                isOpen = !isOpen;
+                navLinks.classList.toggle('active', isOpen);
+                mobileMenuToggle.classList.toggle('active', isOpen);
+            }
+            
+            function closeMenu() {
+                isOpen = false;
                 navLinks.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
+            }
+            
+            // Use pointerdown for better mobile support (unified mouse/touch)
+            mobileMenuToggle.addEventListener('pointerdown', function(e) {
+                e.preventDefault();
+                toggleMenu(e);
             });
             
-            // Also add touchstart for mobile devices
-            link.addEventListener('touchstart', (e) => {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }, {passive: true});
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (navLinks.classList.contains('active') && 
-                !navLinks.contains(event.target) && 
-                !mobileMenuToggle.contains(event.target)) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }
-        });
-        
-        // Add touchstart event for mobile
-        document.addEventListener('touchstart', function(event) {
-            if (navLinks.classList.contains('active') && 
-                !navLinks.contains(event.target) && 
-                !mobileMenuToggle.contains(event.target)) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }
-        }, {passive: true});
+            // Fallback click handler
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+            });
+            
+            // Close menu when clicking on links
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+            
+            // Close menu when clicking/touching outside
+            document.addEventListener('pointerdown', function(e) {
+                if (isOpen && 
+                    !navLinks.contains(e.target) && 
+                    !mobileMenuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+        })();
     </script>
     
     <!-- Adding a tag to improve SEO -->

@@ -402,27 +402,61 @@
             }
         });
         
-        // Menu mobile (copié du site principal)
+        // Menu mobile - optimisé pour tactile
         document.addEventListener('DOMContentLoaded', function() {
             checkAccess();
             
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const navLinks = document.getElementById('navLinks');
             
-            if (mobileMenuToggle && navLinks) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                    mobileMenuToggle.classList.toggle('active');
-                });
-                
-                // Fermer le menu au clic sur un lien
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                    });
-                });
+            if (!mobileMenuToggle || !navLinks) return;
+            
+            let isOpen = false;
+            
+            function toggleMenu(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                isOpen = !isOpen;
+                navLinks.classList.toggle('active', isOpen);
+                mobileMenuToggle.classList.toggle('active', isOpen);
             }
+            
+            function closeMenu() {
+                isOpen = false;
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+            
+            // Utiliser pointerdown pour meilleure réponse tactile
+            mobileMenuToggle.addEventListener('pointerdown', function(e) {
+                e.preventDefault();
+                toggleMenu(e);
+            });
+            
+            // Fallback pour les navigateurs anciens
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+            });
+            
+            // Fermer le menu au clic sur un lien
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+            
+            // Fermer en cliquant/touchant à l'extérieur
+            document.addEventListener('pointerdown', function(e) {
+                if (isOpen && 
+                    !navLinks.contains(e.target) && 
+                    !mobileMenuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
         });
         
         // Animation CSS pour l'erreur
