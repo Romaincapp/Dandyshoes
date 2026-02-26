@@ -304,3 +304,96 @@
         gap: 1rem;
     }
 }
+
+/* Platform Dropdown Styles */
+.platform-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.platform-dropdown-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.platform-dropdown-btn:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.platform-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.5rem;
+    background: rgba(30,30,30,0.98);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+.platform-dropdown-content.show {
+    display: block;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.platform-dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 1rem;
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+}
+
+.platform-dropdown-content a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Close dropdown when clicking outside */
+.platform-dropdown-content.show ~ .platform-dropdown-btn,
+.platform-dropdown:focus-within .platform-dropdown-content {
+    display: block;
+}
+
+/* Responsive dropdown */
+@media screen and (max-width: 480px) {
+    .platform-dropdown-content {
+        min-width: 180px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .platform-dropdown-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+}
