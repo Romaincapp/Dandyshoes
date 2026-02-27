@@ -34,27 +34,35 @@ async function compressWithSharp() {
       
       console.log(`⚡ ${filename} (${(originalStats.size/1024).toFixed(0)}KB)`);
       
+      // Resize to max 1920px width (keeps aspect ratio)
+      const MAX_WIDTH = 1920;
+      const resizeOpts = { width: MAX_WIDTH, withoutEnlargement: true };
+
       // Compression selon le type
       if (ext === '.jpg' || ext === '.jpeg') {
-        // JPEG compressé
+        // JPEG compressé + resized
         await sharp(imagePath)
-          .jpeg({ quality: 80, progressive: true })
+          .resize(resizeOpts)
+          .jpeg({ quality: 75, progressive: true, mozjpeg: true })
           .toFile(`img/compressed/${filename}`);
-          
+
         // WebP
         await sharp(imagePath)
-          .webp({ quality: 80 })
+          .resize(resizeOpts)
+          .webp({ quality: 75 })
           .toFile(`img/webp/${nameWithoutExt}.webp`);
-          
+
       } else if (ext === '.png') {
-        // PNG compressé
+        // PNG compressé + resized
         await sharp(imagePath)
-          .png({ quality: 80, compressionLevel: 8 })
+          .resize(resizeOpts)
+          .png({ quality: 75, compressionLevel: 9 })
           .toFile(`img/compressed/${filename}`);
-          
+
         // WebP
         await sharp(imagePath)
-          .webp({ quality: 80 })
+          .resize(resizeOpts)
+          .webp({ quality: 75 })
           .toFile(`img/webp/${nameWithoutExt}.webp`);
       }
       

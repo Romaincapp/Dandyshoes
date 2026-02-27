@@ -105,7 +105,7 @@ async function buildCSS() {
         
         // Minifier le CSS
         console.log('\n🗜️  Minifying CSS...');
-        const minifyResult = new CleanCSS({
+        const minifyResult = await new CleanCSS({
             level: 2,
             returnPromise: true
         }).minify(combinedCSS);

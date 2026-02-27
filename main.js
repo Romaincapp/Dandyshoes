@@ -1,6 +1,18 @@
+// Throttle utility
+function throttle(fn, delay) {
+    let last = 0;
+    return function() {
+        const now = Date.now();
+        if (now - last >= delay) {
+            last = now;
+            fn.apply(this, arguments);
+        }
+    };
+}
+
 // Navbar scrolling effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', throttle(function() {
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(18, 18, 18, 0.9)';
         navbar.style.padding = '1rem 2rem';
@@ -8,7 +20,7 @@ window.addEventListener('scroll', function() {
         navbar.style.background = 'rgba(18, 18, 18, 0.8)';
         navbar.style.padding = '1.5rem 2rem';
     }
-});
+}, 50));
 
 // Toggle dates 2025
 document.addEventListener('DOMContentLoaded', function() {
@@ -143,14 +155,14 @@ if (logo) {
     // Set initial transform style to enable smooth transitions
     logo.style.transition = 'transform 0.1s ease-out';
     
-    // Mouse move effect (desktop)
-    document.addEventListener('mousemove', function(e) {
+    // Mouse move effect (desktop) - throttled
+    document.addEventListener('mousemove', throttle(function(e) {
         const x = e.clientX / window.innerWidth - 0.5;
         const y = e.clientY / window.innerHeight - 0.5;
-        
+
         // Apply transform based on mouse position
         logo.style.transform = `perspective(1000px) rotateY(${x * 20}deg) rotateX(${y * -20}deg) translateZ(10px)`;
-    });
+    }, 16));
     
     // Touch move effect (mobile)
     document.addEventListener('touchmove', function(e) {
@@ -196,30 +208,26 @@ cards.forEach(card => {
     });
 });
 
-// Animation on scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.section-title, .glass-card, .tour-date, .gallery-item');
-    
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight;
-        
-        if (elementPosition < screenPosition) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-};
+// Animation on scroll using IntersectionObserver (much more performant)
+const animateElements = document.querySelectorAll('.section-title, .glass-card, .tour-date, .gallery-item');
 
-// Initialize animations
-document.querySelectorAll('.section-title, .glass-card, .tour-date, .gallery-item').forEach(element => {
+animateElements.forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(50px)';
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
 });
 
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
+const scrollObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            scrollObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+animateElements.forEach(function(el) { scrollObserver.observe(el); });
 
 
 
@@ -429,8 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Note: Mobile menu handling is done in the inline script in index.html
     // to ensure it loads immediately and works reliably on all devices
     
-    // Initialize animation on load to prevent FOUC (Flash of Unstyled Content)
-    animateOnScroll();
+    // IntersectionObserver handles scroll animations automatically
 });
 
 // Audio/Video configuration
