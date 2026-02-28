@@ -54,6 +54,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Toggle Show More Music
+    const showMoreMusicBtn = document.getElementById('showMoreMusicBtn');
+    const hiddenMusic = document.querySelectorAll('.music-hidden');
+    const musicToggleIcon = document.getElementById('musicToggleIcon');
+    
+    if (showMoreMusicBtn && hiddenMusic.length > 0) {
+        let isExpanded = false;
+        
+        showMoreMusicBtn.addEventListener('click', function() {
+            isExpanded = !isExpanded;
+            
+            hiddenMusic.forEach(item => {
+                if (isExpanded) {
+                    item.style.display = 'block';
+                    // Petite temporisation pour permettre l'animation
+                    setTimeout(() => {
+                        item.classList.add('show');
+                    }, 10);
+                } else {
+                    item.classList.remove('show');
+                    // Attendre la fin de l'animation avant de cacher
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            if (isExpanded) {
+                musicToggleIcon.innerHTML = '&#9650;';
+                showMoreMusicBtn.innerHTML = '<span id="musicToggleIcon">&#9650;</span> Show Less';
+                showMoreMusicBtn.classList.add('active');
+            } else {
+                musicToggleIcon.innerHTML = '&#9660;';
+                showMoreMusicBtn.innerHTML = '<span id="musicToggleIcon">&#9660;</span> Show More Music';
+                showMoreMusicBtn.classList.remove('active');
+                
+                // Scroll vers la section music si on ferme
+                const musicSection = document.getElementById('music');
+                if (musicSection) {
+                    window.scrollTo({
+                        top: musicSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+        
+        // Hover effect
+        showMoreMusicBtn.addEventListener('mouseenter', function() {
+            if (!isExpanded) {
+                showMoreMusicBtn.style.background = 'rgba(255, 60, 60, 0.15)';
+            }
+        });
+        showMoreMusicBtn.addEventListener('mouseleave', function() {
+            if (!isExpanded) {
+                showMoreMusicBtn.style.background = 'rgba(40, 40, 40, 0.8)';
+            }
+        });
+    }
+
     // Release banner hover effect
     const releaseBanner = document.querySelector('.release-banner');
     if (releaseBanner) {

@@ -440,7 +440,7 @@
 
             <div class="spotify-embeds" style="display: grid; gap: 2rem; max-width: 800px; margin: 0 auto;">
                 <!-- Thunder -->
-                <div class="glass-card" style="padding: 1.5rem;">
+                <div class="glass-card music-visible" style="padding: 1.5rem;">
                     <h4 style="color: var(--primary); margin-bottom: 1rem;">🎸 Thunder (Single 2025)</h4>
                     <iframe style="border-radius:12px; width: 100%;"
                             src="https://open.spotify.com/embed/track/1vI4M0sVfCIHsRkPhO9SlP?utm_source=generator&theme=0"
@@ -465,7 +465,7 @@
                 </div>
 
                 <!-- Sunday -->
-                <div class="glass-card" style="padding: 1.5rem;">
+                <div class="glass-card music-hidden" style="padding: 1.5rem; display: none;">
                     <h4 style="color: var(--primary); margin-bottom: 1rem;">🎵 Sunday (Single 2018)</h4>
                     <iframe style="border-radius:12px; width: 100%;"
                             src="https://open.spotify.com/embed/track/3OXbIVBfIwGuiH8YFzhVGG?utm_source=generator&theme=0"
@@ -490,7 +490,7 @@
                 </div>
 
                 <!-- All About Love Album -->
-                <div class="glass-card" style="padding: 1.5rem;">
+                <div class="glass-card music-hidden" style="padding: 1.5rem; display: none;">
                     <h4 style="color: var(--primary); margin-bottom: 1rem;">🎵 All About Love (Album 2019)</h4>
                     <iframe style="border-radius:12px; width: 100%;"
                             src="https://open.spotify.com/embed/album/4QwNvDeA8aiX94zgaXlz1r?utm_source=generator&theme=0"
@@ -515,7 +515,7 @@
                 </div>
 
                 <!-- Have a Dandy Day Album -->
-                <div class="glass-card" style="padding: 1.5rem;">
+                <div class="glass-card music-hidden" style="padding: 1.5rem; display: none;">
                     <h4 style="color: var(--primary); margin-bottom: 1rem;">🎶 Have a Dandy Day (Album 2014)</h4>
                     <iframe style="border-radius:12px; width: 100%;"
                             src="https://open.spotify.com/embed/album/4lTyRudnOo6UJ8OaTHC5Fk?utm_source=generator&theme=0"
@@ -539,6 +539,11 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Bouton Show More -->
+            <button id="showMoreMusicBtn" class="show-more-music-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 300px; margin: 2rem auto 0; padding: 1rem 2rem; background: rgba(40, 40, 40, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; cursor: pointer; border-radius: 8px; font-size: 1rem; transition: all 0.3s ease;">
+                <span id="musicToggleIcon">&#9660;</span> Show More Music
+            </button>
         </div>
     </div>
 </section>

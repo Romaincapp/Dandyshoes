@@ -2,7 +2,7 @@
  * DANDYSHOES - Website Styles
  * Belgian Rock'n'Roll Band from Charleroi, Belgium
  * 
- * Built on: 2026-02-27T18:31:32.523Z
+ * Built on: 2026-02-27T22:28:46.871Z
  * Files combined: 23
  * 
  * © 2026 DANDYSHOES. All rights reserved.
@@ -1257,6 +1257,60 @@ footer {
     display: block;
 }
 
+/* Show More Music Button */
+.show-more-music-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.show-more-music-btn:hover {
+    background: rgba(255, 60, 60, 0.15);
+    border-color: rgba(255, 60, 60, 0.3);
+}
+
+.show-more-music-btn.active {
+    background: rgba(255, 60, 60, 0.2);
+    border-color: rgba(255, 60, 60, 0.4);
+}
+
+/* Animation pour l'apparition des musiques */
+.music-hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.music-hidden.show {
+    display: block;
+    animation: musicFadeIn 0.4s ease forwards;
+}
+
+@keyframes musicFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive dropdown */
 @media screen and (max-width: 480px) {
     .platform-dropdown-content {
@@ -1268,6 +1322,12 @@ footer {
     .platform-dropdown-btn {
         font-size: 0.8rem;
         padding: 0.5rem 1rem;
+    }
+    
+    .show-more-music-btn {
+        max-width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
     }
 }
 
