@@ -813,3 +813,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Video cards — open YouTube or local video in modal
+(function() {
+    const videoModal = document.getElementById('videoModal');
+    if (!videoModal) return;
+
+    const videoPlayer = document.getElementById('videoPlayer');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    const closeBtn = videoModal.querySelector('.modal-close');
+
+    function openModal(youtubeId, localSrc) {
+        if (youtubeId) {
+            videoPlayer.style.display = 'none';
+            youtubePlayer.style.display = 'block';
+            youtubePlayer.src = 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1';
+        } else if (localSrc) {
+            youtubePlayer.style.display = 'none';
+            videoPlayer.style.display = 'block';
+            videoPlayer.querySelector('source').src = localSrc;
+            videoPlayer.load();
+            videoPlayer.play();
+        }
+        videoModal.classList.add('active');
+    }
+
+    function closeModal() {
+        videoModal.classList.remove('active');
+        youtubePlayer.src = '';
+        videoPlayer.pause();
+        videoPlayer.querySelector('source').src = '';
+    }
+
+    document.querySelectorAll('.video-card[data-youtube]').forEach(function(card) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            openModal(card.dataset.youtube, null);
+        });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    videoModal.addEventListener('click', function(e) {
+        if (e.target === videoModal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) closeModal();
+    });
+})();
