@@ -852,9 +852,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.querySelectorAll('.video-card[data-external]').forEach(function(card) {
+    document.querySelectorAll('.video-card[data-youtube-src]').forEach(function(card) {
         card.addEventListener('click', function() {
-            window.open(card.dataset.external, '_blank', 'noopener');
+            videoPlayer.style.display = 'none';
+            youtubePlayer.style.display = 'block';
+            youtubePlayer.src = card.dataset.youtubeSrc;
+            videoModal.classList.add('active');
         });
     });
 
