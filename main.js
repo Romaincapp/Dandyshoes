@@ -852,6 +852,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    document.querySelectorAll('.video-card[data-external]').forEach(function(card) {
+        card.addEventListener('click', function() {
+            window.open(card.dataset.external, '_blank', 'noopener');
+        });
+    });
+
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     videoModal.addEventListener('click', function(e) {
         if (e.target === videoModal) closeModal();
