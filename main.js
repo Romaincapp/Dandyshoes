@@ -861,6 +861,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    document.querySelectorAll('.video-card[data-video]').forEach(function(card) {
+        card.addEventListener('click', function() {
+            youtubePlayer.style.display = 'none';
+            youtubePlayer.src = '';
+            videoPlayer.style.display = 'block';
+            videoPlayer.querySelector('source').src = card.dataset.video;
+            videoPlayer.load();
+            videoPlayer.play();
+            videoModal.classList.add('active');
+        });
+    });
+
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     videoModal.addEventListener('click', function(e) {
         if (e.target === videoModal) closeModal();
