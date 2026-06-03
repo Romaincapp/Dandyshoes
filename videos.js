@@ -20,14 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Play video from cards (only those without their own handler in main.js)
-    videoCards.forEach(card => {
-        if (card.dataset.youtube || card.dataset.youtubeSrc) return;
-        card.addEventListener('click', function() {
-            const videoSrc = this.getAttribute('data-video');
-            if (videoSrc) openVideoModal(videoSrc);
-        });
-    });
     
     // Close modal
     if (modalClose) {
