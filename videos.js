@@ -20,13 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Play video from cards
+    // Play video from cards (only those without their own handler in main.js)
     videoCards.forEach(card => {
+        if (card.dataset.youtube || card.dataset.youtubeSrc) return;
         card.addEventListener('click', function() {
-            // In a real implementation, you would get the video source from a data attribute
-            // Here we're using a placeholder
-            const videoSrc = 'videos/thunder.mp4'; // Replace with actual video source
-            openVideoModal(videoSrc);
+            const videoSrc = this.getAttribute('data-video');
+            if (videoSrc) openVideoModal(videoSrc);
         });
     });
     
