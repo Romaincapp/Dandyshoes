@@ -22,8 +22,35 @@ window.addEventListener('scroll', throttle(function() {
     }
 }, 50));
 
+// Auto-sort tour dates: moves past dates into the collapsible section
+function autoSortTourDates() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const tourList = document.querySelector('.tour-list');
+    const pastContainer = document.getElementById('dates2025');
+    const toggleBtn = document.getElementById('toggle2025Dates');
+    if (!tourList || !pastContainer || !toggleBtn) return;
+
+    // Only select direct-child tour-date elements (not those already inside #dates2025)
+    const upcomingCards = Array.from(tourList.querySelectorAll(':scope > .tour-date[data-date]'));
+
+    // Collect past ones in chronological order so the most recent ends up first after prepend
+    const past = upcomingCards
+        .filter(el => new Date(el.dataset.date) < today)
+        .sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date)); // desc → newest first
+
+    past.forEach(el => pastContainer.prepend(el));
+
+    // Update the badge count
+    const total = pastContainer.querySelectorAll('.tour-date').length;
+    toggleBtn.innerHTML = `<span id="toggleIcon">&#9660;</span> Dates passées (${total} date${total > 1 ? 's' : ''})`;
+}
+
 // Toggle dates 2025
 document.addEventListener('DOMContentLoaded', function() {
+    autoSortTourDates();
+
     const toggleBtn = document.getElementById('toggle2025Dates');
     const dates2025 = document.getElementById('dates2025');
     const toggleIcon = document.getElementById('toggleIcon');
