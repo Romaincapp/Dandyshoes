@@ -23,37 +23,40 @@ window.addEventListener('scroll', throttle(function() {
 }, 50));
 
 // Auto-sort tour dates: moves past dates into the collapsible section
-function autoSortTourDates() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const tourList = document.querySelector('.tour-list');
-    const pastContainer = document.getElementById('dates2025');
-    const toggleBtn = document.getElementById('toggle2025Dates');
-    if (!tourList || !pastContainer || !toggleBtn) return;
-
-    // Only select direct-child tour-date elements (not those already inside #dates2025)
-    const upcomingCards = Array.from(tourList.querySelectorAll(':scope > .tour-date[data-date]'));
-
-    // Collect past ones in chronological order so the most recent ends up first after prepend
-    const past = upcomingCards
-        .filter(el => new Date(el.dataset.date) < today)
-        .sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date)); // desc → newest first
-
-    past.forEach(el => pastContainer.prepend(el));
-
-    // Update the badge count
-    const total = pastContainer.querySelectorAll('.tour-date').length;
-    toggleBtn.innerHTML = `<span id="toggleIcon">&#9660;</span> Dates passées (${total} date${total > 1 ? 's' : ''})`;
-}
-
-// Toggle dates 2025
+// Toggle dates 2025 + auto-sort passé/futur + boutons Agenda — tout dans un seul handler
 document.addEventListener('DOMContentLoaded', function() {
-    autoSortTourDates();
 
-    const toggleBtn = document.getElementById('toggle2025Dates');
-    const dates2025 = document.getElementById('dates2025');
-    const toggleIcon = document.getElementById('toggleIcon');
+    /* ── 1. Tri automatique passé / futur ────────────────────────────────── */
+    (function autoSortTourDates() {
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        var pastContainer = document.getElementById('dates2025');
+        var toggleBtn    = document.getElementById('toggle2025Dates');
+        if (!pastContainer || !toggleBtn) return;
+
+        // Sélectionne tous les .tour-date[data-date] qui NE sont PAS dans #dates2025
+        var allCards = Array.from(document.querySelectorAll('.tour-date[data-date]'));
+        var mainCards = allCards.filter(function(el) {
+            return !pastContainer.contains(el);
+        });
+
+        // Filtre les passées, trie du plus récent au plus ancien, puis prepend
+        var past = mainCards
+            .filter(function(el) { return new Date(el.dataset.date) < today; })
+            .sort(function(a, b) { return new Date(b.dataset.date) - new Date(a.dataset.date); });
+
+        past.forEach(function(el) { pastContainer.prepend(el); });
+
+        // Met à jour le compteur du bouton
+        var total = pastContainer.querySelectorAll('.tour-date').length;
+        toggleBtn.innerHTML = '<span id="toggleIcon">&#9660;</span> Dates passées (' + total + ' date' + (total > 1 ? 's' : '') + ')';
+    })();
+
+    /* ── 2. Toggle du panneau dates passées ──────────────────────────────── */
+    var toggleBtn  = document.getElementById('toggle2025Dates');
+    var dates2025  = document.getElementById('dates2025');
+    var toggleIcon = document.getElementById('toggleIcon');
 
     if (toggleBtn && dates2025) {
         toggleBtn.addEventListener('click', function() {
@@ -80,6 +83,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    /* ── 3. Boutons Agenda (après le tri, dans le même handler) ─────────── */
+    var concertsData = {
+        "2026-06-21": { title: "DANDYSHOES - Fêtes de la Musique",              location: "Durbuy, Belgium",                  venue: "Fêtes de la Musique",              startTime: "19:00", endTime: "22:00" },
+        "2026-07-18": { title: "DANDYSHOES - Le Nuton",                          location: "Vierves, Belgium",                 venue: "Le Nuton",                         startTime: "20:00", endTime: "23:00" },
+        "2026-08-29": { title: "DANDYSHOES - Le Kultura",                        location: "Liège, Belgium",                   venue: "Le Kultura",                       startTime: "20:00", endTime: "23:00" },
+        "2026-09-12": { title: "DANDYSHOES - La Guinguette",                     location: "Oignies, Belgium",                 venue: "La Guinguette",                    startTime: "20:00", endTime: "23:00" },
+        "2026-10-17": { title: "DANDYSHOES - Petit Wood Night",                  location: "Wattignies-la-Victoire, France",   venue: "Petit Wood Night",                 startTime: "20:00", endTime: "23:00" },
+        "2026-11-28": { title: "DANDYSHOES - Le Zik-Zak",                        location: "Ittre, Belgium",                   venue: "Le Zik-Zak",                       startTime: "20:00", endTime: "23:00" },
+        "2027-02-05": { title: "DANDYSHOES - Centre Culturel de Philippeville",  location: "Philippeville, Belgium",           venue: "Centre Culturel de Philippeville", startTime: "20:00", endTime: "23:00" },
+        "2026-02-20": { title: "DANDYSHOES - EP DIURNE Release Party",           location: "Namur, Belgium",                   venue: "Le Belvédère",                     startTime: "20:00", endTime: "23:00" },
+        "2026-03-13": { title: "DANDYSHOES - YouFM / Monkeys Music Movment",     location: "Mons, Belgium",                    venue: "YouFM / Monkeys Music Movment",    startTime: "20:00", endTime: "23:00" },
+        "2026-05-29": { title: "DANDYSHOES - Le Rockerill",                      location: "Charleroi, Belgium",               venue: "Le Rockerill",                     startTime: "20:00", endTime: "23:00" }
+    };
+
+    document.querySelectorAll('.tour-date[data-date]').forEach(function(tourDate) {
+        var dateKey = tourDate.dataset.date;
+        var concert = concertsData[dateKey];
+        if (!concert) return;
+
+        var ticketsBtn = tourDate.querySelector('.tickets-btn');
+        if (!ticketsBtn) return;
+
+        // Éviter les doublons si le handler tourne plusieurs fois
+        if (tourDate.querySelector('.calendar-btn')) return;
+
+        var calendarBtn = document.createElement('button');
+        calendarBtn.className = 'calendar-btn';
+        calendarBtn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg> Agenda';
+        calendarBtn.addEventListener('click', (function(c, d) {
+            return function() { addToCalendar(Object.assign({}, c, { date: d })); };
+        })(concert, dateKey));
+        ticketsBtn.parentNode.insertBefore(calendarBtn, ticketsBtn.nextSibling);
+    });
 
     // Toggle Show More Music
     const showMoreMusicBtn = document.getElementById('showMoreMusicBtn');
@@ -716,46 +753,7 @@ function showCalendarMenu(urls) {
     });
 }
 
-// Initialiser les boutons d'ajout au calendrier
-document.addEventListener('DOMContentLoaded', function() {
-    // Données des concerts indexées par date (YYYY-MM-DD) pour un matching robuste
-    const concerts = {
-        "2026-06-21": { title: "DANDYSHOES - Fêtes de la Musique", location: "Durbuy, Belgium", venue: "Fêtes de la Musique", startTime: "19:00", endTime: "22:00" },
-        "2026-07-18": { title: "DANDYSHOES - Le Nuton", location: "Vierves, Belgium", venue: "Le Nuton", startTime: "20:00", endTime: "23:00" },
-        "2026-08-29": { title: "DANDYSHOES - Le Kultura", location: "Liège, Belgium", venue: "Le Kultura", startTime: "20:00", endTime: "23:00" },
-        "2026-09-12": { title: "DANDYSHOES - La Guinguette", location: "Oignies, Belgium", venue: "La Guinguette", startTime: "20:00", endTime: "23:00" },
-        "2026-10-17": { title: "DANDYSHOES - Petit Wood Night", location: "Wattignies-la-Victoire, France", venue: "Petit Wood Night", startTime: "20:00", endTime: "23:00" },
-        "2026-11-28": { title: "DANDYSHOES - Le Zik-Zak", location: "Ittre, Belgium", venue: "Le Zik-Zak", startTime: "20:00", endTime: "23:00" },
-        "2027-02-05": { title: "DANDYSHOES - Centre Culturel de Philippeville", location: "Philippeville, Belgium", venue: "Centre Culturel de Philippeville", startTime: "20:00", endTime: "23:00" },
-        // Anciennes dates
-        "2026-02-20": { title: "DANDYSHOES - EP DIURNE Release Party", location: "Namur, Belgium", venue: "Le Belvédère", startTime: "20:00", endTime: "23:00" },
-        "2026-03-13": { title: "DANDYSHOES - YouFM / Monkeys Music Movment", location: "Mons, Belgium", venue: "YouFM / Monkeys Music Movment", startTime: "20:00", endTime: "23:00" },
-        "2026-05-29": { title: "DANDYSHOES - Le Rockerill", location: "Charleroi, Belgium", venue: "Le Rockerill", startTime: "20:00", endTime: "23:00" },
-    };
-
-    // Ajouter un bouton Agenda sur chaque .tour-date qui a un data-date reconnu
-    document.querySelectorAll('.tour-date[data-date]').forEach(function(tourDate) {
-        const dateKey = tourDate.dataset.date;
-        const concert = concerts[dateKey];
-        if (!concert) return;
-
-        const ticketsBtn = tourDate.querySelector('.tickets-btn');
-        if (!ticketsBtn) return;
-
-        const calendarBtn = document.createElement('button');
-        calendarBtn.className = 'calendar-btn';
-        calendarBtn.innerHTML = `
-            <svg viewBox="0 0 24 24" width="16" height="16">
-                <path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-            </svg>
-            Agenda
-        `;
-        calendarBtn.addEventListener('click', function() {
-            addToCalendar({ ...concert, date: dateKey });
-        });
-        ticketsBtn.parentNode.insertBefore(calendarBtn, ticketsBtn.nextSibling);
-    });
-});
+// (boutons Agenda déplacés dans le handler principal DOMContentLoaded ci-dessus)
 
 // Modal pour agrandir les images des membres
 document.addEventListener('DOMContentLoaded', function() {
