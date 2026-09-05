@@ -718,83 +718,42 @@ function showCalendarMenu(urls) {
 
 // Initialiser les boutons d'ajout au calendrier
 document.addEventListener('DOMContentLoaded', function() {
-    // Données des concerts (à adapter selon vos dates)
-    const concerts = [
-        {
-            title: "DANDYSHOES - EP DIURNE Release Party",
-            location: "Le Belvédère, Belgium",
-            venue: "Le Belvédère",
-            date: "2026-02-20",
-            startTime: "20:00",
-            endTime: "23:00"
-        },
-        {
-            title: "DANDYSHOES - Cercle Saint-Charles",
-            location: "Charleroi, Belgium",
-            venue: "Cercle Saint-Charles",
-            date: "2025-05-23",
-            startTime: "20:00",
-            endTime: "23:00"
-        },
-        {
-            title: "DANDYSHOES - Nouille Stock Festival",
-            location: "Senzeilles, Belgium", 
-            venue: "Nouille Stock Festival",
-            date: "2025-05-31",
-            startTime: "19:00",
-            endTime: "22:00"
-        },
-        {
-            title: "DANDYSHOES - Les 3 Auvergniats",
-            location: "Beaumont, Belgium",
-            venue: "Les 3 Auvergniats", 
-            date: "2025-06-13",
-            startTime: "20:00",
-            endTime: "23:00"
-        },
-        {
-            title: "DANDYSHOES - Chop'n'Rock",
-            location: "Sedan, France",
-            venue: "Chop'n'Rock",
-            date: "2025-07-18", 
-            startTime: "20:00",
-            endTime: "23:00"
-        },
-        {
-            title: "DANDYSHOES - Private Showcase",
-            location: "Surprise Location",
-            venue: "Private Showcase",
-            date: "2025-08-23",
-            startTime: "20:00", 
-            endTime: "23:00"
-        }
-    ];
-    
-    // Ajouter les boutons après le chargement de la page
-    const tourDates = document.querySelectorAll('.tour-date');
-    tourDates.forEach((tourDate, index) => {
-        if (concerts[index]) {
-            const ticketsBtn = tourDate.querySelector('.tickets-btn');
-            if (ticketsBtn) {
-                // Créer le bouton d'ajout au calendrier
-                const calendarBtn = document.createElement('button');
-                calendarBtn.className = 'calendar-btn';
-                calendarBtn.innerHTML = `
-                    <svg viewBox="0 0 24 24" width="16" height="16">
-                        <path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                    </svg>
-                    Agenda
-                `;
-                
-                // Ajouter l'événement click
-                calendarBtn.addEventListener('click', () => {
-                    addToCalendar(concerts[index]);
-                });
-                
-                // Insérer le bouton après le bouton "Go!"
-                ticketsBtn.parentNode.insertBefore(calendarBtn, ticketsBtn.nextSibling);
-            }
-        }
+    // Données des concerts indexées par date (YYYY-MM-DD) pour un matching robuste
+    const concerts = {
+        "2026-06-21": { title: "DANDYSHOES - Fêtes de la Musique", location: "Durbuy, Belgium", venue: "Fêtes de la Musique", startTime: "19:00", endTime: "22:00" },
+        "2026-07-18": { title: "DANDYSHOES - Le Nuton", location: "Vierves, Belgium", venue: "Le Nuton", startTime: "20:00", endTime: "23:00" },
+        "2026-08-29": { title: "DANDYSHOES - Le Kultura", location: "Liège, Belgium", venue: "Le Kultura", startTime: "20:00", endTime: "23:00" },
+        "2026-09-12": { title: "DANDYSHOES - La Guinguette", location: "Oignies, Belgium", venue: "La Guinguette", startTime: "20:00", endTime: "23:00" },
+        "2026-10-17": { title: "DANDYSHOES - Petit Wood Night", location: "Wattignies-la-Victoire, France", venue: "Petit Wood Night", startTime: "20:00", endTime: "23:00" },
+        "2026-11-28": { title: "DANDYSHOES - Le Zik-Zak", location: "Ittre, Belgium", venue: "Le Zik-Zak", startTime: "20:00", endTime: "23:00" },
+        "2027-02-05": { title: "DANDYSHOES - Centre Culturel de Philippeville", location: "Philippeville, Belgium", venue: "Centre Culturel de Philippeville", startTime: "20:00", endTime: "23:00" },
+        // Anciennes dates
+        "2026-02-20": { title: "DANDYSHOES - EP DIURNE Release Party", location: "Namur, Belgium", venue: "Le Belvédère", startTime: "20:00", endTime: "23:00" },
+        "2026-03-13": { title: "DANDYSHOES - YouFM / Monkeys Music Movment", location: "Mons, Belgium", venue: "YouFM / Monkeys Music Movment", startTime: "20:00", endTime: "23:00" },
+        "2026-05-29": { title: "DANDYSHOES - Le Rockerill", location: "Charleroi, Belgium", venue: "Le Rockerill", startTime: "20:00", endTime: "23:00" },
+    };
+
+    // Ajouter un bouton Agenda sur chaque .tour-date qui a un data-date reconnu
+    document.querySelectorAll('.tour-date[data-date]').forEach(function(tourDate) {
+        const dateKey = tourDate.dataset.date;
+        const concert = concerts[dateKey];
+        if (!concert) return;
+
+        const ticketsBtn = tourDate.querySelector('.tickets-btn');
+        if (!ticketsBtn) return;
+
+        const calendarBtn = document.createElement('button');
+        calendarBtn.className = 'calendar-btn';
+        calendarBtn.innerHTML = `
+            <svg viewBox="0 0 24 24" width="16" height="16">
+                <path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+            Agenda
+        `;
+        calendarBtn.addEventListener('click', function() {
+            addToCalendar({ ...concert, date: dateKey });
+        });
+        ticketsBtn.parentNode.insertBefore(calendarBtn, ticketsBtn.nextSibling);
     });
 });
 
