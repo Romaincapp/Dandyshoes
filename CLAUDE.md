@@ -40,15 +40,71 @@ This compiles all CSS modules into `css/dist/style.min.css`.
 
 ## Key Features
 - **Responsive design**: Breakpoints at 768px, 480px, 360px
-- **Tour dates**: Toggle system for past/future dates
+- **Tour dates**: Tri automatique passé/futur + boutons Agenda
 - **Music section**: Spotify embeds, YouTube videos
 - **SEO**: Schema.org structured data for band and events
 - **Contact**: Formspree integration
 
-## Current Events
-- **EP "DIURNE" Release Party**: February 20, 2026 @ Le Belvédère
-- Tickets: Billetweb
-- Facebook Event linked
+## Tour Dates System
+
+### Ajouter une nouvelle date
+1. **`index.html`** — ajouter un bloc `.tour-date` avec l'attribut `data-date="YYYY-MM-DD"` dans la section `#tour > .tour-list`, **avant** le bouton toggle :
+```html
+<div class="tour-date" data-date="2027-03-15">
+    <div class="date-location">
+        <div class="date">Mar 15, 2027</div>
+        <div>
+            <div class="location">Ville, Pays</div>
+            <div class="venue">Nom de la salle</div>
+        </div>
+    </div>
+    <div class="tour-buttons">
+        <a href="https://maps.google.com/?q=..." target="_blank" class="tickets-btn">Maps</a>
+    </div>
+</div>
+```
+
+2. **`main.js`** — ajouter une entrée dans l'objet `concerts` (section *"Initialiser les boutons d'ajout au calendrier"*) pour que le bouton **Agenda** apparaisse :
+```js
+"2027-03-15": {
+    title: "DANDYSHOES - Nom de la salle",
+    location: "Ville, Pays",
+    venue: "Nom de la salle",
+    startTime: "20:00",
+    endTime: "23:00"
+},
+```
+
+3. **`index.html` — Schema.org** — ajouter l'événement dans le bloc `<script type="application/ld+json">` pour le SEO :
+```json
+{
+  "@type": "MusicEvent",
+  "name": "DANDYSHOES at Nom de la salle",
+  "startDate": "2027-03-15T20:00",
+  "location": {
+    "@type": "Place",
+    "name": "Nom de la salle",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ville",
+      "addressCountry": "BE"
+    }
+  }
+}
+```
+
+### Tri automatique passé/futur
+La fonction `autoSortTourDates()` dans `main.js` s'exécute au chargement et :
+- Compare chaque `.tour-date[data-date]` du bloc principal avec la date du jour
+- Déplace automatiquement les dates passées dans `#dates2025` (section repliée)
+- Met à jour le compteur *"Dates passées (N dates)"*
+
+**Aucune intervention manuelle nécessaire** — les dates basculent automatiquement dans le passé.
+
+## Upcoming Events
+- **Oct 17, 2026** — Petit Wood Night, Wattignies-la-Victoire, France
+- **Nov 28, 2026** — Le Zik-Zak, Ittre, Belgium (avec Springclean)
+- **Feb 5, 2027** — Centre Culturel de Philippeville, Belgium (20h)
 
 ## Band Members
 - Allan Berger - Vocals, Guitar
