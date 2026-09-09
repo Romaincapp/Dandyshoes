@@ -128,6 +128,18 @@ header {
     filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 222, 89, 0.8)) !important;
 }
 
+/* Classic 21's logo is a filled badge with text on top, not a flat wordmark:
+   the brightness(0)+invert(1) silhouette trick above flattens both to solid
+   white and erases the text, so keep it in its original colors instead. */
+.platform-logo img[alt="Classic 21"] {
+    filter: none !important;
+}
+
+.platform-logo:hover img[alt="Classic 21"] {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(255, 222, 89, 0.8)) !important;
+}
+
 /* Corrections pour la structure picture */
 .parallax-bg picture {
     position: absolute;
