@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "2026-08-29": { title: "DANDYSHOES - Le Kultura",                        location: "Liège, Belgium",                   venue: "Le Kultura",                       startTime: "20:00", endTime: "23:00" },
         "2026-09-12": { title: "DANDYSHOES - La Guinguette",                     location: "Oignies, Belgium",                 venue: "La Guinguette",                    startTime: "20:00", endTime: "23:00" },
         "2026-10-17": { title: "DANDYSHOES - Petit Wood Night",                  location: "Wattignies-la-Victoire, France",   venue: "Petit Wood Night",                 startTime: "20:00", endTime: "23:00" },
+        "2026-10-18": { title: "DANDYSHOES - Chop and Rock",                     location: "Sedan, France",                    venue: "Chop and Rock",                    startTime: "20:00", endTime: "23:00" },
         "2026-11-28": { title: "DANDYSHOES - Le Zik-Zak",                        location: "Ittre, Belgium",                   venue: "Le Zik-Zak",                       startTime: "20:00", endTime: "23:00" },
         "2027-02-05": { title: "DANDYSHOES - Centre Culturel de Philippeville",  location: "Philippeville, Belgium",           venue: "Centre Culturel de Philippeville", startTime: "20:00", endTime: "23:00" },
         "2026-02-20": { title: "DANDYSHOES - EP DIURNE Release Party",           location: "Namur, Belgium",                   venue: "Le Belvédère",                     startTime: "20:00", endTime: "23:00" },
