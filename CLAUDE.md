@@ -119,6 +119,7 @@ Au clic sur une `.member-card` (section `#about`), `#memberModal` s'ouvre avec t
 - Photos listées dans l'objet `memberPhotos` de `main.js` (le site ne peut pas lire un dossier). La première photo de la liste est celle affichée à l'ouverture.
 - **Ajouter une photo** : la déposer dans `img/compressed/` (nom `Prénom XX.jpg`), puis ajouter son nom de fichier dans `memberPhotos`.
 - **Changer la photo de la carte** : modifier `<source>` (webp) et `<img>` (compressed) de la `.member-card` dans `index.html`, et mettre cette photo en premier dans `memberPhotos`.
+- **Mobile** (≤768px ou téléphone en paysage) : photo plein écran sans flèches. Glisser gauche/droite pour changer de photo, glisser vers le bas pour fermer, taper sur la photo pour masquer le bandeau du bas (nom, points, autres membres).
 - Styles dans `css/sections/about.css` (puis `node build-css.js`).
 
 ## External Services
