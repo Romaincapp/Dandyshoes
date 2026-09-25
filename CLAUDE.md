@@ -44,6 +44,7 @@ This compiles all CSS modules into `css/dist/style.min.css`.
 - **Music section**: Spotify embeds, YouTube videos
 - **SEO**: Schema.org structured data for band and events
 - **Contact**: Formspree integration
+- **Band members**: carrousel photo au clic sur une carte membre
 
 ## Tour Dates System
 
@@ -113,6 +114,13 @@ La fonction `autoSortTourDates()` dans `main.js` s'exécute au chargement et :
 - Antoine Chauvaux - Bass
 - Arnaud Lietor Torres - Guitar
 
+## Carrousel photos des membres
+Au clic sur une `.member-card` (section `#about`), `#memberModal` s'ouvre avec toutes les photos du musicien, et les autres membres en icônes en dessous.
+- Photos listées dans l'objet `memberPhotos` de `main.js` (le site ne peut pas lire un dossier). La première photo de la liste est celle affichée à l'ouverture.
+- **Ajouter une photo** : la déposer dans `img/compressed/` (nom `Prénom XX.jpg`), puis ajouter son nom de fichier dans `memberPhotos`.
+- **Changer la photo de la carte** : modifier `<source>` (webp) et `<img>` (compressed) de la `.member-card` dans `index.html`, et mettre cette photo en premier dans `memberPhotos`.
+- Styles dans `css/sections/about.css` (puis `node build-css.js`).
+
 ## External Services
 - **Formspree**: Contact form (ID: mrbqwbpo)
 - **Spotify**: Artist page embeds
@@ -120,7 +128,7 @@ La fonction `autoSortTourDates()` dans `main.js` s'exécute au chargement et :
 - **Billetweb**: Ticket sales
 
 ## Design Guidelines
-- Primary color: `#ff3c3c` (red)
+- Primary color: `#ffde59` (jaune, variable CSS `--primary` dans `css/base/variables.css`)
 - Background: Dark theme (`#121212`)
 - Font: Inter (Google Fonts)
 - Style: Rock/grungy aesthetic with modern touches
