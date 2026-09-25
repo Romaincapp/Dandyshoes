@@ -80,7 +80,7 @@
     <!-- Stylesheet and Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="css/dist/style.min.css?v=2.1">
+    <link rel="stylesheet" href="css/dist/style.min.css?v=2.2">
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="img/compressed/DandyShoesBand.jpg">
@@ -780,11 +780,22 @@
                         </div>
                     </div>
 
-                    <!-- Modal pour agrandir les images -->
-                    <div id="memberModal" class="member-modal">
-                        <span class="member-modal-close">&times;</span>
-                        <img class="member-modal-content" id="memberModalImg">
-                        <div id="memberModalCaption"></div>
+                    <!-- Carrousel photos des membres (photos listées dans main.js > memberPhotos) -->
+                    <div id="memberModal" class="member-modal" role="dialog" aria-modal="true" aria-label="Photos du musicien" aria-hidden="true">
+                        <button type="button" class="member-modal-close" aria-label="Fermer">&times;</button>
+                        <div class="member-modal-inner">
+                            <div class="member-carousel">
+                                <button type="button" class="member-carousel-btn member-carousel-prev" aria-label="Photo précédente">&#8249;</button>
+                                <img class="member-modal-content" id="memberModalImg" alt="">
+                                <button type="button" class="member-carousel-btn member-carousel-next" aria-label="Photo suivante">&#8250;</button>
+                            </div>
+                            <div id="memberModalCaption"></div>
+                            <div class="member-thumbs" id="memberThumbs"></div>
+                            <div class="member-suggestions">
+                                <span class="member-suggestions-title">Les autres membres</span>
+                                <div class="member-suggestions-list" id="memberSuggestions"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

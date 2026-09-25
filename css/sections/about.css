@@ -173,59 +173,374 @@
     opacity: 0.8;
 }
 
-/* Modal pour agrandir les images */
+/* Carrousel photos des membres */
 .member-modal {
     display: none;
     position: fixed;
-    z-index: 9999;
-    padding-top: 60px;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     background-color: rgba(0, 0, 0, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
+.member-modal-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    padding: 60px 16px 24px;
+    padding-top: calc(60px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+}
+
+.member-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
 .member-modal-content {
-    margin: auto;
     display: block;
-    max-width: 90%;
-    max-height: 80vh;
+    max-width: calc(100% - 140px);
+    /* laisse la place à la légende, aux miniatures et aux suggestions */
+    max-height: 60vh;
+    max-height: calc(100vh - 320px);
+    max-height: calc(100dvh - 320px);
+    min-height: 200px;
+    width: auto;
+    height: auto;
     object-fit: contain;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255, 222, 89, 0.5);
+    box-shadow: 0 0 30px rgba(255, 222, 89, 0.35);
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.member-modal-content.is-changing {
     animation: zoom 0.3s ease;
 }
 
 @keyframes zoom {
-    from { transform: scale(0.8); opacity: 0; }
+    from { transform: scale(0.92); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
 
-.member-modal-close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
+.member-modal-close,
+.member-carousel-btn {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
     color: var(--primary);
-    font-size: 45px;
-    font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s;
+    line-height: 1;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.3s, background-color 0.3s;
 }
 
-.member-modal-close:hover,
-.member-modal-close:focus {
-    color: var(--light);
+.member-modal-close {
+    position: fixed;
+    top: 12px;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    right: 16px;
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.member-carousel-btn {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    margin: 0 8px;
+    border-radius: 50%;
+    font-size: 42px;
+    background-color: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6px;
+    box-sizing: border-box;
+}
+
+.member-modal-close:focus-visible,
+.member-carousel-btn:focus-visible,
+.member-thumb:focus-visible,
+.member-suggestion:focus-visible {
+    outline: 2px solid var(--light);
+    outline-offset: 2px;
 }
 
 #memberModalCaption {
-    margin: 20px auto;
+    margin: 16px auto 12px;
     text-align: center;
     color: var(--light);
     font-size: 1.2rem;
     max-width: 700px;
+}
+
+.member-counter {
+    display: inline-block;
+    margin-left: 12px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* Miniatures */
+.member-thumbs {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px;
+}
+
+.member-thumbs::-webkit-scrollbar {
+    display: none;
+}
+
+.member-thumb {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    margin: 0 4px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #222;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.2s, border-color 0.2s;
+}
+
+.member-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-thumb.active {
+    opacity: 1;
+    border-color: var(--primary);
+}
+
+/* Suggestions : les autres membres */
+.member-suggestions {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+}
+
+.member-suggestions-title {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--light);
+    opacity: 0.6;
+}
+
+.member-suggestions-list {
+    display: flex;
+    justify-content: center;
+}
+
+.member-suggestion {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    margin: 0 10px;
+    padding: 0;
+    cursor: pointer;
+    color: var(--light);
+    font-family: inherit;
+    font-size: 0.8rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.member-suggestion img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.member-suggestion:active img {
+    border-color: var(--primary);
+}
+
+@media (hover: hover) {
+    .member-modal-close:hover,
+    .member-carousel-btn:hover {
+        color: var(--light);
+    }
+
+    .member-carousel-btn:hover {
+        background-color: var(--primary);
+    }
+
+    .member-thumb:hover {
+        opacity: 1;
+    }
+
+    .member-suggestion:hover img {
+        border-color: var(--primary);
+        transform: scale(1.08);
+    }
+
+    .member-suggestion:hover span {
+        color: var(--primary);
+    }
+}
+
+/* Tablette / mobile : flèches en surimpression sur la photo */
+@media (max-width: 768px) {
+    .member-modal-inner {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .member-modal-content {
+        max-width: 100%;
+        max-height: calc(100vh - 330px);
+        max-height: calc(100dvh - 330px);
+    }
+
+    .member-carousel-btn {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        width: 44px;
+        height: 44px;
+        margin: -22px 0 0;
+        font-size: 34px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .member-carousel-prev {
+        left: 6px;
+    }
+
+    .member-carousel-next {
+        right: 6px;
+    }
+
+    #memberModalCaption {
+        font-size: 1rem;
+    }
+
+    .member-thumbs {
+        justify-content: flex-start;
+    }
+
+    .member-thumb {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* justify-content:center coupe le début d'une liste qui déborde : on centre avec des marges auto */
+.member-thumbs .member-thumb:first-child {
+    margin-left: auto;
+}
+
+.member-thumbs .member-thumb:last-child {
+    margin-right: auto;
+}
+
+@media (max-width: 480px) {
+    .member-suggestion {
+        margin: 0 6px;
+    }
+
+    .member-suggestion img {
+        width: 52px;
+        height: 52px;
+    }
+}
+
+@media (max-width: 360px) {
+    .member-thumb {
+        width: 44px;
+        height: 44px;
+        margin: 0 3px;
+    }
+
+    .member-suggestion img {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+/* Mobile en paysage : on garde la photo visible */
+@media (max-height: 500px) and (orientation: landscape) {
+    .member-modal-inner {
+        padding-top: 12px;
+        padding-top: calc(12px + env(safe-area-inset-top, 0px));
+    }
+
+    .member-modal-content {
+        max-height: 72vh;
+        max-height: 72dvh;
+        min-height: 0;
+        max-width: calc(100% - 120px);
+    }
+
+    .member-carousel-btn {
+        position: static;
+        margin: 0 8px;
+    }
+
+    #memberModalCaption {
+        margin: 8px auto;
+    }
+
+    .member-suggestions {
+        margin-top: 8px;
+        padding-top: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .member-modal-content.is-changing {
+        animation: none;
+    }
+
+    .member-suggestion img,
+    .member-thumb {
+        transition: none;
+    }
 }
 
 /* Responsive About */
@@ -374,11 +689,5 @@
 
     .members-grid {
         grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
-    }
-
-    .member-modal-close {
-        top: 10px;
-        right: 20px;
-        font-size: 35px;
     }
 }
