@@ -756,47 +756,249 @@ function showCalendarMenu(urls) {
 
 // (boutons Agenda déplacés dans le handler principal DOMContentLoaded ci-dessus)
 
-// Modal pour agrandir les images des membres
+// Carrousel photos des membres
+// Pour ajouter une photo : la déposer dans img/compressed/ et ajouter son nom ci-dessous
+// (la première photo de chaque liste est celle affichée en premier)
+var memberPhotos = {
+    allan: ['Allan Chant.jpg', 'Allan Chant + effets.jpg', 'Allan R1.jpg', 'Allan R2.jpg', 'Allan R3.jpg', 'Allan manche.jpg'],
+    antoine: ['Antoine R2.jpg', 'Antoine R3.jpg', 'Antoine R4.jpg', 'Antoine R5.jpg', 'Antoine Back.jpg'],
+    romain: ['Romain R2.jpg', 'Romain R1.jpg', 'Romain R2 (2).jpg', 'Romain R4.jpg'],
+    arnaud: ['Arnaud R4 + effect.jpg', 'Arnaud R1.jpg', 'Arnaud R5 smoke.jpg']
+};
+
 document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('memberModal');
-    const modalImg = document.getElementById('memberModalImg');
-    const modalCaption = document.getElementById('memberModalCaption');
-    const closeBtn = document.querySelector('.member-modal-close');
-    const memberCards = document.querySelectorAll('.member-card');
+    var modal = document.getElementById('memberModal');
+    if (!modal) return;
 
-    // Ouvrir la modale au clic sur une carte
-    memberCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const img = this.querySelector('.member-img');
-            const memberName = this.querySelector('strong').textContent;
-            const memberRole = this.querySelector('span').textContent;
+    var modalImg = document.getElementById('memberModalImg');
+    var modalCaption = document.getElementById('memberModalCaption');
+    var thumbsEl = document.getElementById('memberThumbs');
+    var suggestionsEl = document.getElementById('memberSuggestions');
+    var closeBtn = modal.querySelector('.member-modal-close');
+    var prevBtn = modal.querySelector('.member-carousel-prev');
+    var nextBtn = modal.querySelector('.member-carousel-next');
+    var memberCards = document.querySelectorAll('.member-card');
 
-            modal.style.display = 'block';
-            modalImg.src = img.src;
-            modalCaption.innerHTML = `<strong>${memberName}</strong> - ${memberRole}`;
-        });
-    });
+    var current = { key: null, name: '', role: '', photos: [], index: 0 };
+    var lastFocused = null;
+    var savedScrollY = 0;
 
-    // Fermer la modale
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
+    function photoUrl(file) {
+        // encodeURI gère les espaces et parenthèses, mais pas le "+"
+        return encodeURI('img/compressed/' + file).replace(/\+/g, '%2B');
     }
 
-    // Fermer au clic en dehors de l'image
+    function getCard(key) {
+        return document.querySelector('.member-card[data-member="' + key + '"]');
+    }
+
+    function show(index) {
+        var total = current.photos.length;
+        if (!total) return;
+        current.index = (index + total) % total;
+
+        modalImg.classList.remove('is-changing');
+        void modalImg.offsetWidth; // relance l'animation
+        modalImg.classList.add('is-changing');
+        modalImg.src = photoUrl(current.photos[current.index]);
+        modalImg.alt = current.name + ' - photo ' + (current.index + 1) + ' sur ' + total;
+
+        modalCaption.innerHTML = '<strong>' + current.name + '</strong> - ' + current.role +
+            (total > 1 ? '<span class="member-counter">' + (current.index + 1) + ' / ' + total + '</span>' : '');
+
+        var thumbs = thumbsEl.querySelectorAll('.member-thumb');
+        for (var i = 0; i < thumbs.length; i++) {
+            thumbs[i].classList.toggle('active', i === current.index);
+            thumbs[i].setAttribute('aria-current', i === current.index ? 'true' : 'false');
+        }
+        var active = thumbs[current.index];
+        if (active && thumbsEl.scrollWidth > thumbsEl.clientWidth) {
+            thumbsEl.scrollLeft = active.offsetLeft - (thumbsEl.clientWidth - active.offsetWidth) / 2;
+        }
+
+        // Précharge la photo suivante et la précédente
+        if (total > 1) {
+            [current.index + 1, current.index - 1].forEach(function(i) {
+                var img = new Image();
+                img.src = photoUrl(current.photos[(i + total) % total]);
+            });
+        }
+    }
+
+    function openMember(key) {
+        var card = getCard(key);
+        if (!card) return;
+        var cardImg = card.querySelector('.member-img');
+
+        current.key = key;
+        current.name = card.querySelector('strong').textContent;
+        current.role = card.querySelector('span').textContent;
+        current.photos = memberPhotos[key] || [];
+        if (!current.photos.length && cardImg) {
+            current.photos = [cardImg.getAttribute('src').replace('img/compressed/', '')];
+        }
+
+        var single = current.photos.length < 2;
+        prevBtn.style.display = single ? 'none' : '';
+        nextBtn.style.display = single ? 'none' : '';
+
+        // Miniatures
+        thumbsEl.innerHTML = '';
+        if (!single) {
+            current.photos.forEach(function(file, i) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'member-thumb';
+                btn.setAttribute('aria-label', 'Photo ' + (i + 1));
+                btn.innerHTML = '<img src="' + photoUrl(file) + '" alt="" loading="lazy">';
+                btn.addEventListener('click', function() { show(i); });
+                thumbsEl.appendChild(btn);
+            });
+        }
+
+        // Suggestions : les autres membres
+        suggestionsEl.innerHTML = '';
+        Array.prototype.forEach.call(memberCards, function(other) {
+            var otherKey = other.getAttribute('data-member');
+            if (otherKey === key) return;
+            var otherImg = other.querySelector('.member-img');
+            var otherName = other.querySelector('strong').textContent;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'member-suggestion';
+            btn.setAttribute('aria-label', 'Voir les photos de ' + otherName);
+            btn.innerHTML = '<img src="' + (otherImg ? otherImg.currentSrc || otherImg.src : '') + '" alt="">' +
+                '<span>' + otherName + '</span>';
+            btn.addEventListener('click', function() {
+                openMember(otherKey);
+                btn.blur();
+                closeBtn.focus();
+            });
+            suggestionsEl.appendChild(btn);
+        });
+
+        show(0);
+    }
+
+    function lockScroll() {
+        // position:fixed nécessaire pour bloquer le scroll sur iOS Safari
+        savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        document.body.style.position = 'fixed';
+        document.body.style.top = -savedScrollY + 'px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function unlockScroll() {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.overflow = '';
+        var html = document.documentElement;
+        var prevBehavior = html.style.scrollBehavior;
+        html.style.scrollBehavior = 'auto'; // évite un scroll animé vers la position d'origine
+        window.scrollTo(0, savedScrollY);
+        html.style.scrollBehavior = prevBehavior;
+    }
+
+    function isOpen() {
+        return modal.classList.contains('open');
+    }
+
+    function openModal(key, trigger) {
+        lastFocused = trigger || document.activeElement;
+        openMember(key);
+        modal.style.display = 'block';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        modal.scrollTop = 0;
+        lockScroll();
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        if (!isOpen()) return;
+        modal.style.display = 'none';
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        unlockScroll();
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    // Ouvrir le carrousel au clic (ou Entrée/Espace) sur une carte
+    Array.prototype.forEach.call(memberCards, function(card) {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.addEventListener('click', function() {
+            openModal(card.getAttribute('data-member'), card);
+        });
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal(card.getAttribute('data-member'), card);
+            }
+        });
+    });
+
+    prevBtn.addEventListener('click', function() { show(current.index - 1); });
+    nextBtn.addEventListener('click', function() { show(current.index + 1); });
+    closeBtn.addEventListener('click', closeModal);
+
+    // Fermer au clic en dehors du contenu
     modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
+        if (e.target === modal || e.target.classList.contains('member-modal-inner') ||
+            e.target.classList.contains('member-carousel')) {
+            closeModal();
         }
     });
 
-    // Fermer avec la touche Echap
+    // Clavier : flèches, Echap, Tab gardé dans la modale
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
+        if (!isOpen()) return;
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            closeModal();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            show(current.index - 1);
+        } else if (e.key === 'ArrowRight' || e.key === 'Right') {
+            show(current.index + 1);
+        } else if (e.key === 'Tab') {
+            var focusables = Array.prototype.filter.call(
+                modal.querySelectorAll('button'),
+                function(el) { return el.offsetParent !== null; }
+            );
+            if (!focusables.length) return;
+            var first = focusables[0];
+            var last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            } else if (!modal.contains(document.activeElement)) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
+
+    // Swipe tactile sur la photo
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var carousel = modal.querySelector('.member-carousel');
+    carousel.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+            show(current.index + (dx < 0 ? 1 : -1));
+        }
+    }, { passive: true });
 });
 
 // Video cards — open YouTube or local video in modal
