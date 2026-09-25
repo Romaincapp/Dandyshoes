@@ -761,7 +761,7 @@ function showCalendarMenu(urls) {
 // (la première photo de chaque liste est celle affichée en premier)
 var memberPhotos = {
     allan: ['Allan Chant.jpg', 'Allan Chant + effets.jpg', 'Allan R1.jpg', 'Allan R2.jpg', 'Allan R3.jpg', 'Allan manche.jpg'],
-    antoine: ['Antoine R2.jpg', 'Antoine R3.jpg', 'Antoine R4.jpg', 'Antoine R5.jpg', 'Antoine Back.jpg'],
+    antoine: ['Antoine R5.jpg', 'Antoine R2.jpg', 'Antoine R3.jpg', 'Antoine R4.jpg', 'Antoine Back.jpg'],
     romain: ['Romain R2.jpg', 'Romain R1.jpg', 'Romain R2 (2).jpg', 'Romain R4.jpg'],
     arnaud: ['Arnaud R4 + effect.jpg', 'Arnaud R1.jpg', 'Arnaud R5 smoke.jpg']
 };
