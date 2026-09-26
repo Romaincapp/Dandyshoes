@@ -773,6 +773,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var modalImg = document.getElementById('memberModalImg');
     var modalCaption = document.getElementById('memberModalCaption');
     var thumbsEl = document.getElementById('memberThumbs');
+    var dotsEl = document.getElementById('memberDots');
+    var swipeHint = modal.querySelector('.member-swipe-hint');
+    var hintShown = false;
     var suggestionsEl = document.getElementById('memberSuggestions');
     var closeBtn = modal.querySelector('.member-modal-close');
     var prevBtn = modal.querySelector('.member-carousel-prev');
@@ -792,14 +795,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return document.querySelector('.member-card[data-member="' + key + '"]');
     }
 
-    function show(index) {
+    // dir : 1 = photo suivante (glisse depuis la droite), -1 = précédente, 0 = sans direction
+    function show(index, dir) {
         var total = current.photos.length;
         if (!total) return;
         current.index = (index + total) % total;
 
-        modalImg.classList.remove('is-changing');
+        modalImg.style.transition = '';
+        modalImg.style.transform = '';
+        modalImg.classList.remove('is-changing', 'slide-next', 'slide-prev');
         void modalImg.offsetWidth; // relance l'animation
-        modalImg.classList.add('is-changing');
+        modalImg.classList.add(dir > 0 ? 'slide-next' : dir < 0 ? 'slide-prev' : 'is-changing');
         modalImg.src = photoUrl(current.photos[current.index]);
         modalImg.alt = current.name + ' - photo ' + (current.index + 1) + ' sur ' + total;
 
@@ -811,6 +817,11 @@ document.addEventListener('DOMContentLoaded', function() {
             thumbs[i].classList.toggle('active', i === current.index);
             thumbs[i].setAttribute('aria-current', i === current.index ? 'true' : 'false');
         }
+        var dots = dotsEl.children;
+        for (var d = 0; d < dots.length; d++) {
+            dots[d].classList.toggle('active', d === current.index);
+        }
+
         var active = thumbs[current.index];
         if (active && thumbsEl.scrollWidth > thumbsEl.clientWidth) {
             thumbsEl.scrollLeft = active.offsetLeft - (thumbsEl.clientWidth - active.offsetWidth) / 2;
@@ -842,7 +853,13 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.style.display = single ? 'none' : '';
         nextBtn.style.display = single ? 'none' : '';
 
-        // Miniatures
+        // Points (mobile) et miniatures (ordinateur)
+        dotsEl.innerHTML = '';
+        if (!single) {
+            current.photos.forEach(function() {
+                dotsEl.appendChild(document.createElement('span'));
+            });
+        }
         thumbsEl.innerHTML = '';
         if (!single) {
             current.photos.forEach(function(file, i) {
@@ -913,9 +930,24 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'block';
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
+        modal.classList.remove('ui-hidden');
         modal.scrollTop = 0;
         lockScroll();
         closeBtn.focus();
+
+        // Indice "glisse" affiché à la première ouverture sur écran tactile
+        if (!hintShown && current.photos.length > 1 && isTouchLayout()) {
+            hintShown = true;
+            swipeHint.classList.remove('visible');
+            void swipeHint.offsetWidth;
+            swipeHint.classList.add('visible');
+        }
+    }
+
+    // Mise en page plein écran mobile (même condition que le CSS)
+    function isTouchLayout() {
+        return !!(window.matchMedia &&
+            window.matchMedia('(max-width: 768px), (max-height: 500px) and (orientation: landscape)').matches);
     }
 
     function closeModal() {
@@ -942,12 +974,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    prevBtn.addEventListener('click', function() { show(current.index - 1); });
-    nextBtn.addEventListener('click', function() { show(current.index + 1); });
+    prevBtn.addEventListener('click', function() { show(current.index - 1, -1); });
+    nextBtn.addEventListener('click', function() { show(current.index + 1, 1); });
     closeBtn.addEventListener('click', closeModal);
 
     // Fermer au clic en dehors du contenu
     modal.addEventListener('click', function(e) {
+        // En plein écran mobile, un tap sur la photo masque le bandeau au lieu de fermer
+        if (isTouchLayout() && e.target.classList.contains('member-carousel')) return;
         if (e.target === modal || e.target.classList.contains('member-modal-inner') ||
             e.target.classList.contains('member-carousel')) {
             closeModal();
@@ -960,9 +994,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape' || e.key === 'Esc') {
             closeModal();
         } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-            show(current.index - 1);
+            show(current.index - 1, -1);
         } else if (e.key === 'ArrowRight' || e.key === 'Right') {
-            show(current.index + 1);
+            show(current.index + 1, 1);
         } else if (e.key === 'Tab') {
             var focusables = Array.prototype.filter.call(
                 modal.querySelectorAll('button'),
@@ -984,20 +1018,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Swipe tactile sur la photo
-    var touchStartX = 0;
-    var touchStartY = 0;
+    // Swipe tactile : la photo suit le doigt
+    // gauche/droite = photo suivante/précédente, vers le bas = fermer, simple tap = masquer/afficher le bandeau (mobile)
     var carousel = modal.querySelector('.member-carousel');
+    var touch = null;
+
     carousel.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].clientX;
-        touchStartY = e.changedTouches[0].clientY;
+        if (e.touches.length !== 1) { touch = null; return; }
+        touch = { x: e.touches[0].clientX, y: e.touches[0].clientY, axis: null, t: Date.now() };
+        modalImg.style.transition = 'none';
     }, { passive: true });
-    carousel.addEventListener('touchend', function(e) {
-        var dx = e.changedTouches[0].clientX - touchStartX;
-        var dy = e.changedTouches[0].clientY - touchStartY;
-        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-            show(current.index + (dx < 0 ? 1 : -1));
+
+    carousel.addEventListener('touchmove', function(e) {
+        if (!touch || e.touches.length !== 1) return;
+        var dx = e.touches[0].clientX - touch.x;
+        var dy = e.touches[0].clientY - touch.y;
+        if (!touch.axis && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+            touch.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
         }
+        if (touch.axis === 'x' && current.photos.length > 1) {
+            modalImg.style.transform = 'translateX(' + dx + 'px)';
+        } else if (touch.axis === 'y' && dy > 0 && isTouchLayout()) {
+            modalImg.style.transform = 'translateY(' + dy + 'px) scale(' + Math.max(0.85, 1 - dy / 1500) + ')';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, ' + Math.max(0.4, 0.95 - dy / 600) + ')';
+        }
+    }, { passive: true });
+
+    function resetDrag() {
+        modalImg.style.transition = 'transform 0.25s ease';
+        modalImg.style.transform = '';
+        modal.style.backgroundColor = '';
+    }
+
+    carousel.addEventListener('touchend', function(e) {
+        if (!touch) return;
+        var dx = e.changedTouches[0].clientX - touch.x;
+        var dy = e.changedTouches[0].clientY - touch.y;
+        var fast = Date.now() - touch.t < 250;
+        var axis = touch.axis;
+        touch = null;
+
+        if (axis === 'x' && current.photos.length > 1 && (Math.abs(dx) > 60 || (fast && Math.abs(dx) > 25))) {
+            show(current.index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+        } else if (axis === 'y' && dy > 100 && isTouchLayout()) {
+            modal.style.backgroundColor = '';
+            modalImg.style.transform = '';
+            closeModal();
+        } else if (!axis && isTouchLayout() && (e.target === modalImg || e.target === carousel)) {
+            modalImg.style.transition = '';
+            modal.classList.toggle('ui-hidden');
+        } else {
+            resetDrag();
+        }
+    }, { passive: true });
+
+    carousel.addEventListener('touchcancel', function() {
+        touch = null;
+        resetDrag();
     }, { passive: true });
 });
 
