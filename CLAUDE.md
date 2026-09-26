@@ -103,8 +103,8 @@ La fonction `autoSortTourDates()` dans `main.js` s'exécute au chargement et :
 **Aucune intervention manuelle nécessaire** — les dates basculent automatiquement dans le passé.
 
 ## Upcoming Events
-- **Oct 16, 2026** — Petit Wood Night, Wattignies-la-Victoire, France
-- **Oct 17, 2026** — Chop and Rock, Sedan, France
+- **Oct 16, 2026** — Chop and Rock, Sedan, France
+- **Oct 17, 2026** — Petit Wood Night, Wattignies-la-Victoire, France
 - **Nov 28, 2026** — Le Zik-Zak, Ittre, Belgium (avec Springclean)
 - **Feb 5, 2027** — Centre Culturel de Philippeville, Belgium (20h)
 
