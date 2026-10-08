@@ -491,3 +491,15 @@
         font-size: 0.95rem;
     }
 }
+.ultratop-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    margin: 0.5rem 0 0;
+}

@@ -457,3 +457,10 @@ header {
         min-height: 31px !important;
     }
 }
+/* New music video CTA (above the FWB badge) */
+.clip-badge {
+    display: flex;
+    width: fit-content;
+    border-color: var(--primary);
+    background: rgba(255, 222, 89, 0.12);
+}
