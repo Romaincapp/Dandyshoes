@@ -1,0 +1,13 @@
+# Dependencies (installed by `npm install`, never committed)
+node_modules/
+
+# Local tool settings
+.claude/settings.local.json
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
