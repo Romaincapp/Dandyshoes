@@ -13,7 +13,8 @@ Official website for **DANDYSHOES**, a Belgian Rock'n'Roll band from Charleroi. 
 ```
 Dandyshoes/
 ├── index.html          # Main page
-├── pro.html            # Professional/booking page
+├── api/pro.js          # Espace Pro protégé côté serveur (fonction Vercel)
+├── api/_pro/           # Gabarits de l'espace pro (page.html, login.html)
 ├── videos.html         # Video gallery
 ├── main.js             # Core JavaScript
 ├── contact-form.js     # Form handling
@@ -121,6 +122,19 @@ Au clic sur une `.member-card` (section `#about`), `#memberModal` s'ouvre avec t
 - **Changer la photo de la carte** : modifier `<source>` (webp) et `<img>` (compressed) de la `.member-card` dans `index.html`, et mettre cette photo en premier dans `memberPhotos`.
 - **Mobile** (≤768px ou téléphone en paysage) : photo plein écran sans flèches. Glisser gauche/droite pour changer de photo, glisser vers le bas pour fermer, taper sur la photo pour masquer le bandeau du bas (nom, points, autres membres).
 - Styles dans `css/sections/about.css` (puis `node build-css.js`).
+
+## Espace Pro (/pro)
+Protégé côté serveur par `api/pro.js` (rewrite `/pro` → `/api/pro` dans `vercel.json`).
+Le mot de passe et les coordonnées ne sont **jamais** dans le dépôt (public) : ils
+viennent des variables d'environnement Vercel.
+- `PRO_PASSWORD` : mot de passe de l'espace pro
+- `PRO_SESSION_SECRET` : longue chaîne aléatoire qui signe le cookie de session (4 h)
+- `PRO_CONTACTS` : JSON des contacts, par exemple
+  `{"main":{"name":"…","email":"…","phone":"+32 …","role":"…"},"technical":{…},"emergency":[{"name":"…","phone":"+32 …"}]}`
+
+Le reste de la page (fiche technique, rider, catering, setlist) est dans
+`api/_pro/page.html`, à la place `{{CONTACTS}}` près. Changer le mot de passe :
+modifier `PRO_PASSWORD` dans Vercel puis redéployer.
 
 ## External Services
 - **Formspree**: Contact form (ID: mrbqwbpo)
